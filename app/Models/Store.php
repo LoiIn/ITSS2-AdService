@@ -3,12 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
-class Store extends Model
+class Store extends Authenticatable
 {
     use Notifiable, SoftDeletes;
+
+    protected $table = 'stores';
+
+    protected $guarded = 'store';
 
     /**
      * The attributes that are mass assignable.
