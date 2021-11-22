@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Advertisement\AdvertisementConteoller;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('advertisement')->group(function(){
+    Route::get('/', [AdvertisementConteoller::class, 'index'])->name('advertisement.index');
+    Route::get('destroy/{id}', [AdvertisementConteoller::class, 'destroy'])->name('advertisement.destroy');
+   
+});
+
+

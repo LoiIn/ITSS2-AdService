@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Advertisement;
 
 class Product extends Model
 {
@@ -14,4 +15,9 @@ class Product extends Model
     protected $fillable = [
         'title', 'image'
     ];
+
+    public function advertisement (){
+        return $this->hasOne(Advertisement::class,'product_id', 'id');
+    }
+
 }
