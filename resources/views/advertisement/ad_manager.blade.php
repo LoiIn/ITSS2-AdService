@@ -74,7 +74,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">Search:</span>
                     </div>
-                    <input type="search" class="form-control" placeholder="Enter advertisement name" >
+                    <input type="search" class="form-control" placeholder="Enter name" >
                 </div>
             <!-- </div> -->
             <table class="table table-striped table-hover">
@@ -135,9 +135,9 @@
                     @endforeach
                 </tbody>
             </table>
-            
+            {{ $data->links() }}
         </div>
-        <div>{{ $data->links() }}</div>
+        <!-- <div>{{ $data->links() }}</div> -->
     </div>
     <script type="text/javascript">
         function storeDetail(evt, id_name, obj){

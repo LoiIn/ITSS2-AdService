@@ -15,7 +15,7 @@ class AdvertisementController extends Controller
     }
 
     public function index(){
-        $data = Advertisement::paginate(10);
+        $data = Advertisement::paginate(1);
         return view('advertisement.ad_manager', compact('data'));
     }
 
