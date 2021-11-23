@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Advertisement;
 
 class Store extends Authenticatable
 {
@@ -32,4 +33,9 @@ class Store extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function advertisement (){
+        return $this->hasMany(Advertisement::class,'store_id', 'id');
+    }
+
 }
