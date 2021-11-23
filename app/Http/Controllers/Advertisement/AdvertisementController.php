@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Advertisement;
 
-class AdvertisementConteoller extends Controller
+class AdvertisementController extends Controller
 {
 
 
@@ -15,7 +15,7 @@ class AdvertisementConteoller extends Controller
     }
 
     public function index(){
-        $data = Advertisement::paginate(10);
+        $data = Advertisement::paginate(2);
         return view('advertisement.ad_manager', compact('data'));
     }
 
