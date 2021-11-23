@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Advertisement;
+use App\Models\Report;
 
 class Store extends Authenticatable
 {
@@ -36,6 +37,10 @@ class Store extends Authenticatable
 
     public function advertisement (){
         return $this->hasMany(Advertisement::class,'store_id', 'id');
+    }
+
+    public function adReports() {
+        return $this->hasOneThrough(Report::class, Advertisement::class, 'store_id', 'ad_id', 'id', 'id');
     }
 
 }
