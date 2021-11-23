@@ -14,6 +14,55 @@
             width: 50px;
             margin-right: 1rem;
         }
+
+        #detail_store {
+            position: fixed;
+            display: none;
+            border: 1px solid black; 
+            background-color: rgb(255,255,255);
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .detail {
+            min-height: 100px;
+            min-width: 350px;
+        }
+
+        .detail .detail-logo{
+            min-width: 100px;
+            float: left;
+        }
+
+        .detail .detail-logo .detail-logo-100 {
+            height: 100px;
+            width: 100px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        
+        .detail .detail-info {
+            width: 250px;
+            float: left;
+            margin-left: 10px;
+        }
+        
+
+        .detail .detail-info .detail-list {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .detail .detail-info .detail-list li {
+            list-style: none;
+            word-wrap: break-word;
+            
+        }
+
+        .detail .detail-info .detail-list .detail-info-title {
+            color: rgb(0,120,0);
+            font-weight: bold;
+        }
       
     </style>
 </head>
@@ -51,7 +100,10 @@
                             <div>{{$item->title}}</div>
                         </td>
                         <td>
-                            <div>{{$item->store?$item->store->name:''}}</div>
+                            <div onmousemove="storeDetail(event, 'detail_store',{{$item->store}})"
+                                onmouseleave="outStoreDetail(event, 'detail_store')">
+                                {{$item->store?$item->store->name:''}}
+                            </div>
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
@@ -84,6 +136,53 @@
                 </tbody>
             </table>
         </div>
+        
     </div>
+    <script type="text/javascript">
+        function storeDetail(evt, id_name, obj){
+            html = `
+                <div class="detail">
+                        <div class="detail-logo">
+                            <img class="detail-logo-100" src="${obj.logo?obj.logo:''}" alt="logo">
+                        </div>
+                        <div class="detail-info">
+                            <ul class="detail-list">
+                                <li >
+                                    <strong class="detail-info-title">Name:</strong>
+                                    <span>${obj.name?obj.name:''}</span> 
+                                </li>
+                                <li >
+                                    <strong class="detail-info-title">Email:</strong>
+                                    <span>${obj.email?obj.email:''}</span> 
+                                </li>
+                                <li >
+                                    <strong class="detail-info-title">Phone:</strong>
+                                    <span>${obj.phone?obj.phone:''}</span> 
+                                </li>
+                                <li >
+                                    <strong class="detail-info-title">Address:</strong>
+                                    <span>${obj.address?obj.address:''}</span> 
+                                </li>
+                                <li >
+                                    <strong class="detail-info-title">Created_at:</strong>
+                                    <span>${obj.created_at?obj.created_at:''}</span> 
+                                </li>
+                            </ul>
+                        </div>
+                    </div>`
+
+            document.getElementById(id_name).style.display = "block";
+            document.getElementById(id_name).style.left = `${evt.clientX+10}px`;
+            document.getElementById(id_name).style.top = `${evt.clientY}px`; 
+            document.getElementById(id_name).innerHTML = html;
+            
+        }
+
+        function outStoreDetail(evt, id_name){
+            document.getElementById(id_name).innerHTML = "";
+            document.getElementById(id_name).style.display = "none";
+        }
+    </script>
+    <div id="detail_store"></div>
 </body>
 </html>
