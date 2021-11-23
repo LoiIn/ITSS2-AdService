@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,9 +17,16 @@ class LoginController extends Controller
 
         $credentials = $request->only(['email', 'password']);
         if (Auth::guard('admin')->attempt($credentials)) {
-            return redirect()->route('dashboard');
+            return redirect()->route('store.index');
         } else {
             return redirect()->back()->withInput();
         }
+    }
+
+    public function logout() {
+        Session::flush();
+        Auth::logout();
+  
+        return Redirect('admin/login');
     }
 }
