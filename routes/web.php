@@ -3,7 +3,7 @@
 use App\Http\Controllers\User\Auth\LoginController;
 use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Advertisement\AdvertisementConteoller;
+use App\Http\Controllers\Advertisement\AdvertisementController;
 
 Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name('login');
 Route::middleware('auth')->group(function (){
@@ -11,8 +11,8 @@ Route::middleware('auth')->group(function (){
 });
 
 Route::prefix('advertisement')->group(function(){
-    Route::get('/', [AdvertisementConteoller::class, 'index'])->name('advertisement.index');
-    Route::get('destroy/{id}', [AdvertisementConteoller::class, 'destroy'])->name('advertisement.destroy');
+    Route::get('/', [AdvertisementController::class, 'index'])->name('advertisement.index');
+    Route::get('destroy/{id}', [AdvertisementController::class, 'destroy'])->name('advertisement.destroy');
    
 });
 
