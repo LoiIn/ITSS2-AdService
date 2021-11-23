@@ -33,6 +33,7 @@
                     <tr>
                         <th class="sorting_asc" style="width: 22.4625px;">#</th>   
                         <th class="sorting" style="width: 75.6625px;">Name</th>
+                        <th class="sorting" style="width: 75.6625px;">Store</th>
                         <th class="sorting" style="width: 220.387px;">Product</th>
                         <th class="sorting" style="width: 90px;">Start Date</th>
                         <th class="sorting" style="width: 90px;">End Date</th>
@@ -48,6 +49,9 @@
                         </td>
                         <td>
                             <div>{{$item->title}}</div>
+                        </td>
+                        <td>
+                            <div>{{$item->store?$item->store->name:''}}</div>
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
