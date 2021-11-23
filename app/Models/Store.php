@@ -8,9 +8,13 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Advertisement;
 
-class Store extends Model
+class Store extends Authenticatable
 {
     use Notifiable, SoftDeletes;
+
+    protected $table = 'stores';
+
+    protected $guarded = 'store';
 
     /**
      * The attributes that are mass assignable.
