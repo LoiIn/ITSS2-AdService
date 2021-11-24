@@ -15,6 +15,55 @@
             margin-right: 1rem;
         }
 
+        #detail_store {
+            position: fixed;
+            display: none;
+            border: 1px solid black;
+            background-color: rgb(255,255,255);
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .detail {
+            min-height: 100px;
+            min-width: 350px;
+        }
+
+        .detail .detail-logo{
+            min-width: 100px;
+            float: left;
+        }
+
+        .detail .detail-logo .detail-logo-100 {
+            height: 100px;
+            width: 100px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .detail .detail-info {
+            width: 250px;
+            float: left;
+            margin-left: 10px;
+        }
+
+
+        .detail .detail-info .detail-list {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .detail .detail-info .detail-list li {
+            list-style: none;
+            word-wrap: break-word;
+
+        }
+
+        .detail .detail-info .detail-list .detail-info-title {
+            color: rgb(0,120,0);
+            font-weight: bold;
+        }
+
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -55,23 +104,21 @@
         <div class="col-lg-12">
             <!-- <div class="d-flex justify-content-end"> -->
                 <div class="d-flex mt-3 col-4">
-                    <form method="GET" action="{{ route('store.search') }}">
-                        <div class="d-flex align-items-center">
-                            <input type="text" name="query" class="form-control" placeholder="Enter store's name...." >
-                            <button type="submit" class="btn btn-primary">Search</button>
-                        </div>
-                    </form>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Search:</span>
+                    </div>
+                    <input type="search" class="form-control" placeholder="Enter advertisement name" >
                 </div>
             <!-- </div> -->
             <table class="table table-striped table-hover">
                 <thead class="bg-white text-uppercase">
                     <tr>
-                        <th class="sorting_asc" style="width: 22.4625px;">#</th>
-                        <th class="sorting" style="width: 75.6625px;">Name</th>
-                        <th class="sorting" style="width: 220.387px;">Email</th>
-                        <th class="sorting" style="width: 90px;">Address</th>
-                        <th class="sorting" style="width: 90px;">Phone</th>
-                        <th class="sorting" style="width: 100px;">Action</th>
+                        <th class="sorting_asc" style="width: 10%">#</th>
+                        <th class="sorting" style="width: 30%">Advertisement</th>
+                        <th class="sorting" style="width: 30%">Site name</th>
+                        <th class="sorting" style="width: 10%">Views</th>
+                        <th class="sorting" style="width: 10%">Click</th>
+                        <th class="sorting" style="width: 10%">Actions</th>
                     </tr>
                 </thead>
                 <tbody >
@@ -81,34 +128,28 @@
                             <div>{{$key+1}}</div>
                         </td>
                         <td>
-                            <div>{{$item->name}}</div>
+                            <div>{{$item->advertisement->title}}</div>
                         </td>
                         <td>
-                            <div>{{$item->email}}</div>
+                            <div>{{$item->site->name}}</div>
                         </td>
                         <td>
-                            <div>{{$item->address}}</div>
+                            <div>{{$item->clicks}}</div>
                         </td>
                         <td>
-                            <div>{{$item->phone}}</div>
+                            <div>{{$item->views}}</div>
                         </td>
-
                         <td>
                             <div class="d-flex align-items-center">
-                            @if ($item->is_accepted === 1)
-                                <a class="btn btn-secondary">Accepted</a>
-                            @else
-                                <a class="btn btn-success" href="{{route('store.accept', $item->id)}}">Accept</a>
-                            @endif
-                                <a class="btn btn-danger" href="{{route('store.destroy', $item->id)}}">Delete</a>
+                                <a class="btn btn-secondary" href="{{route('admin.report.show', $item->id)}}">Details</a>
                             </div>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-            {{$data->links()}}
+
         </div>
     </div>
-</body>
+  </body>
 </html>
