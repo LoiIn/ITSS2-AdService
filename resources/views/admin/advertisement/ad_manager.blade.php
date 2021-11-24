@@ -134,7 +134,11 @@
                                 
                         <td>
                             <div class="d-flex align-items-center">
-                                <a class="btn btn-secondary" href="">Accept</a>
+                                @if ($item->published_flag === 1)
+                                    <a class="btn btn-secondary disabled" href="#">Accepted</a>
+                                @else
+                                    <a class="btn btn-secondary" href="{{route('admin.advertisement.accept', $item->id)}}">Accept</a>
+                                @endif
                                 <a class="btn btn-danger" href="{{route('admin.advertisement.destroy', $item->id)}}">Delete</a>  
                             </div>
                         </td>

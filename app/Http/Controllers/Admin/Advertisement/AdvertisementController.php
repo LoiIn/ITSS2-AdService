@@ -42,7 +42,10 @@ class AdvertisementController extends Controller
     }
     
     public function accept(Request $request){
-
+        $data = Advertisement::find($request->id);
+        $data->published_flag = 1;
+        $data->save();
+        return redirect(route('admin.advertisement.index'));
     }
 
     // delete advertisement with id

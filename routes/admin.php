@@ -25,6 +25,7 @@ Route::middleware('adminAuth:admin')->group(function (){
     Route::prefix('/advertisement')->group( function() {
         Route::get('/',[AdvertisementController::class, 'index'])->name('admin.advertisement.index');
         Route::get('search', [AdvertisementController::class, 'search'])->name('admin.advertisement.search');
+        Route::get('accept/{id}',[AdvertisementController::class, 'accept'])->name('admin.advertisement.accept');
         Route::get('destroy/{id}',[AdvertisementController::class, 'destroy'])->name('admin.advertisement.destroy');
     });
 });
