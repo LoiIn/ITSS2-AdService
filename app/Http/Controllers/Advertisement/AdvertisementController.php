@@ -15,7 +15,7 @@ class AdvertisementController extends Controller
     }
 
     public function index(){
-        $data = Advertisement::paginate(1);
+        $data = Advertisement::paginate(2);
         return view('advertisement.ad_manager', compact('data'));
     }
 
@@ -43,7 +43,6 @@ class AdvertisementController extends Controller
     
     // delete advertisement with id
     public function destroy(Request $request) {
-   
         Advertisement::find($request->id)->delete();
         return redirect(route('advertisement.index'));
     }

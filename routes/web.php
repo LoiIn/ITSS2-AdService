@@ -10,7 +10,7 @@ Route::middleware('auth')->group(function (){
     Route::get('/', [HomeController::class, 'index'])->name('home');
 });
 
-Route::prefix('advertisement')->group(function(){
+Route::prefix('advertisement')->middleware('adminAuth:admin')->group(function(){
     Route::get('/', [AdvertisementController::class, 'index'])->name('advertisement.index');
     Route::get('destroy/{id}', [AdvertisementController::class, 'destroy'])->name('advertisement.destroy');
    

@@ -135,9 +135,9 @@
                     @endforeach
                 </tbody>
             </table>
-            {{ $data->links() }}
+        
         </div>
-        <!-- <div>{{ $data->links() }}</div> -->
+        <div class="d-flex justify-content-end">{{ $data->links() }}</div>
     </div>
     <script type="text/javascript">
         function storeDetail(evt, id_name, obj){
