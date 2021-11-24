@@ -71,10 +71,17 @@
         <div class="col-lg-12">
             <!-- <div class="d-flex justify-content-end"> -->
                 <div class="d-flex mt-3 col-4">
-                    <div class="input-group-prepend">
+                    <form method="GET" action="{{ route('admin.advertisement.search') }}">
+                        <div class="d-flex align-items-center">
+                            <button type="submit" style="margin-right:5px;" class="btn btn-secondary">Search:</button>
+                            <input type="text" name="query" value="{{isset($query)?$query:''}}" class="form-control text-truncate" placeholder="Enter name" >
+                            
+                        </div>
+                    </form>
+                    <!-- <div class="input-group-prepend">
                         <span class="input-group-text">Search:</span>
                     </div>
-                    <input type="search" class="form-control" placeholder="Enter name" >
+                    <input type="search" class="form-control" placeholder="Enter name" > -->
                 </div>
             <!-- </div> -->
             <table class="table table-striped table-hover">
@@ -128,7 +135,7 @@
                         <td>
                             <div class="d-flex align-items-center">
                                 <a class="btn btn-secondary" href="">Accept</a>
-                                <a class="btn btn-danger" href="{{route('advertisement.destroy', $item->id)}}">Delete</a>  
+                                <a class="btn btn-danger" href="{{route('admin.advertisement.destroy', $item->id)}}">Delete</a>  
                             </div>
                         </td>
                     </tr>

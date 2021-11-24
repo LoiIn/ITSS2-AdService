@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Advertisement;
+namespace App\Http\Controllers\Admin\Advertisement;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -16,7 +16,7 @@ class AdvertisementController extends Controller
 
     public function index(){
         $data = Advertisement::paginate(2);
-        return view('advertisement.ad_manager', compact('data'));
+        return view('admin.advertisement.ad_manager', compact('data'));
     }
 
     public function create(){
@@ -41,14 +41,27 @@ class AdvertisementController extends Controller
         
     }
     
+    public function accept(Request $request){
+
+    }
+
     // delete advertisement with id
     public function destroy(Request $request) {
         Advertisement::find($request->id)->delete();
-        return redirect(route('advertisement.index'));
+        return redirect(route('admin.advertisement.index'));
     }
 
     public function search(Request $request){
         
+        if (isset($request->all()['query']) && $request->all()['query'] != ""){
+            $data = Advertisement::where("title","LIKE", "%".$request->all()['query']."%")->paginate(2);
+            $query = $request->all()['query'];
+            return view('admin.advertisement.ad_manager', compact('data','query'));
+        }
+        else{
+            $data = Advertisement::paginate(2);
+            return view('admin.advertisement.ad_manager', compact('data'));
+        }
     }
 
    
