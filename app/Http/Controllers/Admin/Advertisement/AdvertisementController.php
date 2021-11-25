@@ -57,8 +57,9 @@ class AdvertisementController extends Controller
     public function search(Request $request){
         
         if (isset($request->all()['query']) && $request->all()['query'] != ""){
-            $data = Advertisement::where("title","LIKE", "%".$request->all()['query']."%")->paginate(2);
             $query = $request->all()['query'];
+            $data = Advertisement::where("title","LIKE", "%".$query."%")->paginate(2);
+            $data->appends($request->all());
             return view('admin.advertisement.ad_manager', compact('data','query'));
         }
         else{

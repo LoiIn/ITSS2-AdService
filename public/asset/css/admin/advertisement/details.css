@@ -4,7 +4,7 @@
     margin-right: 1rem;
 }
 
-#detail_store {
+#details {
     position: fixed;
     display: none;
     border: 1px solid black; 
@@ -51,4 +51,5 @@
 .detail .detail-info .detail-list .detail-info-title {
     color: rgb(0,120,0);
     font-weight: bold;
+    text-transform: capitalize;
 }

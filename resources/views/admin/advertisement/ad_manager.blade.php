@@ -7,64 +7,7 @@
     <title>Advertisement Manager</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
-    <style>
-        .avatar-50 {
-            height: 50px;
-            width: 50px;
-            margin-right: 1rem;
-        }
-
-        #detail_store {
-            position: fixed;
-            display: none;
-            border: 1px solid black; 
-            background-color: rgb(255,255,255);
-            border-radius: 5px;
-            padding: 5px;
-        }
-
-        .detail {
-            min-height: 100px;
-            min-width: 350px;
-        }
-
-        .detail .detail-logo{
-            min-width: 100px;
-            float: left;
-        }
-
-        .detail .detail-logo .detail-logo-100 {
-            height: 100px;
-            width: 100px;
-            border-radius: 5px;
-            margin-top: 5px;
-        }
-        
-        .detail .detail-info {
-            width: 250px;
-            float: left;
-            margin-left: 10px;
-        }
-        
-
-        .detail .detail-info .detail-list {
-            margin: 0px;
-            padding: 0px;
-        }
-
-        .detail .detail-info .detail-list li {
-            list-style: none;
-            word-wrap: break-word;
-            
-        }
-
-        .detail .detail-info .detail-list .detail-info-title {
-            color: rgb(0,120,0);
-            font-weight: bold;
-        }
-      
-    </style>
+    <link rel="stylesheet" href="{{asset('asset/css/admin/advertisement/details.css')}}">
 </head>
 <body>
     <div class="container">
@@ -74,7 +17,7 @@
                     <form method="GET" action="{{ route('admin.advertisement.search') }}">
                         <div class="d-flex align-items-center">
                             <button type="submit" style="margin-right:5px;" class="btn btn-secondary">Search:</button>
-                            <input type="text" name="query" value="{{isset($query)?$query:''}}" class="form-control text-truncate" placeholder="Enter name" >
+                            <input type="text" name="query" value="{{$query??''}}" class="form-control text-truncate" placeholder="Enter name" >
                             
                         </div>
                     </form>
@@ -107,15 +50,18 @@
                             <div>{{$item->title}}</div>
                         </td>
                         <td>
-                            <div onmousemove="storeDetail(event, 'detail_store',{{$item->store}})"
-                                onmouseleave="outStoreDetail(event, 'detail_store')">
+                            <div onmousemove="storeDetails(event, 'details',{{$item->store}})"
+                                onmouseleave="hideDetail('details')">
                                 {{$item->store?$item->store->name:''}}
                             </div>
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="{{$item->product?$item->product->image:''}}"
-                                    class="img-fluid rounded avatar-50" title="product image" alt="image">
+                                <span onmousemove="productDetails(event, 'details',{{$item->product}})"
+                                onmouseleave="hideDetail('details')">
+                                    <img src="{{$item->product?$item->product->image:''}}"
+                                        class="img-fluid rounded avatar-50" title="" alt="image">
+                                </span>
                                 <div >
                                     <div>{{$item->product?$item->product->title:''}}</div>
                                     <p class="mb-0"><small>{{$item->product?$item->product->info:''}}</small></p>
@@ -150,51 +96,7 @@
         </div>
         <div class="d-flex justify-content-end">{{ $data->links() }}</div>
     </div>
-    <script type="text/javascript">
-        function storeDetail(evt, id_name, obj){
-            html = `
-                <div class="detail">
-                        <div class="detail-logo">
-                            <img class="detail-logo-100" src="${obj.logo?obj.logo:''}" alt="logo">
-                        </div>
-                        <div class="detail-info">
-                            <ul class="detail-list">
-                                <li >
-                                    <strong class="detail-info-title">Name:</strong>
-                                    <span>${obj.name?obj.name:''}</span> 
-                                </li>
-                                <li >
-                                    <strong class="detail-info-title">Email:</strong>
-                                    <span>${obj.email?obj.email:''}</span> 
-                                </li>
-                                <li >
-                                    <strong class="detail-info-title">Phone:</strong>
-                                    <span>${obj.phone?obj.phone:''}</span> 
-                                </li>
-                                <li >
-                                    <strong class="detail-info-title">Address:</strong>
-                                    <span>${obj.address?obj.address:''}</span> 
-                                </li>
-                                <li >
-                                    <strong class="detail-info-title">Created_at:</strong>
-                                    <span>${obj.created_at?obj.created_at:''}</span> 
-                                </li>
-                            </ul>
-                        </div>
-                    </div>`
-
-            document.getElementById(id_name).style.display = "block";
-            document.getElementById(id_name).style.left = `${evt.clientX+10}px`;
-            document.getElementById(id_name).style.top = `${evt.clientY}px`; 
-            document.getElementById(id_name).innerHTML = html;
-            
-        }
-
-        function outStoreDetail(evt, id_name){
-            document.getElementById(id_name).innerHTML = "";
-            document.getElementById(id_name).style.display = "none";
-        }
-    </script>
-    <div id="detail_store"></div>
+    <script src="{{asset('asset/js/admin/advertisement/details.js')}}"></script>
+    <div id="details"></div>
 </body>
 </html>
