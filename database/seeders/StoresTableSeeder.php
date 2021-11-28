@@ -28,6 +28,27 @@ class StoresTableSeeder extends Seeder
                 'address' => 'VietNam',
                 'phone' => '0999999999',
             ],
+            [
+                'email' => 'sample3@gmail.com',
+                'password' => \Hash::make('123456'),
+                'name' => 'store2',
+                'address' => 'VietNam',
+                'phone' => '0999999999',
+            ],
+            [
+                'email' => 'test@gmail.com',
+                'password' => \Hash::make('123456'),
+                'name' => 'test',
+                'address' => 'VietNam',
+                'phone' => '0999999999',
+            ],
+            [
+                'email' => 'check@gmail.com',
+                'password' => \Hash::make('123456'),
+                'name' => 'check',
+                'address' => 'VietNam',
+                'phone' => '0999999999',
+            ]
         ]);
     }
 }

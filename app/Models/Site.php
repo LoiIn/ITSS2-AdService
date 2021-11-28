@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Report;
 
 class Site extends Model
 {
@@ -14,4 +15,8 @@ class Site extends Model
     protected $fillable = [
         'url', 'name'
     ];
+
+    public function reports() {
+        return $this->hasMany(Report::class);
+    }
 }

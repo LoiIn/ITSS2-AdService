@@ -3,12 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Advertisement;
+use App\Models\Report;
 
-class Store extends Model
+class Store extends Authenticatable
 {
     use Notifiable, SoftDeletes;
+
+    protected $table = 'stores';
+
+    protected $guarded = 'store';
 
     /**
      * The attributes that are mass assignable.
@@ -27,4 +34,13 @@ class Store extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function advertisement (){
+        return $this->hasMany(Advertisement::class,'store_id', 'id');
+    }
+
+    public function adReports() {
+        return $this->hasOneThrough(Report::class, Advertisement::class, 'store_id', 'ad_id', 'id', 'id');
+    }
+
 }
