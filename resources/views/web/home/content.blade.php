@@ -1,5 +1,5 @@
-@extends('dashboard.dashboard')
-@section('content')
+@extends('web.home.product')
+@section('product')
 
 <main class="container">
     <div class="search d-flex mt-5">
@@ -28,27 +28,14 @@
                     <td>{{$val->info}}</td>
                     <td>
                         <button class="btn" style="background: #6c757d; color: #fff">足す</button>
-                        <button class="btn" style="background: #198754; color: #fff">Edit</button>
-                        <button class="btn" style="background: #dc3545; color: #fff">Delete</button>
+                        <button class="btn" style="background: #198754; color: #fff">編集</button>
+                        <button class="btn" style="background: #dc3545; color: #fff">削除</button>
                     </td>
                 </tr>
             @endforeach
 
 
         </table>
-
-        <div class="clearfix">
-            <div class="box options">
-                <label>Requests Per Page: </label>
-                <select id="req_per_page" onchange="filter_requests()" style="border-color: #ddd">
-                <option>5</option>
-                <option>10</option>
-                <option>ALL</option>
-            </select>
-            </div>
-            <div class="box pagination">
-            </div>
-        </div>
     </div>
 
 </main>
