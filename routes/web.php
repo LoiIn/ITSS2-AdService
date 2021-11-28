@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/', function () {
-    return view('dashboard_quanly.dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard.content');
 });
+
