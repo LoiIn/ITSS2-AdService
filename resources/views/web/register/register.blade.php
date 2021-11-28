@@ -46,23 +46,23 @@
 {{--                        <h3 class="text-center text-info">Register</h3>--}}
                         <div class="form-group">
                             <label class="text-info">メール:</label><br>
-                            <input type="text" name="email" id="email" class="form-control">
+                            <input type="email" name="email" id="email" class="form-control" required maxlength="254">
                         </div>
                         <div class="form-group">
                             <label class="text-info">企業名:</label><br>
-                            <input type="text" name="name" id="name" class="form-control">
+                            <input type="text" name="name" id="name" required class="form-control" maxlength="100">
                         </div>
                         <div class="form-group">
                             <label class="text-info">パスワード:</label><br>
-                            <input type="password" name="password" id="password" class="form-control">
+                            <input type="password" name="password" id="password" required minlength="6"  maxlength="16" class="form-control">
                         </div>
                         <div class="form-group">
                             <label class="text-info">アドレス:</label><br>
-                            <input type="text" name="address" id="address" class="form-control">
+                            <input type="text" name="address" id="address" required ="form-control">
                         </div>
                         <div class="form-group">
                             <label class="text-info">電話番号:</label><br>
-                            <input type="text" name="phone" id="phone" class="form-control">
+                            <input type="text" name="phone" id="phone" required class="form-control" maxlength="20">
                         </div>
                         <div class="form-group">
                             <input type="submit" name="submit" class="btn btn-info btn-md" value="登録">
