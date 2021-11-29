@@ -1,15 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Store Login</title>
-</head>
-<body>
-<form method="POST" action="{{ route('store.login') }}">
-    @csrf
-    <h1>Store</h1>
-    <input type="email" name="email" placeholder="Nhập địa chỉ email" id="email" class="form-control">
-    <input type="password" name="password" placeholder="Nhập mật khẩu">
-    <button type="submit">Đăng nhập</button>
-</form>
-</body>
-</html>
+@extends('common.layout')
+
+@section('content')
+    @extends('common.header')  
+    @if(count($errors) > 0)
+        <div class="">
+            @foreach ($errors->all() as $err)
+                {{$err}}<br>
+            @endforeach
+        </div>
+    @endif
+    @if(session('loginFail'))
+    <div class="auth-card-alert-danger">
+        {{session('loginFail')}}
+    </div>
+    @endif 
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                    <h4 class="card-title">企業ログイン</h4>
+                        <form class="forms-sample" method="POST" action="{{ route('store.login') }}">
+                            @csrf
+                            <div class="form-group row">
+                                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">メール</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="email" id="email" placeholder="メールを入力してください。">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">パスワード</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="password" id="password" placeholder="パスワードを入力してください。">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                <button class="btn btn-light">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

@@ -19,16 +19,15 @@ class LoginController extends Controller
 
         $credentials = $request->only(['email', 'password']);
         if (Auth::guard('store')->attempt($credentials)) {
-            return redirect()->route('dashboard');
+            return redirect()->route('report.index')->with('loginSuccess', 'Welcome our service!');
         } else {
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput()->with('loginFail', 'Login in fail!');;
         }
     }
 
     public function logout() {
         Session::flush();
         Auth::logout();
-  
         return Redirect('store/login');
     }
 
