@@ -43,11 +43,11 @@
                         <h3 class="text-center text-info">Login</h3>
                         <div class="form-group">
                             <label for="username" class="text-info">メール:</label><br>
-                            <input type="text" name="email" id="email" class="form-control">
+                            <input type="email" name="email" id="email" class="form-control" required maxlength="254">
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-info">パスワード:</label><br>
-                            <input type="password" name="password" id="password" class="form-control">
+                            <input type="password" name="password" id="password" required minlength="6"  maxlength="16" class="form-control">
                         </div>
                         <div class="form-group">
                             <input type="submit" name="submit" class="btn btn-info btn-md" value="ログイン">

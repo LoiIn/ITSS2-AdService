@@ -7,7 +7,7 @@
 <form method="POST" action="{{ route('signup') }}">
     @csrf
     <h1>Store</h1>
-    <input type="text" name="email" placeholder="Nhập địa chỉ email">
+    <input type="email" name="email" placeholder="Nhập địa chỉ email">
     <input type="name" name="name" placeholder="Nhập ten cty">
     <input type="password" name="password" placeholder="Nhập mật khẩu">
     <input type="address" name="address" placeholder="Nhập mật dia chi">

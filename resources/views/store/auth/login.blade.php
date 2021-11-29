@@ -7,7 +7,7 @@
 <form method="POST" action="{{ route('store.login') }}">
     @csrf
     <h1>Store</h1>
-    <input type="text" name="email" placeholder="Nhập địa chỉ email">
+    <input type="email" name="email" placeholder="Nhập địa chỉ email" id="email" class="form-control">
     <input type="password" name="password" placeholder="Nhập mật khẩu">
     <button type="submit">Đăng nhập</button>
 </form>
