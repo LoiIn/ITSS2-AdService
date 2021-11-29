@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
-    public function index()
-    {
-        return view('web.home.product');
+    public function getIndex(){
+
+      $product = Product::paginate(3);
+      return view('web.home.content',compact('product'));
+
     }
 }
