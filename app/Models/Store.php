@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Advertisement;
 use App\Models\Report;
+use App\Models\Product;
 
 class Store extends Authenticatable
 {
@@ -43,4 +44,7 @@ class Store extends Authenticatable
         return $this->hasOneThrough(Report::class, Advertisement::class, 'store_id', 'ad_id', 'id', 'id');
     }
 
+    public function products() {
+        return $this->hasMany(Product::class, 'store_id');
+    }
 }

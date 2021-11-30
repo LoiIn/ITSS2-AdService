@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Report;
+namespace App\Http\Controllers\Store\Report;
 
 use App\Http\Controllers\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;

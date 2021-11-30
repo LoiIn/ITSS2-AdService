@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset('asset/vendors/select2-bootstrap-theme/select2-bootstrap.min.css')}}">
     
     <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('asset/css/custom.css')}}">
   </head>
   <body>
     <div class="container-scroller">
@@ -29,5 +30,6 @@
     <script src="{{asset('asset/vendors/justgage/raphael-2.1.4.min.js')}}"></script>
     <script src="{{asset('asset/vendors/justgage/justgage.js')}}"></script>
     <script src="{{asset('asset/js/dashboard.js')}}"></script>
+    <script src="{{asset('asset/js/chart.js')}}"></script>
   </body>
 </html>

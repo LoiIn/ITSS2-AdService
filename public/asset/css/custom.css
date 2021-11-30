@@ -1,0 +1,21 @@
+.logo-icon img {
+    width: 50px;
+}
+
+.table thead {
+    background-color: rgba(46, 44, 44, 0.678) !important;
+    color: white;
+    font-weight: bold;
+}
+
+.form-action-btn {
+    width: 120px !important;
+}
+
+.action-btn {
+    width: 80px !important;
+}
+
+.card-err {
+    background-color: rgba(235, 231, 231, 0.87) !important;
+}

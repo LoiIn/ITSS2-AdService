@@ -1,23 +1,13 @@
 @extends('common.layout')
 
 @section('content')
-    @extends('common.header')  
-    @if(count($errors) > 0)
-        <div class="">
-            @foreach ($errors->all() as $err)
-                {{$err}}<br>
-            @endforeach
-        </div>
-    @endif
-    @if(session('loginFail'))
-    <div class="auth-card-alert-danger">
-        {{session('loginFail')}}
-    </div>
-    @endif 
+    @extends('common.header', ['nav_auth' => 'active']) 
     <div class="main-panel">
         <div class="content-wrapper">
+            @include('common.error')
+            @include('common.action-fail')
             <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
+                <div class="col-md-8 offset-md-2 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                     <h4 class="card-title">企業ログイン</h4>
@@ -32,12 +22,14 @@
                             <div class="form-group row">
                                 <label for="exampleInputUsername2" class="col-sm-3 col-form-label">パスワード</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="password" id="password" placeholder="パスワードを入力してください。">
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="パスワードを入力してください。">
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                <button class="btn btn-light">Cancel</button>
+                            <div class="form-group row text-center">
+                               <div class="col-sm-12 text-center">
+                                    <button type="submit" class="btn btn-primary form-action-btn mr-2">登録</button>
+                                    <button class="btn btn-light form-action-btn">キャンセル</button>
+                               </div>
                             </div>
                         </form>
                     </div>
