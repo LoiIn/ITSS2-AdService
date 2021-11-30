@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{asset('asset/vendors/base/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{asset('asset/vendors/select2/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('asset/vendors/select2-bootstrap-theme/select2-bootstrap.min.css')}}">
-    
+    <link rel="stylesheet" href="{{asset('asset/css/admin/advertisement/details.css')}}">
     <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
   </head>
   <body>

@@ -87,12 +87,15 @@
                         @endforeach
                         </tbody>
                         </table>
-                        {{$data->links()}}
+                        <div class="d-flex justify-content-end mt-3">{{$data->links()}}</div>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script src="{{asset('asset/js/details.js')}}"></script>
+<div id="details"></div>
 @endsection
 
