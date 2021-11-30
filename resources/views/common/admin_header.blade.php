@@ -4,6 +4,13 @@
     <nav class="bottom-navbar">
       <div class="container">
           <ul class="nav page-navigation">
+            <li class="nav-item {{isset($nav_product) ? $nav_product : ''}}">
+              <a class="nav-link" href="{{route('product.index')}}">
+                <span class="logo-icon mdi menu-icon">
+                  <img src="{{asset('asset/images/icon.jpg')}}" alt="">
+                </span>
+              </a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('store.index')}}">
                 <i class="mdi mdi-file-document-box menu-icon"></i>
@@ -30,7 +37,7 @@
                    ?>
                    <li class="nav-item">
                       <a href="" class="nav-link">
-                        <i class="mdi mdi-codepen menu-icon"></i>
+                        <i class="mdi mdi-account-convert menu-icon"></i>
                         <span class="menu-title">{{Auth::user()->name}}</span>
                         <i class="menu-arrow"></i>
                       </a>
@@ -46,7 +53,7 @@
                    ?>
                         <li class="nav-item">
                             <a href="{{route('admin.login')}}" class="nav-link">
-                                 <i class="mdi mdi-codepen menu-icon"></i>
+                                 <i class="mdi mdi-account-convert menu-icon"></i>
                                     <span class="menu-title">ログイン</span>
                                  <i class="menu-arrow"></i>
                             </a>
