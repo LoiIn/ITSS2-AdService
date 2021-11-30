@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\Report\ReportController;
 use App\Http\Controllers\Admin\Advertisement\AdvertisementController;
 
 Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name('admin.login');
-Route::get('/logout', [LoginController::class, 'logout']);
+Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 Route::middleware('adminAuth:admin')->group(function (){
     Route::prefix('/store')->group(function(){
         Route::get('/', [StoreController::class, 'index'])->name('store.index');

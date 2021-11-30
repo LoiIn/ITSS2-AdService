@@ -1,48 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advertisement Manager</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{asset('asset/css/admin/advertisement/details.css')}}">
-</head>
-<body>
-    <div class="container">
+@extends('common.layout')
+
+@section('content')
+    @extends('common.admin_header')
+    <div class="main-panel">
+    <div class="content-wrapper">
         <div class="col-lg-12">
-            <!-- <div class="d-flex justify-content-end"> -->
-                <div class="d-flex mt-3 col-4">
-                    <form method="GET" action="{{ route('admin.advertisement.search') }}">
-                        <div class="d-flex align-items-center">
-                            <button type="submit" style="margin-right:5px;" class="btn btn-secondary">Search:</button>
-                            <input type="text" name="query" value="{{$query??''}}" class="form-control text-truncate" placeholder="Enter name" >
-                            
-                        </div>
-                    </form>
-                    <!-- <div class="input-group-prepend">
-                        <span class="input-group-text">Search:</span>
+            <div class="d-flex mt-3 col-4">
+                <form method="GET" action="{{ route('admin.advertisement.search') }}">
+                    <div class="d-flex align-items-center">
+                        <input type="text" name="query" class="form-control" placeholder="広告タイトル入力...." >
+                        <button type="submit" class="btn btn-primary col-4">検索</button>
                     </div>
-                    <input type="search" class="form-control" placeholder="Enter name" > -->
-                </div>
-            <!-- </div> -->
-            <table class="table table-striped table-hover">
-                <thead class="bg-white text-uppercase">
-                    <tr>
-                        <th class="sorting_asc" style="width: 22.4625px;">#</th>   
-                        <th class="sorting" style="width: 75.6625px;">Name</th>
-                        <th class="sorting" style="width: 75.6625px;">Store</th>
-                        <th class="sorting" style="width: 220.387px;">Product</th>
-                        <th class="sorting" style="width: 90px;">Start Date</th>
-                        <th class="sorting" style="width: 90px;">End Date</th>
-                        <th class="sorting" style="width: 109.75px;">Content</th>
-                        <th class="sorting" style="width: 100px;">Action</th>
-                    </tr>
-                </thead>
-                <tbody >
-                    @foreach($data as $key=>$item)
-                    <tr>
+                </form>
+            </div>
+        <div class="col-lg-12 stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">広告一覧</h4>
+                    <p class="card-description">
+
+                    </p>
+
+                    <div class="table-responsive pt-3">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                <th>#</th>
+                                <th>タイトル</th>
+                                <th>企業</th>
+                                <th>イメジ</th>
+                                <th>スタートデート</th>
+                                <th>エンドデート</th>
+                                <th>内容</th>
+                                <th>アクセプト</th>
+                                </tr>
+                            </thead>
+                        <tbody >
+                        @foreach($data as $key=>$item)
+                        <tr>
                         <td>
                             <div>{{$key+1}}</div>
                         </td>
@@ -77,26 +72,27 @@
                         <td>
                             <div>{{$item->content}}</div>
                         </td>
-                                
+
                         <td>
                             <div class="d-flex align-items-center">
                                 @if ($item->published_flag === 1)
-                                    <a class="btn btn-secondary disabled" href="#">Accepted</a>
+                                    <a class="btn btn-secondary disabled">承認された</a>
                                 @else
-                                    <a class="btn btn-secondary" href="{{route('admin.advertisement.accept', $item->id)}}">Accept</a>
+                                    <a class="btn btn-success" href="{{route('admin.advertisement.accept', $item->id)}}">アクセプト</a>
                                 @endif
-                                <a class="btn btn-danger" href="{{route('admin.advertisement.destroy', $item->id)}}">Delete</a>  
+                                <a class="btn btn-danger" href="{{route('admin.advertisement.destroy', $item->id)}}">削除</a>
                             </div>
                         </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        
+                        </tr>
+                        @endforeach
+                        </tbody>
+                        </table>
+                        {{$data->links()}}
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="d-flex justify-content-end">{{ $data->links() }}</div>
     </div>
-    <script src="{{asset('asset/js/admin/advertisement/details.js')}}"></script>
-    <div id="details"></div>
-</body>
-</html>
+</div>
+@endsection
+
