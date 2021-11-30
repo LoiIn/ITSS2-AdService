@@ -11,11 +11,11 @@ class ReportController extends BaseController
 {
     public function index(){
        $data = Auth::guard('store')->user()->adReports()->get();
-       return view('report.index', compact('data'));
+       return view('store.report.index', compact('data'));
     }
 
     public function show($id){
         $report = Report::find($id);
-        return view('report.detail', compact('report'));
+        return view('store.report.detail', compact('report'));
     }
 }

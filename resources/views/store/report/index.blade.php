@@ -5,7 +5,7 @@
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
-                @include('report.list')
+                @include('store.report.list')
             </div>
         </div>
     </div>

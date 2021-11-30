@@ -61,6 +61,12 @@
                                         </textarea>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-2 col-form-label">イメージ</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" class="form-control" name="image" id="image" placeholder="" aria-describedby="fileHelpId">
+                                    </div>
+                                </div>
                                 <div class="form-group row text-center">
                                     <div class="col-sm-12 text-center">
                                         <button type="submit" class="btn btn-primary form-action-btn mr-2">登録</button>
