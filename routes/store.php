@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name('store.login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('store.logout');
 Route::middleware('auth:store')->group(function (){
-    Route::get('/', [StoreController::class, 'index'])->name('dashboard');
+    Route::get('/', [StoreController::class, 'index'])->name('store.dashboard');
 
     Route::prefix('/products')->group(function(){
         Route::get('/', [ProductController::class, 'index'])->name('product.index');

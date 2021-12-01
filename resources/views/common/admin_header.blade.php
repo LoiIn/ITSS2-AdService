@@ -37,8 +37,13 @@
                    ?>
                    <li class="nav-item">
                       <a href="" class="nav-link">
+<<<<<<< HEAD
                         <i class="mdi mdi-account-convert menu-icon"></i>
                         <span class="menu-title">{{Auth::user()->name}}</span>
+=======
+                        <i class="mdi mdi-codepen menu-icon"></i>
+                        <span class="menu-title">{{Auth::guard('admin')->user()->name}}</span>
+>>>>>>> refactor
                         <i class="menu-arrow"></i>
                       </a>
                       <div class="submenu">

@@ -44,28 +44,27 @@
             </thead>
             <tbody>
               @foreach ($data as $key=>$item)
-                  
+                <tr>
+                  <td>
+                    {{$key+1}}
+                  </td>
+                  <td>
+                    {{$item->advertisement->title}}
+                  </td>
+                  <td>
+                    {{$item->site->name}}
+                  </td>
+                  <td>
+                    {{$item->clicks}}
+                  </td>
+                  <td>
+                      {{$item->views}}
+                  </td>
+                  <td class="text-center">
+                    <a name="" id="" class="btn btn-light" href="{{route('report.show', $item->id)}}" role="button">詳しく</a>
+                  </td>
+                </tr>
               @endforeach
-              <tr>
-                <td>
-                  {{$key+1}}
-                </td>
-                <td>
-                  {{$item->advertisement->title}}
-                </td>
-                <td>
-                  {{$item->site->name}}
-                </td>
-                <td>
-                  {{$item->clicks}}
-                </td>
-                <td>
-                    {{$item->views}}
-                </td>
-                <td class="text-center">
-                  <a name="" id="" class="btn btn-light" href="{{route('report.show', $item->id)}}" role="button">詳しく</a>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>

@@ -24,15 +24,27 @@ class ProductController extends Controller
     }
 
     public function store(ProductCreateRequest $request){
-        $data = $request->except('_token');
+        $data = $request->except(['_token', 'image']);
 
-        $rs = DB::transaction(function () use ($data){
+        $rs = DB::transaction(function () use ($data, $request){
           $params = [
             'store_id' => Auth::guard('store')->user()->id,
             'title'  => \Arr::get($data, 'title'),
             'info' => \Arr::get($data, 'info'),
-            'image' => 'product.jpg'
           ];
+
+          if($name = $request->get('image')) {
+            $imageName = '';
+
+            if($request->hasFile('image')){
+                $file = $request->file('image');
+                $imagePath = '/uploads/image/product';
+                $imageName = time()."-".$file->getClientOriginalName();
+                $file->move(public_path().$imagePath, $imageName);
+            }
+
+            $params['image'] = $imageName;
+          }
 
           $product = Product::create($params);
 

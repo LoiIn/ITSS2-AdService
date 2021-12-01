@@ -2,8 +2,8 @@
     <nav class="bottom-navbar">
       <div class="container">
           <ul class="nav page-navigation">
-            <li class="nav-item {{isset($nav_product) ? $nav_product : ''}}">
-              <a class="nav-link" href="{{route('product.index')}}">
+            <li class="nav-item {{isset($nav_home) ? $nav_home : ''}}">
+              <a class="nav-link" href="{{route('home')}}">
                 <span class="logo-icon mdi menu-icon">
                   <img src="{{asset('asset/images/icon.jpg')}}" alt="">
                 </span>

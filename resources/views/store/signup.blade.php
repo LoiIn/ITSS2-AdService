@@ -49,6 +49,12 @@
                                 <input type="password" class="form-control" name="password_confirmation" id="password" placeholder="パスワードをもう一度入力して下さい。">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-3 col-form-label">ロゴ</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control" name="logo" id="logo" placeholder="" aria-describedby="fileHelpId">
+                            </div>
+                        </div>
                         <div class="form-group row text-center">
                             <div class="col-sm-12 text-center">
                                 <button type="submit" class="btn btn-primary form-action-btn mr-2">登録</button>
