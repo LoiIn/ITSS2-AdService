@@ -21,6 +21,8 @@ class AdvertisementsTableSeeder extends Seeder
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'demo content',
+                'image' =>  'product.jpg',
+                'published_flag' => 1,
             ],
             [
                 'store_id' => 1,
@@ -29,6 +31,8 @@ class AdvertisementsTableSeeder extends Seeder
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'demo content',
+                'image' =>  'product.jpg',
+                'published_flag' => 1,
             ],
             [
                 'store_id' => 2,
@@ -37,6 +41,8 @@ class AdvertisementsTableSeeder extends Seeder
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'demo content',
+                'image' =>  'product.jpg',
+                'published_flag' => 1,
             ],
             [
                 'store_id' => 2,
@@ -45,6 +51,8 @@ class AdvertisementsTableSeeder extends Seeder
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'demo content',
+                'image' =>  'product.jpg',
+                'published_flag' => 0,
             ],
         ]);
     }

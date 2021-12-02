@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Store\Auth;
 
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Request;
+use App\Http\Requests\Store\LoginRequest;
+use App\Http\Requests\Store\RegisterRequest;
 use App\Models\Store;
 use Hash;
 use Session;
@@ -18,17 +21,21 @@ class LoginController extends Controller
         }
 
         $credentials = $request->only(['email', 'password']);
+
         if (Auth::guard('store')->attempt($credentials)) {
-            return redirect()->route('dashboard');
+            if(Auth::guard('store')->user()->is_accepted == 1) {
+                return redirect()->route('product.index')->with('login-success', 'Welcome our service!');
+            } else {
+                return redirect()->back()->withInput()->with('login-fail', 'Login fail!');
+            }
         } else {
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput()->with('login-fail', 'Login fail!');
         }
     }
 
     public function logout() {
         Session::flush();
         Auth::logout();
-  
         return Redirect('store/login');
     }
 
@@ -36,29 +43,35 @@ class LoginController extends Controller
         return view('store.signup');
     }
 
-    public function signUp(Request $request) {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:stores',
-            'password' => 'required|min:6',
-            'address' => 'required',
-            'phone' => 'required',
-        ]);
+    public function signUp(RegisterRequest $request) {
+        $data = $request->except('_token');
 
-        $data = $request->all();
-        $check = $this->create($data);
-  
-        return redirect()->route('store.login')->withSuccess('You have signed-in');
+        $rs = DB::transaction(function () use ($data, $request){                 
+            $params = [
+                'name' => \Arr::get($data, 'name'),
+                'email' => \Arr::get($data, 'email'),
+                'password' => Hash::make(\Arr::get($data, 'passord')),
+                'address' => \Arr::get($data, 'address'),
+                'phone' => \Arr::get($data, 'phone'),
+            ]; 
+
+            if(\Arr::get($data, 'logo')) {
+                $logoName = '';
+                $file = $request->file('logo');
+                $logoPath = '/asset/images/store';
+                $logoName = time()."-".$file->getClientOriginalName();
+                $file->move(public_path().$logoPath, $logoName);
+                
+                $params['logo'] = $logoName;
+            }
+
+            return Store::create($params);
+        });
+
+        if($rs) {
+            return redirect()->route('store.login')->withSuccess('You have signed-in');
+        } else {
+            return redirect()->back()->withInput()->with('signup-fail', 'Sign up fail!');
+        }
     }
-
-    public function create(array $data)
-    {
-      return Store::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password']),
-        'address' => $data['address'],
-        'phone' => $data['phone'],
-      ]);
-    } 
 }
