@@ -4,8 +4,8 @@
     <nav class="bottom-navbar">
       <div class="container">
           <ul class="nav page-navigation">
-            <li class="nav-item {{isset($nav_home) ? $nav_home : ''}}">
-              <a class="nav-link" href="{{route('home')}}">
+            <li class="">
+              <a class="nav-link" href="{{route('store.index')}}">
                 <span class="logo-icon mdi menu-icon">
                   <img src="{{asset('asset/images/icon.jpg')}}" alt="">
                 </span>
@@ -37,8 +37,8 @@
                    ?>
                    <li class="nav-item">
                       <a href="" class="nav-link">
-                        <i class="mdi mdi-codepen menu-icon"></i>
-                        <span class="menu-title">{{Auth::guard('admin')->user()->name}}</span>
+                        <i class="mdi mdi-account-convert menu-icon"></i>
+                        <span class="menu-title">{{Auth::user()->name}}</span>
                         <i class="menu-arrow"></i>
                       </a>
                       <div class="submenu">
@@ -53,7 +53,7 @@
                    ?>
                         <li class="nav-item">
                             <a href="{{route('admin.login')}}" class="nav-link">
-                                 <i class="mdi mdi-codepen menu-icon"></i>
+                                 <i class="mdi mdi-account-convert menu-icon"></i>
                                     <span class="menu-title">ログイン</span>
                                  <i class="menu-arrow"></i>
                             </a>

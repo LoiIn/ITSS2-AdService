@@ -17,7 +17,7 @@
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
+                <div class="col-md-8 offset-md-2 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                     <h4 class="card-title">Adminログイン</h4>
@@ -35,7 +35,7 @@
                                     <input type="password" class="form-control" name="password" id="password" placeholder="パスワードを入力してください。">
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="col-sm-12 text-center">
                                 <button type="submit" class="btn btn-primary mr-2">ログイン</button>
                             </div>
                         </form>
