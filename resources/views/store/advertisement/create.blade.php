@@ -24,7 +24,7 @@
                       <div class="card-body">
                         <h4 class="card-title">{{$cardTitle}}</h4>
                         <div class="mt-4">
-                            <form class="form-sample" method="POST" action="{{$formAction}}">
+                            <form class="form-sample" method="POST" action="{{$formAction}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="title" class="col-sm-2 col-form-label">タイトル</label>
@@ -43,7 +43,7 @@
                                                     if(isset($advertisement)){
                                                         $sameId = $advertisement->product->id;
                                                     } else {
-                                                        $sameId = 'fail';
+                                                        $sameId = 0;
                                                     }
                                                 @endphp
                                                 <label class="form-check-label">
@@ -84,6 +84,12 @@
                                         <textarea type="text" rows="10" class="form-control" name="content" id="ad-content" placeholder="内容を入力して下さい。">
                                             {{old('content', isset($advertisement->content) ? $advertisement->content : '')}}
                                         </textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-2 col-form-label">イメージ</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" class="form-control" name="image" id="image" placeholder="" aria-describedby="fileHelpId">
                                     </div>
                                 </div>
                                 <div class="form-group row text-center">

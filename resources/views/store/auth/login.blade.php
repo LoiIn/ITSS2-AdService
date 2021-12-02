@@ -28,7 +28,7 @@
                             <div class="form-group row text-center">
                                <div class="col-sm-12 text-center">
                                     <button type="submit" class="btn btn-primary form-action-btn mr-2">登録</button>
-                                    <button class="btn btn-light form-action-btn">キャンセル</button>
+                                    <button class="btn btn-light form-action-btn">サインアップ</button>
                                </div>
                             </div>
                         </form>

@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-body">
                     <h4 class="card-title">企業登録</h4>
-                    <form class="forms-sample" method="POST" action="{{ route('store.signup') }}">
+                    <form class="forms-sample" method="POST" action="{{ route('store.signup') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-sm-3 col-form-label">企業名</label>
@@ -58,7 +58,7 @@
                         <div class="form-group row text-center">
                             <div class="col-sm-12 text-center">
                                 <button type="submit" class="btn btn-primary form-action-btn mr-2">登録</button>
-                                <button class="btn btn-light form-action-btn">キャンセル</button>
+                                <button class="btn btn-light form-action-btn">ログインへ</button>
                             </div>
                         </div>
                     </form>

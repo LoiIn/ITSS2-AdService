@@ -65,7 +65,7 @@
                     @php
                       $url = $item->image != '' ? $item->image : 'product.jpg';
                     @endphp
-                    <img src="{{asset('asset/images/' . $url)}}" alt="image"/>
+                    <img src="{{asset('asset/images/advertisement/' . $url)}}" alt="image"/>
                   </td>
                   <td>
                     {{$item->product->title}}

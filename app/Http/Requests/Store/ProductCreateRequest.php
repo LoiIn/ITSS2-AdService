@@ -24,7 +24,9 @@ class ProductCreateRequest extends Request
     public function rules()
     {
         return [
-            'title' => ['required', 'string', 'max:255', 'unique:products,title']
+            'title' => ['required', 'string', 'max:255', 'unique:products,title'],
+            'categories' => ['required'],
+            'image' => ['required'],
         ];
     }
 }

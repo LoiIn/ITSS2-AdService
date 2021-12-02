@@ -17,22 +17,22 @@ class ProductsTableSeeder extends Seeder
             [
                 'store_id' => '1',
                 'title' => 'Puma shoes',
-                'image' =>  'product.jpg'
+                'image' =>  'shoe.jpg'
             ],
             [
                 'store_id' => '1',
                 'title' => 'Puma T-shirt',
-                'image' => 'product.jpg'
+                'image' => 'tshirt.jpg'
             ],
             [
                 'store_id' => '2',
                 'title' => 'Nike shoes',
-                'image' =>  'product.jpg'
+                'image' =>  'shoe.jpg'
             ],
             [
                 'store_id' => '2',
                 'title' => 'Nike T-shirt',
-                'image' => 'product.jpg'
+                'image' => 'tshirt.jpg'
             ],
         ]);
     }

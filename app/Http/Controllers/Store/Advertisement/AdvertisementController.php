@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Store\Advertisement;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Store\AdCreateRequest;
 use App\Http\Requests\Store\AdUpdateRequest;
@@ -25,21 +26,34 @@ class AdvertisementController extends Controller
     public function store(AdCreateRequest $request){
         $data = $request->except('_token');
 
-        $params = [
-            'store_id' => Auth::guard('store')->user()->id,
-            'title'  => \Arr::get($data, 'title'),
-            'content' => \Arr::get($data, 'content'),
-            'started_date' => \Arr::get($data, 'started_date'),
-            'ended_date'   => \Arr::get($data, 'ended_date'),
-        ];
+        $rs = DB::transaction(function () use ($data, $request){
+            $params = [
+                'store_id' => Auth::guard('store')->user()->id,
+                'title'  => \Arr::get($data, 'title'),
+                'content' => \Arr::get($data, 'content'),
+                'started_date' => \Arr::get($data, 'started_date'),
+                'ended_date'   => \Arr::get($data, 'ended_date'),
+            ];
 
-        if ($id = \Arr::get($data, 'product_id')) {
-            $id = (int)$id;
-            $params['product_id'] = $id;
-            $params['image'] = Product::find($id)->image;
-        }
+            if ($id = \Arr::get($data, 'product_id')) {
+                $id = (int)$id;
+                $params['product_id'] = $id;
+            }
 
-        if (Advertisement::create($params)) {
+            if(\Arr::get($data, 'image')) {
+                $imageName = '';
+                $file = $request->file('image');
+                $imagePath = '/asset/images/advertisement';
+                $imageName = time()."-".$file->getClientOriginalName();
+                $file->move(public_path().$imagePath, $imageName);
+                
+                $params['image'] = $imageName;
+            }
+
+            return Advertisement::create($params);
+        });
+
+        if ($rs) {
             return redirect()->route('advertisement.index');
         } else {
             $request->session()->flash('create-fail', 'Add new advertisement failed!');

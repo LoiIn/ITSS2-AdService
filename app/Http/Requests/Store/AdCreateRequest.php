@@ -27,7 +27,8 @@ class AdCreateRequest extends Request
             'title' => ['required', 'string', 'max:255'],
             'content' => ['required'],
             'started_date' => ['required', 'string'],
-            'ended_date' => ['required', 'string'] 
+            'ended_date' => ['required', 'string'],
+            'product_id' => ['required'],
         ];
     }
 }

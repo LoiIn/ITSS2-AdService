@@ -47,6 +47,15 @@
                 </div>
               </div>
             </div>
+
+            <div class="row">
+              <div class="col-sm-12 text-center mt-3">
+                <a name="" id="" class="btn btn-outline-secondary btn-rounded" href="{{route('report.index')}}" role="button">
+                  <i class="mdi mdi-arrow-left-drop-circle"></i>
+                  バック
+                </a>
+              </div>
+            </div>
         </div>
     </div>
 @endsection

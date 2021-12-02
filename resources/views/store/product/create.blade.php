@@ -20,7 +20,7 @@
                       <div class="card-body">
                         <h4 class="card-title">{{$cardTitle}}</h4>
                         <div class="mt-4">
-                            <form class="form-sample" method="POST" action="{{$formAction}}">
+                            <form class="form-sample" method="POST" action="{{$formAction}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="title" class="col-sm-2 col-form-label">タイトル</label>

@@ -29,6 +29,7 @@ class RegisterRequest extends Request
             'address' => ['required'],
             'phone' => ['required'],
             'password' => ['required', 'min:6', 'confirmed'],
+            'logo' => ['required'],
         ];
     }
 }

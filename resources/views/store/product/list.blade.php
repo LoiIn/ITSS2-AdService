@@ -10,16 +10,20 @@
                 <div class="col-sm-9">
                   <input type="text" class="form-control" placeholder="search">
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3 mt-1">
                   <button type="submit" class="btn btn-primary">
+                    <i class="mdi mdi-flask-outline"></i>
                     検索
                   </button>
                 </div>
               </div>              
             </form>
         </div>
-        <div class="col-sm-6 text-right">
-          <a name="" id="" class="btn btn-success" href="{{route('product.create')}}" role="button">足す</a>
+        <div class="col-sm-6 text-right mt-1">
+          <a name="" id="" class="btn btn-success" href="{{route('product.create')}}" role="button">
+            <i class="mdi mdi-plus-circle-outline"></i>
+            追加
+          </a>
         </div>
       </div>
       <div class="table-responsive mt-4">
@@ -53,7 +57,7 @@
                   {{$key + 1}}
                 </td>
                 <td class="py-1">
-                  <img src="{{asset('asset/images/product.jpg')}}" alt="image"/>
+                  <img src="{{asset('asset/images/product/'.$item->image)}}" alt="image"/>
                 </td>
                 <td>
                   {{$item->title}}
