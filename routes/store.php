@@ -15,6 +15,7 @@ Route::middleware('auth:store')->group(function (){
     Route::prefix('/products')->group(function(){
         Route::get('/', [ProductController::class, 'index'])->name('product.index');
         Route::get('/create', [ProductController::class, 'create'])->name('product.create');
+        Route::get('/search', [ProductController::class, 'search'])->name('product.search');
         Route::post('/create', [ProductController::class, 'store'])->name('product.store');
         Route::get('/{id}/update', [ProductController::class, 'edit'])->name('product.edit');
         Route::post('/{id}/update', [ProductController::class, 'update'])->name('product.update');
@@ -24,6 +25,7 @@ Route::middleware('auth:store')->group(function (){
     Route::prefix('/advertisements')->group(function(){
         Route::get('/', [AdvertisementController::class, 'index'])->name('advertisement.index');
         Route::get('/create', [AdvertisementController::class, 'create'])->name('advertisement.create');
+        Route::get('/search', [AdvertisementController::class, 'search'])->name('advertisement.search');
         Route::post('/create', [AdvertisementController::class, 'store'])->name('advertisement.store');
         Route::get('/{id}/update', [AdvertisementController::class, 'edit'])->name('advertisement.edit');
         Route::post('/{id}/update', [AdvertisementController::class, 'update'])->name('advertisement.update');

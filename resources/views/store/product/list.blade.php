@@ -4,11 +4,10 @@
       <h4 class="card-title">商品一覧</h4>
       <div class="row">
         <div class="col-sm-6">
-            <form class="forms-sample" method="GET" action="">
-              @csrf
+            <form class="forms-sample" method="GET"  action="{{ route('product.search') }}">
               <div class="form-group row">
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" placeholder="search">
+                  <input type="text" class="form-control" placeholder="製品名を入力...." name="search">
                 </div>
                 <div class="col-sm-3 mt-1">
                   <button type="submit" class="btn btn-primary">
@@ -16,7 +15,7 @@
                     検索
                   </button>
                 </div>
-              </div>              
+              </div>
             </form>
         </div>
         <div class="col-sm-6 text-right mt-1">
@@ -88,6 +87,7 @@
             @endforeach
           </tbody>
         </table>
+        {{$products->links()}}
       </div>
     </div>
   </div>

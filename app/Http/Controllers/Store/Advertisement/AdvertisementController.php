@@ -14,7 +14,7 @@ use App\Models\Product;
 class AdvertisementController extends Controller
 {
     public function index(){
-      $advertisements = Auth::guard('store')->user()->advertisement()->get();
+      $advertisements = Auth::guard('store')->user()->advertisement()->paginate(2);
       return view('store.advertisement.index',compact('advertisements'));
     }
 
@@ -46,7 +46,7 @@ class AdvertisementController extends Controller
                 $imagePath = '/asset/images/advertisement';
                 $imageName = time()."-".$file->getClientOriginalName();
                 $file->move(public_path().$imagePath, $imageName);
-                
+
                 $params['image'] = $imageName;
             }
 
@@ -99,4 +99,12 @@ class AdvertisementController extends Controller
             return redirect()->route('advertisement.index');
         }
     }
+
+    public function search(Request $request) {
+        $advertisements = Auth::guard('store')->user()->advertisement()->where('title','like','%'.$request->search.'%')->paginate(2);
+        // dd($advertisements->toArray());
+        $advertisements->appends($request->all());
+        return view('store.advertisement.index', compact('advertisements'));
+    }
+
 }
