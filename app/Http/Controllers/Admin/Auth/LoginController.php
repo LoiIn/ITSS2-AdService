@@ -17,6 +17,7 @@ class LoginController extends Controller
 
         $credentials = $request->only(['email', 'password']);
         if (Auth::guard('admin')->attempt($credentials)) {
+            Session::put('login', $credentials);
             return redirect()->route('store.index');
         } else {
             return redirect()->back()->withInput();

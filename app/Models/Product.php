@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Advertisement;
+use App\Models\Store;
+use App\Models\Category;
 
 class Product extends Model
 {
@@ -13,11 +15,18 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'image'
+        'store_id', 'title', 'image'
     ];
 
     public function advertisement (){
         return $this->hasOne(Advertisement::class,'product_id', 'id');
     }
 
+    public function store(){
+        return $this->belongsTo(Store::class);
+    }
+
+    public function categories(){
+        return $this->belongsToMany(Category::class, 'product_category', 'product_id', 'category_id');
+    }
 }

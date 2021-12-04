@@ -20,6 +20,8 @@ class StoresTableSeeder extends Seeder
                 'name' => 'store1',
                 'address' => 'VietNam',
                 'phone' => '0999999999',
+                'logo' => 'logo.jpg',
+                'is_accepted' => 1,
             ],
             [
                 'email' => 'store2@gmail.com',
@@ -27,13 +29,17 @@ class StoresTableSeeder extends Seeder
                 'name' => 'store2',
                 'address' => 'VietNam',
                 'phone' => '0999999999',
+                'logo' => 'logo.jpg',
+                'is_accepted' => 1,
             ],
             [
                 'email' => 'sample3@gmail.com',
                 'password' => \Hash::make('123456'),
-                'name' => 'store2',
+                'name' => 'store3',
                 'address' => 'VietNam',
                 'phone' => '0999999999',
+                'logo' => 'logo.jpg',
+                'is_accepted' => 0,
             ],
             [
                 'email' => 'test@gmail.com',
@@ -41,6 +47,8 @@ class StoresTableSeeder extends Seeder
                 'name' => 'test',
                 'address' => 'VietNam',
                 'phone' => '0999999999',
+                'logo' => 'logo.jpg',
+                'is_accepted' => 0,
             ],
             [
                 'email' => 'check@gmail.com',
@@ -48,6 +56,8 @@ class StoresTableSeeder extends Seeder
                 'name' => 'check',
                 'address' => 'VietNam',
                 'phone' => '0999999999',
+                'logo' => 'logo.jpg',
+                'is_accepted' => 0,
             ]
         ]);
     }

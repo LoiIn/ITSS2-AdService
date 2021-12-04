@@ -15,12 +15,24 @@ class ProductsTableSeeder extends Seeder
     {
         \DB::table('products')->insert([
             [
+                'store_id' => '1',
                 'title' => 'Puma shoes',
-                'image' =>  'https://www.shutterstock.com/vi/search/fake+shoes?image_type=photo'
+                'image' =>  'shoe.jpg'
             ],
             [
+                'store_id' => '1',
                 'title' => 'Puma T-shirt',
-                'image' => 'https://www.shutterstock.com/vi/search/fake+shoes?image_type=photo'
+                'image' => 'tshirt.jpg'
+            ],
+            [
+                'store_id' => '2',
+                'title' => 'Nike shoes',
+                'image' =>  'shoe.jpg'
+            ],
+            [
+                'store_id' => '2',
+                'title' => 'Nike T-shirt',
+                'image' => 'tshirt.jpg'
             ],
         ]);
     }

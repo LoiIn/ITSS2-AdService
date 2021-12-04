@@ -2626,6 +2626,7 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
+
                 "source": "https://github.com/bobthecow/psysh/tree/v0.10.11"
             },
             "time": "2021-11-23T15:02:17+00:00"

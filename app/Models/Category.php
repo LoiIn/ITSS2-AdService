@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 
 class Category extends Model
 {
@@ -14,4 +15,8 @@ class Category extends Model
     protected $fillable = [
         'title', 'content'
     ];
+
+    public function products() {
+        return $this->belongsToMany(Product::class, 'product_category', 'category_id', 'post_id');
+    }
 }
