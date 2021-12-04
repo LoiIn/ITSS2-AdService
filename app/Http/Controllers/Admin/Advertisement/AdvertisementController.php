@@ -62,6 +62,14 @@ class AdvertisementController extends Controller
             $data->appends($request->all());
             return view('admin.advertisement.ad_manager', compact('data','query'));
         }
+        elseif (isset($request->all()['company']) && $request->all()['company'] != ""){
+            $company = $request->all()['company'];
+            $data = Advertisement::whereHas('store', function($q) use ($company){
+                $q->where('name','like','%'.$company.'%');
+            })->paginate(2);
+            $data->appends($request->all());
+            return view('admin.advertisement.ad_manager', compact('data','company'));
+        }
         else{
             $data = Advertisement::paginate(2);
             return view('admin.advertisement.ad_manager', compact('data'));
