@@ -19,7 +19,8 @@ Route::middleware('adminAuth:admin')->group(function (){
 
     Route::prefix('/report')->group(function(){
         Route::get('/', [ReportController::class, 'index'])->name('admin.report.index');
-        Route::get('/{report}', [ReportController::class, 'show'])->name('admin.report.show');
+        Route::get('/detail/{report}', [ReportController::class, 'show'])->name('admin.report.show');
+        Route::get('/search', [ReportController::class, 'search'])->name('admin.report.search');
     });
 
     Route::prefix('/advertisement')->group( function() {
