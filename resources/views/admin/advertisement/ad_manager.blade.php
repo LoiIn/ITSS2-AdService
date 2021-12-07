@@ -4,8 +4,8 @@
     @extends('common.admin_header')
     <div class="main-panel">
     <div class="content-wrapper">
-        <div class="col-lg-12">
-            <div class="d-flex mt-3 col-4">
+        <div class="col-lg-12">   
+            <div class="d-flex mt-3 col-4 float-left">
                 <form method="GET" action="{{ route('admin.advertisement.search') }}">
                     <div class="d-flex align-items-center">
                         <input type="text" name="query" class="form-control" placeholder="広告タイトル入力...." >
@@ -13,6 +13,15 @@
                     </div>
                 </form>
             </div>
+            <div class="d-flex mt-3 col-4 float-left">
+                <form method="GET" action="{{ route('admin.advertisement.search') }}">
+                    <div class="d-flex align-items-center">
+                        <input type="text" name="company" class="form-control" placeholder="企業名入力...." >
+                        <button type="submit" class="btn btn-primary col-4">検索</button>
+                    </div>
+                </form>
+            </div>
+       
         <div class="col-lg-12 stretch-card">
             <div class="card">
                 <div class="card-body">
@@ -42,35 +51,33 @@
                             <div>{{$key+1}}</div>
                         </td>
                         <td>
-                            <div>{{$item->title}}</div>
+                            <div>{{$item->title??''}}</div>
                         </td>
                         <td>
-                            <div onmousemove="storeDetails(event, 'details',{{$item->store}})"
-                                onmouseleave="hideDetail('details')">
-                                {{$item->store?$item->store->name:''}}
+                            <div>
+                                {{$item->store->name??''}}
                             </div>
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
-                                <span onmousemove="productDetails(event, 'details',{{$item->product}})"
-                                onmouseleave="hideDetail('details')">
+                                <span>
                                     <img src="{{$item->product?$item->product->image:''}}"
                                         class="img-fluid rounded avatar-50" title="" alt="image">
                                 </span>
                                 <div >
-                                    <div>{{$item->product?$item->product->title:''}}</div>
-                                    <p class="mb-0"><small>{{$item->product?$item->product->info:''}}</small></p>
+                                    <div>{{$item->product->title??''}}</div>
+                                    <p class="mb-0"><small>{{$item->product->info??''}}</small></p>
                                 </div>
                             </div>
                         </td>
                         <td>
-                            <div>{{$item->started_date}}</div>
+                            <div>{{$item->started_date??''}}</div>
                         </td>
                         <td>
-                            <div>{{$item->ended_date}}</div>
+                            <div>{{$item->ended_date??''}}</div>
                         </td>
                         <td>
-                            <div>{{$item->content}}</div>
+                            <div>{{$item->content??''}}</div>
                         </td>
 
                         <td>
@@ -87,7 +94,8 @@
                         @endforeach
                         </tbody>
                         </table>
-                        {{$data->links()}}
+                        <div class="d-flex justify-content-end mt-2">{{$data->links()}}</div>
+                        
                     </div>
                 </div>
             </div>
