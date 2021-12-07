@@ -1,7 +1,7 @@
 @extends('common.layout')
 
 @section('content')
-    @extends('common.admin_header')
+    @extends('common.admin_header', ['nav_advertisement' => 'active'])
     <div class="main-panel">
     <div class="content-wrapper">
         <div class="col-lg-12">   
@@ -60,10 +60,17 @@
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
+<<<<<<< HEAD
                                 <span>
                                     <img src="{{$item->product?$item->product->image:''}}"
                                         class="img-fluid rounded avatar-50" title="" alt="image">
                                 </span>
+=======
+                                @php
+                                    $url = $item->image != '' ? $item->image : 'product.jpg';
+                                @endphp
+                                <img src="{{asset('asset/images/advertisement/' . $url)}}" alt="image"/>
+>>>>>>> refactor_admin_function
                                 <div >
                                     <div>{{$item->product->title??''}}</div>
                                     <p class="mb-0"><small>{{$item->product->info??''}}</small></p>
