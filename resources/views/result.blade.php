@@ -5,7 +5,7 @@
    </head>
    <body>
       click +1 :<br>
-      <a href="{{ route('test') }}">
+      <a href="{{ route('test', ['id' => $id]) }}">
          return ads page
       </a>
    </body>

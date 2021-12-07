@@ -13,19 +13,19 @@ class HomeController extends Controller
        return view('welcome');
     }
 
-    public function testAds(){
-        $ads = Report::all()->last();
+    public function testAds($id){
+        $ads = Report::where('id', $id)->first();
         $ads->views += 1;
         $ads->save();
 
-        return view('testAds');
+        return view('testAds',['id' => $id]);
      }
 
-     public function clickAds(){
-        $ads = Report::all()->last();
+     public function clickAds($id){
+        $ads = Report::where('id', $id)->first();
         $ads->clicks += 1;
         $ads->save();
 
-        return view('result');
+        return view('result',['id' => $id]);
      }
 }
