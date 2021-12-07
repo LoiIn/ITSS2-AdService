@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="{{asset('asset/vendors/base/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{asset('asset/vendors/select2/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('asset/vendors/select2-bootstrap-theme/select2-bootstrap.min.css')}}">
+<<<<<<< HEAD
 
+=======
+>>>>>>> ads
     <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('asset/css/custom.css')}}">
   </head>

@@ -4,18 +4,17 @@
         <h4 class="card-title">広告一覧</h4>
         <div class="row">
           <div class="col-sm-6">
-              <form class="forms-sample" method="GET" action="">
-                @csrf
+              <form class="forms-sample" method="GET" action="{{route('advertisement.search')}}">
                 <div class="form-group row">
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="search">
+                    <input type="text" class="form-control" placeholder="広告タイトル入力...." name="search">
                   </div>
                   <div class="col-sm-3">
                     <button type="submit" class="btn btn-primary">
                       検索
                     </button>
                   </div>
-                </div>              
+                </div>
               </form>
           </div>
           <div class="col-sm-6 text-right">
@@ -85,7 +84,7 @@
                   <td>
                       @php
                         $status = $item->published_flag == 1 ? "承認済み" : "承認待ち";
-                        $className =  $item->published_flag == 1 ? "success" : "danger";   
+                        $className =  $item->published_flag == 1 ? "success" : "danger";
                       @endphp
                     <label class="badge badge-{{$className}}">{{$status}}</label>
                   </td>
@@ -109,6 +108,7 @@
               @endforeach
             </tbody>
           </table>
+          {{$advertisements->links()}}
         </div>
       </div>
     </div>

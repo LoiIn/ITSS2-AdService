@@ -14,7 +14,7 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     public function index(){
-      $products = Auth::guard('store')->user()->products()->get();
+      $products = Auth::guard('store')->user()->products()->paginate(2);
       return view('store.product.index',compact('products'));
     }
 
@@ -39,7 +39,7 @@ class ProductController extends Controller
             $imagePath = '/asset/images/product';
             $imageName = time()."-".$file->getClientOriginalName();
             $file->move(public_path().$imagePath, $imageName);
-            
+
             $params['image'] = $imageName;
           }
 
@@ -51,7 +51,7 @@ class ProductController extends Controller
 
           return $product;
         });
-        
+
         if ($rs) {
           return redirect()->route('product.index');
         } else {
@@ -101,5 +101,12 @@ class ProductController extends Controller
             $request->session()->flash('action-fail', 'delete failed');
             return redirect()->route('product.index');
         }
+    }
+
+    public function search(Request $request) {
+        $products = Product::where('title','like','%'.$request->search.'%')->paginate(2);
+        // dd($products[0]->image);
+        $products->appends($request->all());
+        return view('store.product.index', compact('products'));
     }
 }
