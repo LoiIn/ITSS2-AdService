@@ -104,7 +104,7 @@ class ProductController extends Controller
     }
 
     public function search(Request $request) {
-        $products = Product::where('title','like','%'.$request->search.'%')->paginate(2);
+        $products = Auth::guard('store')->user()->products()->where('title','like','%'.$request->search.'%')->paginate(2);
         // dd($products[0]->image);
         $products->appends($request->all());
         return view('store.product.index', compact('products'));
