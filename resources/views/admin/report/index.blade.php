@@ -1,7 +1,7 @@
 @extends('common.layout')
 
 @section('content')
-    @extends('common.admin_header')
+    @extends('common.admin_header', ['nav_report'=>'active'])
     <div class="main-panel">
     <div class="content-wrapper">
         <div class="col-lg-12">
@@ -28,8 +28,8 @@
                                 <th>#</th>
                                 <th>広告</th>
                                 <th>サイト名</th>
-                                <th>ビューの数</th>
                                 <th>クリックの数</th>
+                                <th>ビューの数</th>
                                 <th>アクセプト</th>
                                 </tr>
                             </thead>
