@@ -14,7 +14,7 @@ class StoreController extends Controller
     }
 
     public function index(){
-        $data = Store::paginate(10);
+        $data = Store::paginate(3);
         return view('admin/store.store_manager', compact('data'));
     }
 
@@ -64,7 +64,5 @@ class StoreController extends Controller
             $data = Store::paginate(2);
             return view('admin/store.store_manager', compact('data'));
         }
-    }
-
-   
+    }   
 }

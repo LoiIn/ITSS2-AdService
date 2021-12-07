@@ -24,12 +24,12 @@ class LoginController extends Controller
 
         if (Auth::guard('store')->attempt($credentials)) {
             if(Auth::guard('store')->user()->is_accepted == 1) {
-                return redirect()->route('product.index')->with('login-success', 'Welcome our service!');
+                return redirect()->route('product.index')->with('login-success', '私たちのサービスへようこそ。');
             } else {
-                return redirect()->back()->withInput()->with('login-fail', 'Login fail!');
+                return redirect()->back()->withInput()->with('login-fail', 'ログインに失敗しました。');
             }
         } else {
-            return redirect()->back()->withInput()->with('login-fail', 'Login fail!');
+            return redirect()->back()->withInput()->with('login-fail', 'ログインに失敗しました。');
         }
     }
 
@@ -69,9 +69,10 @@ class LoginController extends Controller
         });
 
         if($rs) {
-            return redirect()->route('store.login')->withSuccess('You have signed-in');
+            $request->session()->flash('action-success', '登録に成功しました。 ただし、使用する前に、管理者が承認するのを待つ必要があります。');
+            return redirect()->route('store.login');
         } else {
-            return redirect()->back()->withInput()->with('signup-fail', 'Sign up fail!');
+            return redirect()->back()->withInput()->with('action-fail', '登録に失敗しました。');
         }
     }
 }

@@ -27,7 +27,19 @@ class AdUpdateRequest extends Request
             'title' => ['required', 'string', 'max:255'],
             'content' => ['required'],
             'started_date' => ['required', 'string'],
-            'ended_date' => ['required', 'string'] 
+            'ended_date' => ['required', 'string'],
+            'product_id' => ['required'], 
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'タイトルフィールドは必須です。',
+            'content.required' => '内容フィールドは必須です。',
+            'started_date.required' => '開発時間フィールドは必須です。',
+            'ended_date.required' => 'フィールドは必須です。',
+            'product_id.required' => '商品フィールドは必須です。',
         ];
     }
 }

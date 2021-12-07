@@ -20,7 +20,7 @@
     </div>
 
     <script src="{{asset('asset/vendors/base/vendor.bundle.base.js')}}"></script>
-{{--    <script src="{{asset('asset/js/template.js')}}"></script>--}}
+    <script src="{{asset('asset/js/template.js')}}"></script>
     <script src="{{asset('asset/vendors/typeahead.js/typeahead.bundle.min.js')}}"></script>
     <script src="{{asset('asset/vendors/chart.js/Chart.min.js')}}"></script>
     <script src="{{asset('asset/vendors/progressbar.js/progressbar.min.js')}}"></script>
@@ -29,5 +29,7 @@
     <script src="{{asset('asset/vendors/justgage/justgage.js')}}"></script>
     <script src="{{asset('asset/js/dashboard.js')}}"></script>
     <script src="{{asset('asset/js/chart.js')}}"></script>
+    <script src="{{asset('asset/js/flash-card.js')}}"></script>
+    <script src="{{asset('asset/js/file-upload.js')}}"></script>
   </body>
 </html>

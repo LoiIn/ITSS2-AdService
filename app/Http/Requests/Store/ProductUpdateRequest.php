@@ -27,4 +27,12 @@ class ProductUpdateRequest extends Request
             'title' => ['required', 'string', 'max:255', 'unique:products,title,' . $this->id],
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'タイトルフィールドは必須です。',
+            'title.unique' => '製品名を同じにすることはできません。',
+        ];
+    }
 }

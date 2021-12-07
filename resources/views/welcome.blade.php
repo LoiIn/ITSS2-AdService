@@ -14,9 +14,7 @@
                           <p class="card-description">
                           </p>
                           <p>
-                            <u>lorem ipsum dolor sit amet, consectetur
-                              mod tempor incididunt ut labore et dolore
-                              magna aliqua.</u>
+                            <u>Webサイトを使用して、ストア内のすべての製品を管理します。</u>
                           </p>
                         </div>
                         <div class="card-body">
@@ -24,9 +22,7 @@
                               <h4 class="card-title text-danger">広告のサービス</h4>
                             </a>
                             <p>
-                              <u>lorem ipsum dolor sit amet, consectetur
-                                mod tempor incididunt ut labore et dolore
-                                magna aliqua.</u>
+                              <u>ウェブサイトを使用して、ストア内のすべての広告を管理します。</u>
                             </p>
                           </div>
                           <div class="card-body">
@@ -34,9 +30,7 @@
                               <h4 class="card-title text-warning">レポートを参考する</h4>
                             </a>
                             <p>
-                              <u>lorem ipsum dolor sit amet, consectetur
-                                mod tempor incididunt ut labore et dolore
-                                magna aliqua.</u>
+                              <u>興味があるか、広告をクリックするすべての人々の統計。 コンテンツもグラフで視覚的に表示されます。</u>
                             </p>
                           </div>
                         

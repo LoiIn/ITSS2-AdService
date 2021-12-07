@@ -29,4 +29,14 @@ class ProductCreateRequest extends Request
             'image' => ['required'],
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'タイトルフィールドは必須です。',
+            'title.unique' => '製品名を同じにすることはできません。',
+            'categories.required' => 'カテゴリーフィールドは必須です。',
+            'image.required' => 'イメージフィールドは必須です。',
+        ];
+    }
 }

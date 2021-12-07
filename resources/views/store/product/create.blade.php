@@ -14,6 +14,9 @@
     @endphp
     <div class="main-panel">
         <div class="content-wrapper">
+            @include('common.error')
+            @include('common.action-success')
+            @include('common.action-fail')
             <div class="row">
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
@@ -31,7 +34,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label"></label>
+                                    <label class="col-sm-2 col-form-label">種類</label>
                                     @foreach ($categories as $item)
                                         <div class="col-sm-2">
                                             <div class="form-check">
@@ -39,7 +42,7 @@
                                                     if(isset($product)){
                                                         $sameId = $product->categories()->get()->pluck('id')[0];
                                                     } else {
-                                                        $sameId = 'fail';
+                                                        $sameId = 1;
                                                     }
                                                 @endphp
                                                 <label class="form-check-label">
@@ -64,7 +67,15 @@
                                 <div class="form-group row">
                                     <label for="name" class="col-sm-2 col-form-label">イメージ</label>
                                     <div class="col-sm-10">
-                                        <input type="file" class="form-control" name="image" id="image" placeholder="" aria-describedby="fileHelpId">
+                                        <input type="file" class="form-control mb-2" name="image" id="image" placeholder="" aria-describedby="fileHelpId">
+                                        @php
+                                            $img = isset($product->image) ? ('product/' . $product->image) : 'not-found.png';
+                                        @endphp
+                                        <span id="preview-image-before-upload">
+                                            <img 
+                                                src="{{ asset('asset/images/' . $img) }}" 
+                                                alt="">
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group row text-center">

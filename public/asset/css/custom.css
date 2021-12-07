@@ -13,9 +13,14 @@
 }
 
 .action-btn {
-    width: 80px !important;
+    width: 90px !important;
 }
 
 .card-err {
     background-color: rgba(235, 231, 231, 0.87) !important;
+}
+
+#preview-image-before-upload img {
+    max-width: 400px !important;
+    width: 400px;
 }

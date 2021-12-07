@@ -10,7 +10,7 @@ use App\Models\Report;
 class ReportController extends BaseController
 {
     public function index(){
-       $data = Auth::guard('store')->user()->adReports()->get();
+       $data = Auth::guard('store')->user()->adReports()->paginate(3);
        return view('store.report.index', compact('data'));
     }
 
