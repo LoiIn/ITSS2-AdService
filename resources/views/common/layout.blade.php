@@ -4,14 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Advertisement Service</title>
-    <link rel="stylesheet" href="{{asset('asset/vendors/mdi/css/materialdesignicons.min.css')}}">
-    <link rel="stylesheet" href="{{asset('asset/vendors/base/vendor.bundle.base.css')}}">
 
     <link rel="stylesheet" href="{{asset('asset/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('asset/vendors/base/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{asset('asset/vendors/select2/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('asset/vendors/select2-bootstrap-theme/select2-bootstrap.min.css')}}">
-    
+
     <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('asset/css/custom.css')}}">
   </head>
@@ -22,7 +20,7 @@
     </div>
 
     <script src="{{asset('asset/vendors/base/vendor.bundle.base.js')}}"></script>
-    <script src="{{asset('asset/js/template.js')}}"></script>
+{{--    <script src="{{asset('asset/js/template.js')}}"></script>--}}
     <script src="{{asset('asset/vendors/typeahead.js/typeahead.bundle.min.js')}}"></script>
     <script src="{{asset('asset/vendors/chart.js/Chart.min.js')}}"></script>
     <script src="{{asset('asset/vendors/progressbar.js/progressbar.min.js')}}"></script>

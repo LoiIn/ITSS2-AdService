@@ -1,7 +1,7 @@
 @extends('common.layout')
 
 @section('content')
-    @extends('common.admin_header')
+    @extends('common.admin_header', ['nav_store'=>'active'])
     <div class="main-panel">
     <div class="content-wrapper">
         <div class="col-lg-12">

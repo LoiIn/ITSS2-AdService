@@ -11,20 +11,20 @@
                 </span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{isset($nav_store) ? $nav_store : ''}}">
               <a class="nav-link" href="{{route('store.index')}}">
                 <i class="mdi mdi-file-document-box menu-icon"></i>
                 <span class="menu-title">企業管理</span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{isset($nav_advertisement) ? $nav_advertisement : ''}}">
                 <a href="{{route('admin.advertisement.index')}}" class="nav-link">
                   <i class="mdi mdi-cube-outline menu-icon"></i>
                   <span class="menu-title">広告管理</span>
                   <i class="menu-arrow"></i>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{isset($nav_report) ? $nav_report : ''}}">
                 <a href="{{route('admin.report.index')}}" class="nav-link">
                   <i class="mdi mdi-chart-areaspline menu-icon"></i>
                   <span class="menu-title">レボート</span>
