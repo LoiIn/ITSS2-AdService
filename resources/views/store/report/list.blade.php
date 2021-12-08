@@ -16,7 +16,7 @@
                     検索
                   </button>
                 </div>
-              </div>              
+              </div>
             </form>
         </div>
         <div class="table-responsive">
@@ -68,6 +68,7 @@
               @endforeach
             </tbody>
           </table>
+            {{$data->links()}}
         </div>
       </div>
     </div>
