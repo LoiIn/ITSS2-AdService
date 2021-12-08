@@ -13,11 +13,10 @@
     @endphp
     <div class="main-panel">
         <div class="content-wrapper">
-            <div class="row">
-                @include('common.error')
-                @include('common.action-fail')
-            </div>
-            
+            @include('common.error')
+            @include('common.action-success')
+            @include('common.action-fail')
+    
             <div class="row">
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
@@ -89,7 +88,15 @@
                                 <div class="form-group row">
                                     <label for="name" class="col-sm-2 col-form-label">イメージ</label>
                                     <div class="col-sm-10">
-                                        <input type="file" class="form-control" name="image" id="image" placeholder="" aria-describedby="fileHelpId">
+                                        <input type="file" class="form-control mb-2" name="image" id="image" placeholder="" aria-describedby="fileHelpId">
+                                        @php
+                                            $img = isset($advertisement->image) ? ('advertisement/' . $advertisement->image) : 'not-found.png';
+                                        @endphp
+                                        <span id="preview-image-before-upload">
+                                            <img 
+                                                src="{{ asset('asset/images/' . $img) }}" 
+                                                alt="">
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group row text-center">

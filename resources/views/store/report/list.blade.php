@@ -8,10 +8,11 @@
               @csrf
               <div class="form-group row">
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" placeholder="search">
+                  <input type="text" class="form-control" placeholder="広告タイトル入力...." name="search">
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3 mt-1">
                   <button type="submit" class="btn btn-primary">
+                    <i class="mdi mdi-flask-outline"></i>
                     検索
                   </button>
                 </div>

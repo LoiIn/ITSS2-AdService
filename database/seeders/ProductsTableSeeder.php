@@ -34,6 +34,26 @@ class ProductsTableSeeder extends Seeder
                 'title' => 'Nike T-shirt',
                 'image' => 'tshirt.jpg'
             ],
+            [
+                'store_id' => '1',
+                'title' => 'Adidas Jeans',
+                'image' =>  'jean.jpg'
+            ],
+            [
+                'store_id' => '1',
+                'title' => 'Adidas polo',
+                'image' => 'polo.jpg'
+            ],
+            [
+                'store_id' => '2',
+                'title' => 'Thuong Dinh shoes',
+                'image' =>  'shoe.jpg'
+            ],
+            [
+                'store_id' => '2',
+                'title' => 'Thuong Dinh T-shirt',
+                'image' => 'tshirt.jpg'
+            ],
         ]);
     }
 }

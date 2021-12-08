@@ -28,5 +28,7 @@
     <script src="{{asset('asset/vendors/justgage/justgage.js')}}"></script>
     <script src="{{asset('asset/js/dashboard.js')}}"></script>
     <script src="{{asset('asset/js/chart.js')}}"></script>
+    <script src="{{asset('asset/js/flash-card.js')}}"></script>
+    <script src="{{asset('asset/js/file-upload.js')}}"></script>
   </body>
 </html>

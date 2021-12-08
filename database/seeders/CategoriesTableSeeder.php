@@ -22,6 +22,14 @@ class CategoriesTableSeeder extends Seeder
                 'title' => 'T-shirt',
                 'content' => 'T-shirt'
             ],
+            [
+                'title' => 'Jeans',
+                'content' => 'Jeans'
+            ],
+            [
+                'title' => 'Polo',
+                'content' => 'Polo'
+            ],
         ]);
     }
 }

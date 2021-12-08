@@ -5,7 +5,7 @@
     <div class="main-panel">
     <div class="content-wrapper">
         <div class="col-lg-12">
-            <div class="d-flex mt-3 col-4 float-left">
+            <div class="d-flex mt-3 col-4">
                 <form method="GET" action="{{ route('admin.advertisement.search') }}">
                     <div class="d-flex align-items-center">
                         <input type="text" name="query" class="form-control" placeholder="広告タイトル入力...." >
@@ -13,7 +13,6 @@
                     </div>
                 </form>
             </div>
-
         <div class="col-lg-12 stretch-card">
             <div class="card">
                 <div class="card-body">
@@ -43,11 +42,12 @@
                             <div>{{$key+1}}</div>
                         </td>
                         <td>
-                            <div>{{$item->title??''}}</div>
+                            <div>{{$item->title}}</div>
                         </td>
                         <td>
-                            <div>
-                                {{$item->store->name??''}}
+                            <div onmousemove="storeDetails(event, 'details',{{$item->store}})"
+                                onmouseleave="hideDetail('details')">
+                                {{$item->store?$item->store->name:''}}
                             </div>
                         </td>
                         <td>
@@ -57,19 +57,19 @@
                                 @endphp
                                 <img src="{{asset('asset/images/advertisement/' . $url)}}" alt="image"/>
                                 <div >
-                                    <div>{{$item->product->title??''}}</div>
-                                    <p class="mb-0"><small>{{$item->product->info??''}}</small></p>
+                                    <div>{{$item->product?$item->product->title:''}}</div>
+                                    <p class="mb-0"><small>{{$item->product?$item->product->info:''}}</small></p>
                                 </div>
                             </div>
                         </td>
                         <td>
-                            <div>{{$item->started_date??''}}</div>
+                            <div>{{$item->started_date}}</div>
                         </td>
                         <td>
-                            <div>{{$item->ended_date??''}}</div>
+                            <div>{{$item->ended_date}}</div>
                         </td>
                         <td>
-                            <div>{{$item->content??''}}</div>
+                            <div>{{$item->content}}</div>
                         </td>
 
                         <td>
@@ -86,8 +86,7 @@
                         @endforeach
                         </tbody>
                         </table>
-                        <div class="d-flex justify-content-end mt-2">{{$data->links()}}</div>
-
+                        {{$data->links()}}
                     </div>
                 </div>
             </div>

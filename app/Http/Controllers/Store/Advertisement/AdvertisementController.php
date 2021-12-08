@@ -14,7 +14,7 @@ use App\Models\Product;
 class AdvertisementController extends Controller
 {
     public function index(){
-      $advertisements = Auth::guard('store')->user()->advertisement()->paginate(2);
+      $advertisements = Auth::guard('store')->user()->advertisement()->paginate(3);
       return view('store.advertisement.index',compact('advertisements'));
     }
 
@@ -54,9 +54,11 @@ class AdvertisementController extends Controller
         });
 
         if ($rs) {
+            $request->session()->flash('action-success', '新広告の追加に成功。');
             return redirect()->route('advertisement.index');
         } else {
-            $request->session()->flash('create-fail', 'Add new advertisement failed!');
+            $request->session()->flash('create-fail', '新広告の追加に失敗しました。');
+            return redirect()->back()->withInput();
         }
     }
 
@@ -70,21 +72,34 @@ class AdvertisementController extends Controller
 
     public function update(AdUpdateRequest $request, $id){
         $data = $request->except('_token');
-
-        $params = [
-            'title'  => \Arr::get($data, 'title'),
-            'content' => \Arr::get($data, 'content'),
-            'started_date' => \Arr::get($data, 'started_date'),
-            'ended_date'   => \Arr::get($data, 'ended_date'),
-        ];
-
         $advertisement = Advertisement::find($id);
 
-        if ($advertisement->update($params)) {
+        $rs = DB::transaction(function () use ($advertisement, $data, $request){
+            $params = [
+                'title'  => \Arr::get($data, 'title'),
+                'content' => \Arr::get($data, 'content'),
+                'started_date' => \Arr::get($data, 'started_date'),
+                'ended_date'   => \Arr::get($data, 'ended_date'),
+            ];
+
+            if(\Arr::get($data, 'image')) {
+                $imageName = '';
+                $file = $request->file('image');
+                $imagePath = '/asset/images/advertisement';
+                $imageName = time()."-".$file->getClientOriginalName();
+                $file->move(public_path().$imagePath, $imageName);
+    
+                $params['image'] = $imageName;
+            }
+
+            return $advertisement->update($params);
+        });
+       
+        if ($rs) {
+            $request->session()->flash('action-success', '広告の編集に成功。');
             return redirect()->route('advertisement.index');
         } else {
-            return redirect()->back()->withInput()->with('action-fail', 'Update fail!');
-            // $request->session()->flash('add-action-fail', 'Add new advertisement failed!');
+            return redirect()->back()->withInput()->with('action-fail', '広告の編集に失敗しました。');
         }
     }
 
@@ -92,17 +107,16 @@ class AdvertisementController extends Controller
         $advertisement = Advertisement::find($id);
         if ($advertisement->delete()){
             $advertisements = Auth::guard('store')->user()->advertisement()->get();
-            $request->session()->flash('action-success', 'The advertisement was deleted!');
+            $request->session()->flash('action-success', '広告の削除に成功。');
             return redirect()->route('advertisement.index', compact('advertisements'));
         } else {
-            $request->session()->flash('action-fail', 'delete failed');
+            $request->session()->flash('action-fail', '広告の削除に失敗しました。');
             return redirect()->route('advertisement.index');
         }
     }
 
     public function search(Request $request) {
         $advertisements = Auth::guard('store')->user()->advertisement()->where('title','like','%'.$request->search.'%')->paginate(2);
-        // dd($advertisements->toArray());
         $advertisements->appends($request->all());
         return view('store.advertisement.index', compact('advertisements'));
     }

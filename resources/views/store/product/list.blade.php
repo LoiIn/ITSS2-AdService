@@ -70,14 +70,20 @@
                 <td class="text-center">
                   <div class="row">
                     <div class="col-sm-6">
-                      <a name="" id="" class="btn btn-light action-btn" href="{{route('product.edit', $item->id)}}" role="button">編集</a>
+                      <a name="" id="" class="btn btn-light action-btn" href="{{route('product.edit', $item->id)}}" role="button">
+                       <i class="mdi mdi-grease-pencil"></i>
+                        編集
+                      </a>
                     </div>
                     <div class="col-sm-6">
                       <a href="">
                         <form action="{{route('product.remove', $item->id)}}" method="post"  >
                           @csrf
                           @method('delete')
-                          <button type="submit" class="btn btn-danger action-btn" role="button">削除</button>
+                          <button type="submit" class="btn btn-danger action-btn" role="button">
+                            <i class="mdi mdi-delete"></i>
+                            削除
+                          </button>
                         </form>
                       </a>
                     </div>

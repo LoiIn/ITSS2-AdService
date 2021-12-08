@@ -32,4 +32,19 @@ class RegisterRequest extends Request
             'logo' => ['required'],
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'email.required' => 'メールフィールドは必須です。',
+            'email.unique' => 'すでに使用中のメール。',
+            'name.required' => '名前フィールドは必須です。',
+            'address.required' => 'アドレスフィールドは必須です。',
+            'phone.required' => '電話番号フィールドは必須です。',
+            'password.required' => 'パスワードフィールドは必須です。',
+            'password.confirmed' => 'パスワードが違います。',
+            'password.min' => 'パスワードは最低でも6文字必要です。',
+            'logo.required' => 'ロゴフィールドは必須です。',
+        ];
+    }
 }

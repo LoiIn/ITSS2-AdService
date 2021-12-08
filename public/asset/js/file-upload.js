@@ -1,12 +1,10 @@
-(function($) {
-  'use strict';
-  $(function() {
-    $('.file-upload-browse').on('click', function() {
-      var file = $(this).parent().parent().parent().find('.file-upload-default');
-      file.trigger('click');
-    });
-    $('.file-upload-default').on('change', function() {
-      $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
-    });
-  });
-})(jQuery);
+$(document).ready(function () {
+  $('#image').change(function(){
+    let reader = new FileReader();
+    reader.onload = (e) => { 
+      $('#preview-image-before-upload img').attr('src', e.target.result); 
+    }
+ 
+    reader.readAsDataURL(this.files[0]); 
+   });
+});
