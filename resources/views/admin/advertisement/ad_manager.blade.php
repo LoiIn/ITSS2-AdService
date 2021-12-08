@@ -4,7 +4,7 @@
     @extends('common.admin_header', ['nav_advertisement' => 'active'])
     <div class="main-panel">
     <div class="content-wrapper">
-        <div class="col-lg-12">   
+        <div class="col-lg-12">
             <div class="d-flex mt-3 col-4 float-left">
                 <form method="GET" action="{{ route('admin.advertisement.search') }}">
                     <div class="d-flex align-items-center">
@@ -13,15 +13,7 @@
                     </div>
                 </form>
             </div>
-            <div class="d-flex mt-3 col-4 float-left">
-                <form method="GET" action="{{ route('admin.advertisement.search') }}">
-                    <div class="d-flex align-items-center">
-                        <input type="text" name="company" class="form-control" placeholder="企業名入力...." >
-                        <button type="submit" class="btn btn-primary col-4">検索</button>
-                    </div>
-                </form>
-            </div>
-       
+
         <div class="col-lg-12 stretch-card">
             <div class="card">
                 <div class="card-body">
@@ -60,17 +52,10 @@
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
-<<<<<<< HEAD
                                 @php
                                     $url = $item->image != '' ? $item->image : 'product.jpg';
                                 @endphp
                                 <img src="{{asset('asset/images/advertisement/' . $url)}}" alt="image"/>
-=======
-                                <span>
-                                    <img src="{{$item->product?$item->product->image:''}}"
-                                        class="img-fluid rounded avatar-50" title="" alt="image">
-                                </span>
->>>>>>> ads
                                 <div >
                                     <div>{{$item->product->title??''}}</div>
                                     <p class="mb-0"><small>{{$item->product->info??''}}</small></p>
@@ -102,7 +87,7 @@
                         </tbody>
                         </table>
                         <div class="d-flex justify-content-end mt-2">{{$data->links()}}</div>
-                        
+
                     </div>
                 </div>
             </div>
