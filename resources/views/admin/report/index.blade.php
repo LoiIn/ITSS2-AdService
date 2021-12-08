@@ -6,7 +6,7 @@
     <div class="content-wrapper">
         <div class="col-lg-12">
             <div class="d-flex mt-3 col-4">
-                <form method="GET" action="{{ route('store.search') }}">
+                <form method="GET" action="{{ route('admin.report.search') }}">
                     <div class="d-flex align-items-center">
                         <input type="text" name="query" class="form-control" placeholder="レポート名入力...." >
                         <button type="submit" class="btn btn-primary col-4">検索</button>
