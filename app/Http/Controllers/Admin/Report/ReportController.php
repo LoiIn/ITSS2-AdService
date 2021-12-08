@@ -12,7 +12,7 @@ class ReportController extends BaseController
     }
 
     public function index(){
-        $data = Report::paginate(10);
+        $data = Report::paginate(3);
         return view('admin.report.index', compact('data'));
     }
 

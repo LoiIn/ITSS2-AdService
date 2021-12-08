@@ -14,7 +14,7 @@ class StoreController extends Controller
     }
 
     public function index(){
-        $data = Store::paginate(10);
+        $data = Store::paginate(3);
         return view('admin/store.store_manager', compact('data'));
     }
 
@@ -32,14 +32,14 @@ class StoreController extends Controller
 
     // edit advertisement
     public function edit(Request $request){
-        
+
     }
 
     // update advertisement
     public function update(Request $request){
-        
+
     }
-    
+
     // delete advertisement with id
     public function destroy(Request $request) {
         $data = Store::find($request->id);
@@ -49,7 +49,7 @@ class StoreController extends Controller
 
     public function accept(Request $request) {
         $data = Store::find($request->id);
-        $data->is_accepted = 1; 
+        $data->is_accepted = 1;
         $data->save();
         return redirect(route('store.index'));
     }
@@ -66,5 +66,5 @@ class StoreController extends Controller
         }
     }
 
-   
+
 }
