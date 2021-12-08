@@ -52,10 +52,23 @@
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                                <span>
+                                    <img src="{{$item->product?$item->product->image:''}}"
+                                        class="img-fluid rounded avatar-50" title="" alt="image">
+                                </span>
+=======
+>>>>>>> backup_v1
                                 @php
                                     $url = $item->image != '' ? $item->image : 'product.jpg';
                                 @endphp
                                 <img src="{{asset('asset/images/advertisement/' . $url)}}" alt="image"/>
+<<<<<<< HEAD
+=======
+>>>>>>> refactor_admin_function
+>>>>>>> backup_v1
                                 <div >
                                     <div>{{$item->product?$item->product->title:''}}</div>
                                     <p class="mb-0"><small>{{$item->product?$item->product->info:''}}</small></p>
