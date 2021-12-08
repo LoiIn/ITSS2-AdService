@@ -34,7 +34,8 @@ Route::middleware('auth:store')->group(function (){
 
     Route::prefix('/reports')->group(function(){
         Route::get('/', [ReportController::class, 'index'])->name('report.index');
-        Route::get('/{report}', [ReportController::class, 'show'])->name('report.show');
+        Route::get('/detail/{report}', [ReportController::class, 'show'])->name('report.show');
+        Route::get('/search', [ReportController::class, 'search'])->name('store.report.search');
     });
 });
 Route::get('/signup', [LoginController::class, 'getSignUp'])->name('store.register');

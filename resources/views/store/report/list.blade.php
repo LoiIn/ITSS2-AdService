@@ -4,11 +4,11 @@
       <h4 class="card-title">レポート一覧</h4>
       <div class="row">
         <div class="col-sm-6 offset-sm-3">
-            <form class="forms-sample" method="GET" action="">
+            <form class="forms-sample" method="GET" action="{{ route('store.report.search') }}">
               @csrf
               <div class="form-group row">
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" placeholder="広告タイトル入力...." name="search">
+                    <input type="text" name="query" class="form-control" placeholder="レポート名入力...." >
                 </div>
                 <div class="col-sm-3 mt-1">
                   <button type="submit" class="btn btn-primary">
