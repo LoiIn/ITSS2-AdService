@@ -9,23 +9,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class HomeController extends Controller
 {
-    public function home(){
-       return view('welcome');
-    }
+   public function home(){
+      return view('welcome');
+   }
 
-    public function testAds(){
-        $ads = Report::all()->last();
-        $ads->views += 1;
-        $ads->save();
+   public function testAds($agent, $id){
+      $ads = Report::where('id', $id)->first();
+      $ads->views += 1;
+      $ads->save();   
+      return view('testAds',compact(['agent', 'ads']));
+   }
 
-        return view('testAds');
-     }
-
-     public function clickAds(){
-        $ads = Report::all()->last();
-        $ads->clicks += 1;
-        $ads->save();
-
-        return view('result');
-     }
+   public function clickAds($agent, $id){
+      $ads = Report::where('id', $id)->first();
+      $ads->clicks += 1;
+      $ads->save();
+      return view('testAds',compact(['agent', 'ads']));
+   }
 }

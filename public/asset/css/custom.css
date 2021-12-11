@@ -13,9 +13,32 @@
 }
 
 .action-btn {
-    width: 80px !important;
+    width: 90px !important;
 }
 
 .card-err {
     background-color: rgba(235, 231, 231, 0.87) !important;
+}
+
+#preview-image-before-upload img {
+    max-width: 400px !important;
+    width: 400px;
+}
+
+.admin-action-btn{
+    width: 130px !important;
+}
+
+.card.test-bg {
+    box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  border-radius: 6px;
+  background-color: rgba(187, 216, 216, 0.945);
+  background-size: cover;
+  border: 0;
+  color: black;
+  box-shadow: none;
+  padding: 2.112rem 3.25rem;
 }

@@ -9,8 +9,9 @@
                   <div class="col-sm-9">
                     <input type="text" class="form-control" placeholder="広告タイトル入力...." name="search">
                   </div>
-                  <div class="col-sm-3">
+                  <div class="col-sm-3 mt-1">
                     <button type="submit" class="btn btn-primary">
+                      <i class="mdi mdi-flask-outline"></i>
                       検索
                     </button>
                   </div>
@@ -18,7 +19,10 @@
               </form>
           </div>
           <div class="col-sm-6 text-right">
-            <a name="" id="" class="btn btn-success" href="{{route('advertisement.create')}}" role="button">追加</a>
+            <a name="" id="" class="btn btn-success" href="{{route('advertisement.create')}}" role="button">
+              <i class="mdi mdi-plus-circle-outline"></i>
+              追加
+            </a>
           </div>
         </div>
         <div class="table-responsive mt-4">
@@ -49,7 +53,7 @@
                 <th>
                     様子
                 </th>
-                <th class="text-center" width = "18%">
+                <th class="text-center" width = "200px">
                   アクション
                 </th>
               </tr>
@@ -89,19 +93,15 @@
                     <label class="badge badge-{{$className}}">{{$status}}</label>
                   </td>
                   <td class="text-center">
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <a name="" id="" class="btn btn-light action-btn mr-2" href="{{route('advertisement.edit', $item->id)}}" role="button">編集</a>
-                      </div>
-                      <div class="col-sm-6">
-                        <a href="">
-                          <form action="{{route('advertisement.remove', $item->id)}}" method="post"  >
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="btn btn-danger action-btn" role="button">削除</button>
-                          </form>
-                        </a>
-                      </div>
+                    <div class="d-flex align-item-center">
+                      <a name="" id="" class="btn btn-light admin-action-btn" href="{{route('advertisement.edit', $item->id)}}" role="button">
+                        <i class="mdi mdi-grease-pencil"></i>
+                         編集
+                       </a>
+                      <a class="btn btn-danger admin-action-btn ml-2" href="{{route('advertisement.remove', $item->id)}}">
+                          <i class="mdi mdi-delete-forever"></i>
+                          削除
+                      </a>
                     </div>
                   </td>
                 </tr>

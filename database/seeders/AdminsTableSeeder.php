@@ -15,14 +15,9 @@ class AdminsTableSeeder extends Seeder
     {
         \DB::table('admins')->insert([
             [
-                'email' => 'company1@gmail.com',
+                'email' => 'admin@gmail.com',
                 'password' => \Hash::make('123456'),
-                'name' => 'company1',
-            ],
-            [
-                'email' => 'company2@gmail.com',
-                'password' => \Hash::make('123456'),
-                'name' => 'company2',
+                'name' => 'admin',
             ],
         ]);
     }

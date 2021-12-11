@@ -19,7 +19,7 @@ Route::middleware('auth:store')->group(function (){
         Route::post('/create', [ProductController::class, 'store'])->name('product.store');
         Route::get('/{id}/update', [ProductController::class, 'edit'])->name('product.edit');
         Route::post('/{id}/update', [ProductController::class, 'update'])->name('product.update');
-        Route::delete('/{id}/delete', [ProductController::class, 'remove'])->name('product.remove');
+        Route::get('/{id}/delete', [ProductController::class, 'remove'])->name('product.remove');
     });
 
     Route::prefix('/advertisements')->group(function(){
@@ -29,12 +29,13 @@ Route::middleware('auth:store')->group(function (){
         Route::post('/create', [AdvertisementController::class, 'store'])->name('advertisement.store');
         Route::get('/{id}/update', [AdvertisementController::class, 'edit'])->name('advertisement.edit');
         Route::post('/{id}/update', [AdvertisementController::class, 'update'])->name('advertisement.update');
-        Route::delete('/{id}/delete', [AdvertisementController::class, 'remove'])->name('advertisement.remove');
+        Route::get('/{id}/delete', [AdvertisementController::class, 'remove'])->name('advertisement.remove');
     });
 
     Route::prefix('/reports')->group(function(){
         Route::get('/', [ReportController::class, 'index'])->name('report.index');
-        Route::get('/{report}', [ReportController::class, 'show'])->name('report.show');
+        Route::get('/{report}/detail', [ReportController::class, 'show'])->name('report.show');
+        Route::get('/search', [ReportController::class, 'search'])->name('store.report.search');
     });
 });
 Route::get('/signup', [LoginController::class, 'getSignUp'])->name('store.register');

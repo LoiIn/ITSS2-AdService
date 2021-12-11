@@ -20,7 +20,7 @@ class LoginController extends Controller
             Session::put('login', $credentials);
             return redirect()->route('store.index');
         } else {
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput()->with('login-fail', 'ログインに失敗しました。アカウントまたはパスワードが正しくありません。');;
         }
     }
 

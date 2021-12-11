@@ -16,11 +16,14 @@
     @endif
     <div class="main-panel">
         <div class="content-wrapper">
+            @include('common.error')
+            @include('common.action-fail')
+            @include('common.action-success')
             <div class="row">
                 <div class="col-md-8 offset-md-2 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                    <h4 class="card-title">Adminログイン</h4>
+                    <h4 class="card-title">管理者ログイン</h4>
                         <form class="forms-sample" method="POST" action="{{ route('admin.login') }}">
                             @csrf
                             <div class="form-group row">

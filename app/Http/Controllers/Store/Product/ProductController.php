@@ -14,7 +14,7 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     public function index(){
-      $products = Auth::guard('store')->user()->products()->paginate(2);
+      $products = Auth::guard('store')->user()->products()->paginate(3);
       return view('store.product.index',compact('products'));
     }
 
@@ -53,9 +53,11 @@ class ProductController extends Controller
         });
 
         if ($rs) {
+          $request->session()->flash('action-success', '新製品の追加に成功。');
           return redirect()->route('product.index');
         } else {
-          $request->session()->flash('add-action-fail', 'Add new advertisement failed!');
+          $request->session()->flash('action-fail', '新製品の追加に失敗しました。');
+          return redirect()->back()->withInput();
         }
     }
 
@@ -69,11 +71,21 @@ class ProductController extends Controller
         $data = $request->except('_token');
         $product = Product::find($id);
 
-        $rs = DB::transaction(function () use ($product, $data){
+        $rs = DB::transaction(function () use ($product, $data, $request){
           $params = [
             'title'  => \Arr::get($data, 'title'),
             'info' => \Arr::get($data, 'info'),
           ];
+
+          if(\Arr::get($data, 'image')) {
+            $imageName = '';
+            $file = $request->file('image');
+            $imagePath = '/asset/images/product';
+            $imageName = time()."-".$file->getClientOriginalName();
+            $file->move(public_path().$imagePath, $imageName);
+
+            $params['image'] = $imageName;
+          }
 
           $product->update($params);
 
@@ -85,27 +97,26 @@ class ProductController extends Controller
         });
 
         if ($rs) {
+            $request->session()->flash('action-success', '商品の編集に成功。');
             return redirect()->route('product.index');
         } else {
-            return redirect()->back()->withInput()->with('action-fail', 'Update fail!');
+            return redirect()->back()->withInput()->with('action-fail', '商品の編集に失敗しました。');
         }
     }
 
     public function remove(Request $request, $id) {
         $product = Product::find($id);
         if ($product->delete()){
-            $request->session()->flash('action-success', 'The product was deleted!');
-            $products = Auth::guard('store')->user()->products()->get();
-            return redirect()->route('product.index', compact('products'));
+            $request->session()->flash('action-success', '製品を正常に削除しました。');
+            return redirect(route('product.index'));
         } else {
-            $request->session()->flash('action-fail', 'delete failed');
-            return redirect()->route('product.index');
+          $request->session()->flash('action-success', '削除に失敗しました。');
+          return redirect()->route('product.index');
         }
     }
 
     public function search(Request $request) {
         $products = Auth::guard('store')->user()->products()->where('title','like','%'.$request->search.'%')->paginate(2);
-        // dd($products[0]->image);
         $products->appends($request->all());
         return view('store.product.index', compact('products'));
     }

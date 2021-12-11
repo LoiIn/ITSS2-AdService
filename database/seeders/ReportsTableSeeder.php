@@ -32,6 +32,18 @@ class ReportsTableSeeder extends Seeder
                 'views' => 200,
                 'clicks' => 50
             ],
+            [
+                'ad_id' => 4,
+                'site_id' => 2,
+                'views' => 10,
+                'clicks' => 5,
+            ],
+            [
+                'ad_id' => 5,
+                'site_id' => 1,
+                'views' => 10,
+                'clicks' => 5,
+            ],
         ]);
     }
 }
