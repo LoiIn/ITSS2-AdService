@@ -8,7 +8,6 @@ use App\Http\Requests\Request;
 use App\Http\Requests\Store\LoginRequest;
 use App\Http\Requests\Store\RegisterRequest;
 use App\Models\Store;
-use Hash;
 use Session;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,10 +25,10 @@ class LoginController extends Controller
             if(Auth::guard('store')->user()->is_accepted == 1) {
                 return redirect()->route('product.index')->with('login-success', '私たちのサービスへようこそ。');
             } else {
-                return redirect()->back()->withInput()->with('login-fail', 'ログインに失敗しました。');
+                return redirect()->back()->withInput()->with('login-fail', 'ログインに失敗しました。アカウントがまだアクセスしない、ログインできません。');
             }
         } else {
-            return redirect()->back()->withInput()->with('login-fail', 'ログインに失敗しました。');
+            return redirect()->back()->withInput()->with('login-fail', 'ログインに失敗しました。アカウントまたはパスワードが正しくありません。');
         }
     }
 
@@ -50,7 +49,7 @@ class LoginController extends Controller
             $params = [
                 'name' => \Arr::get($data, 'name'),
                 'email' => \Arr::get($data, 'email'),
-                'password' => Hash::make(\Arr::get($data, 'passord')),
+                'password' => \Hash::make(\Arr::get($data, 'password')),
                 'address' => \Arr::get($data, 'address'),
                 'phone' => \Arr::get($data, 'phone'),
             ]; 

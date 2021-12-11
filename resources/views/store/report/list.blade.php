@@ -8,7 +8,7 @@
               @csrf
               <div class="form-group row">
                 <div class="col-sm-9">
-                    <input type="text" name="query" class="form-control" placeholder="レポート名入力...." >
+                    <input type="text" name="query" class="form-control" placeholder="広告名入力...." >
                 </div>
                 <div class="col-sm-3 mt-1">
                   <button type="submit" class="btn btn-primary">

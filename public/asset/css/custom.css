@@ -24,3 +24,21 @@
     max-width: 400px !important;
     width: 400px;
 }
+
+.admin-action-btn{
+    width: 130px !important;
+}
+
+.card.test-bg {
+    box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  border-radius: 6px;
+  background-color: rgba(187, 216, 216, 0.945);
+  background-size: cover;
+  border: 0;
+  color: black;
+  box-shadow: none;
+  padding: 2.112rem 3.25rem;
+}

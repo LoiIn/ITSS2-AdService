@@ -107,9 +107,8 @@ class ProductController extends Controller
     public function remove(Request $request, $id) {
         $product = Product::find($id);
         if ($product->delete()){
-            $products = Auth::guard('store')->user()->products()->get();
             $request->session()->flash('action-success', '製品を正常に削除しました。');
-            return redirect()->route('product.index', compact('products'));
+            return redirect(route('product.index'));
         } else {
           $request->session()->flash('action-success', '削除に失敗しました。');
           return redirect()->route('product.index');

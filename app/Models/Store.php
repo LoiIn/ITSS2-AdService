@@ -24,7 +24,7 @@ class Store extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'password', 'name', 'address', 'phone'
+        'email', 'password', 'name', 'address', 'phone', 'logo'
     ];
 
     /**

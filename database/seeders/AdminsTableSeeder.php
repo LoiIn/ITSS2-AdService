@@ -19,16 +19,6 @@ class AdminsTableSeeder extends Seeder
                 'password' => \Hash::make('123456'),
                 'name' => 'admin',
             ],
-            [
-                'email' => 'company1@gmail.com',
-                'password' => \Hash::make('123456'),
-                'name' => 'company1',
-            ],
-            [
-                'email' => 'company2@gmail.com',
-                'password' => \Hash::make('123456'),
-                'name' => 'company2',
-            ],
         ]);
     }
 }

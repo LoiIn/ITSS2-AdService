@@ -42,7 +42,8 @@
                     <div class="card mb-2">
                         <div class="card-body">
                             <h4 class="card-title">報告プラットホーム</h4>
-                            <a href="{{$report->site->url}}" target="_blank">{{$report->site->name}}</a>
+                            <span>広告をテストするため、このリンクをクリックして下さい:</span>
+                            <a href="{{route('test', ['admin', $report->id])}}">{{$report->site->name}}</a>
                         </div>
                     </div>
                 </div>

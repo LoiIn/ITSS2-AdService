@@ -19,7 +19,7 @@
     </div>
 
     <script src="{{asset('asset/vendors/base/vendor.bundle.base.js')}}"></script>
-{{--    <script src="{{asset('asset/js/template.js')}}"></script>--}}
+   <script src="{{asset('asset/js/template.js')}}"></script>
     <script src="{{asset('asset/vendors/typeahead.js/typeahead.bundle.min.js')}}"></script>
     <script src="{{asset('asset/vendors/chart.js/Chart.min.js')}}"></script>
     <script src="{{asset('asset/vendors/progressbar.js/progressbar.min.js')}}"></script>
