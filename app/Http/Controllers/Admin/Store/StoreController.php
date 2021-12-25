@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Store;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Store;
+use Illuminate\Support\Facades\Mail;
 
 class StoreController extends Controller
 {
@@ -22,8 +23,12 @@ class StoreController extends Controller
 
     public function accept(Request $request) {
         $data = Store::find($request->id);
-        $data->is_accepted = 1;
+        $data->is_accepted = 0;
         $data->save();
+        Mail::send(['text'=>'admin.store.mail'], array('name'=>$data->name,'email'=>$data->email), function($message) use($data){
+            $message->to($data['email'])->subject('新企業がアクセプトされました!');
+            $message->from(env('MAIL_USERNAME'),'ITSS2-Random-AdService');
+        });
         $request->session()->flash('action-success', '新企業のアクセプトに成功。');
         return redirect(route('store.index'));
     }
