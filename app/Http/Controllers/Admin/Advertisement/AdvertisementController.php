@@ -11,7 +11,7 @@ use App\Models\Advertisement;
 class AdvertisementController extends Controller
 {
     public function index(){
-        $data = Advertisement::paginate(3);
+        $data = Advertisement::orderBy('id', 'desc')->paginate(3);
         $site_data = Site::all();
         return view('admin.advertisement.ad_manager', compact('data', 'site_data'));
     }

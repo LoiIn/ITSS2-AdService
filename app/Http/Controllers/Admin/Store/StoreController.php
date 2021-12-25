@@ -8,7 +8,7 @@ use App\Models\Store;
 class StoreController extends Controller
 {
     public function index(){
-        $data = Store::paginate(3);
+        $data = Store::orderBy('id', 'desc')->paginate(3);
         return view('admin/store.store_manager', compact('data'));
     }
 
