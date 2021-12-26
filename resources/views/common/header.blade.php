@@ -15,7 +15,7 @@
                   <i class="mdi mdi-account-plus menu-icon"></i>
                   <span class="menu-title">企業登録</span>
                 </a>
-              </li>                
+              </li>
             @endif
             <li class="nav-item {{isset($nav_product) ? $nav_product : ''}}">
                 <a class="nav-link" href="{{route('product.index')}}">
@@ -49,6 +49,7 @@
                   <ul>
                       <li class="nav-item"><a class="nav-link" href="{{route('store.logout')}}">ログアウト</a></li>
                       <li class="nav-item"><a class="nav-link" href="{{route('store.profile.index')}}">プロフィール</a></li>
+                      <li class="nav-item"><a class="nav-link" href="{{route('store.profile.showChangePassword')}}">パスワードを変更する</a></li>
                   </ul>
                 </div>
             </li>
@@ -61,7 +62,7 @@
                 </a>
               </li>
             @endif
-            
+
           </ul>
       </div>
     </nav>

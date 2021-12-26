@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\Store\ProfileUpdateRequest;
+use App\Http\Requests\Request;
+use Hash;
 
 
 class ProfileController extends Controller
@@ -68,4 +70,31 @@ class ProfileController extends Controller
     }
   }
 
+    public function showChangePasswordGet() {
+    return view('store.profile.change-password');
+    }
+
+    public function changePasswordPost(Request $request) {
+    if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+        // The passwords matches
+        return redirect()->back()->with("error","現在のパスワードがパスワードと一致しません。");
+    }
+
+    if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+        // Current password and new password same
+        return redirect()->back()->with("error","新しいパスワードを現在のパスワードと同じにすることはできません。");
+    }
+
+    $validatedData = $request->validate([
+        'current-password' => 'required',
+        'new-password' => 'required|string|min:6|confirmed',
+    ]);
+
+    //Change Password
+    $user = Auth::user();
+    $user->password = bcrypt($request->get('new-password'));
+    $user->save();
+
+    return redirect()->back()->with("success","パスワードが正常に変更されました！");
+}
 }

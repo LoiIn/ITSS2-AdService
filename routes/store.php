@@ -43,6 +43,8 @@ Route::middleware('auth:store')->group(function (){
         Route::get('/', [ProfileController::class, 'index'])->name('store.profile.index');
         Route::get('/update', [ProfileController::class, 'edit'])->name('store.profile.edit');
         Route::post('/update',[ProfileController::class, 'update'])->name('store.profile.update');
+        Route::get('/changePassword', [ProfileController::class, 'showChangePasswordGet'])->name('store.profile.showChangePassword');
+        Route::post('/changePassword',[ProfileController::class, 'changePasswordPost'])->name('store.profile.changePassword');
     });
 });
 Route::get('/signup', [LoginController::class, 'getSignUp'])->name('store.register');
