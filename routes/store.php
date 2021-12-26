@@ -5,6 +5,7 @@ use App\Http\Controllers\Store\StoreController;
 use App\Http\Controllers\Store\Product\ProductController;
 use App\Http\Controllers\Store\Report\ReportController;
 use App\Http\Controllers\Store\Advertisement\AdvertisementController;
+use App\Http\Controllers\Store\Profile\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name('store.login');
@@ -36,6 +37,12 @@ Route::middleware('auth:store')->group(function (){
         Route::get('/', [ReportController::class, 'index'])->name('report.index');
         Route::get('/{report}/detail', [ReportController::class, 'show'])->name('report.show');
         Route::get('/search', [ReportController::class, 'search'])->name('store.report.search');
+    });
+
+    Route::prefix('/profile')->group(function(){
+        Route::get('/', [ProfileController::class, 'index'])->name('store.profile.index');
+        Route::get('/update', [ProfileController::class, 'edit'])->name('store.profile.edit');
+        Route::post('/update',[ProfileController::class, 'update'])->name('store.profile.update');
     });
 });
 Route::get('/signup', [LoginController::class, 'getSignUp'])->name('store.register');
