@@ -23,7 +23,7 @@ class StoreController extends Controller
 
     public function accept(Request $request) {
         $data = Store::find($request->id);
-        $data->is_accepted = 0;
+        $data->is_accepted = 1;
         $data->save();
         Mail::send(['text'=>'admin.store.mail'], array('name'=>$data->name,'email'=>$data->email), function($message) use($data){
             $message->to($data['email'])->subject('新企業がアクセプトされました!');
