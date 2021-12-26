@@ -18,8 +18,8 @@ class Product extends Model
         'store_id', 'title', 'image'
     ];
 
-    public function advertisement (){
-        return $this->hasOne(Advertisement::class,'product_id', 'id');
+    public function advertisements (){
+        return $this->hasMany(Advertisement::class,'product_id', 'id');
     }
 
     public function store(){
