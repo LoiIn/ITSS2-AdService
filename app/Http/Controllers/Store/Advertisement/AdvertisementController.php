@@ -15,7 +15,7 @@ use App\Models\Report;
 class AdvertisementController extends Controller
 {
     public function index(){
-      $advertisements = Auth::guard('store')->user()->advertisements()->paginate(3);
+      $advertisements = Auth::guard('store')->user()->advertisements()->orderBy('id', 'DESC')->paginate(3);
       return view('store.advertisement.index',compact('advertisements'));
     }
 

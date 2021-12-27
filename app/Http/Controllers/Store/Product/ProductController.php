@@ -15,7 +15,7 @@ use App\Models\Report;
 class ProductController extends Controller
 {
     public function index(){
-      $products = Auth::guard('store')->user()->products()->paginate(3);
+      $products = Auth::guard('store')->user()->products()->orderBy('id', 'DESC')->paginate(3);
       return view('store.product.index',compact('products'));
     }
 
