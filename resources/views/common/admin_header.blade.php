@@ -5,7 +5,7 @@
       <div class="container">
           <ul class="nav page-navigation">
             <li class="">
-              <a class="nav-link" href="{{route('store.index')}}">
+              <a class="nav-link">
                 <span class="logo-icon mdi menu-icon">
                   <img src="{{asset('asset/images/icon.jpg')}}" alt="">
                 </span>
