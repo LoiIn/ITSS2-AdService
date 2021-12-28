@@ -46,7 +46,7 @@
                                 
                     <div class="form-group row text-center">
                         <div class="col-sm-12 text-center">
-                            <button type="submit" class="btn btn-primary form-action-btn">登録</button>
+                            <button type="submit" class="btn btn-primary form-action-btn">保存</button>
                             <a href="{{route('store.profile.index')}}" class="btn btn-secondary form-action-btn">キャンセル</a>
                         </div>
                     </div>
