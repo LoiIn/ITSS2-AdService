@@ -22,7 +22,17 @@
                         @endif
                         @if($errors)
                             @foreach ($errors->all() as $error)
-                                <div class="alert alert-danger">{{ $error }}</div>
+
+                                <div class="alert alert-danger">
+                                    @if ($errors->has('new-password'))
+                                        新しいパスワードは6文字以上である必要があります。
+
+                                    @elseif ($errors->has('current-password'))
+                                        {{ $errors->first('current-password') }}
+                                    @endif
+
+                                </div>
+
                             @endforeach
                         @endif
                         <form class="form-horizontal" method="POST" action="{{ route('store.profile.changePassword') }}">
@@ -33,12 +43,6 @@
 
                                 <div class="col-md-6">
                                     <input id="current-password" type="password" class="form-control" name="current-password" required>
-
-                                    @if ($errors->has('current-password'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('current-password') }}</strong>
-                                        </span>
-                                    @endif
                                 </div>
                             </div>
 
@@ -48,11 +52,6 @@
                                 <div class="col-md-6">
                                     <input id="new-password" type="password" class="form-control" name="new-password" required>
 
-                                    @if ($errors->has('new-password'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('new-password') }}</strong>
-                                        </span>
-                                    @endif
                                 </div>
                             </div>
 
@@ -75,13 +74,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="main-panel">
-        <div class="content-wrapper">
-            @include('common.error')
-            @include('common.action-success')
-            @include('common.action-fail')
         </div>
     </div>
 @endsection
