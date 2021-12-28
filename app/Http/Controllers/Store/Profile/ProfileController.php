@@ -85,6 +85,11 @@ class ProfileController extends Controller
         return redirect()->back()->with("error","新しいパスワードを現在のパスワードと同じにすることはできません。");
     }
 
+    if(strcmp($request->get('password_confirmation'), $request->get('new-password')) == 0){
+        // Current password and new password same
+        return redirect()->back()->with("error-confirm","新しいパスワードと確認パスワードが同じではありません");
+    }
+
     $validatedData = $request->validate([
         'current-password' => 'required',
         'new-password' => 'required|string|min:6|confirmed',

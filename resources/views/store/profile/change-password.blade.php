@@ -2,7 +2,7 @@
 
 @section('content')
     @extends('common.header')
-    <div class="container">
+    <div class="main-panel">
         <div class="row">
             <div class="col-md-10 offset-2">
                 <div class="panel panel-default">
@@ -25,8 +25,11 @@
 
                                 <div class="alert alert-danger">
                                     @if ($errors->has('new-password'))
-                                        新しいパスワードは6文字以上である必要があります。
-
+                                        @if (strpos($errors->first('new-password'), 'confirmation does not match')!== false)
+                                            新しいパスワードと確認パスワードが同じではありません
+                                        @else
+                                            新しいパスワードは6文字以上である必要があります。
+                                        @endif
                                     @elseif ($errors->has('current-password'))
                                         {{ $errors->first('current-password') }}
                                     @endif
