@@ -26,8 +26,8 @@ class ProfileUpdateRequest extends Request
         return [
             // 'email' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
-            // 'phone' => ['required', 'string', 'max:20'],
-            // 'address' => ['required', 'string'],
+            'phone' => ['required', 'string', 'max:20'],
+            'address' => ['required', 'string'],
         ];
     }
 
@@ -36,8 +36,8 @@ class ProfileUpdateRequest extends Request
         return [
             // 'email.required' => 'メールは必須です。',
             'name.required' => '名前は必須です。',
-            // 'phone.required' => '電話番号は必須です。',
-            // 'address.required' => '場所は必須です。',
+            'phone.required' => '電話番号は必須です。',
+            'address.required' => '場所は必須です。',
         ];
     }
 }
