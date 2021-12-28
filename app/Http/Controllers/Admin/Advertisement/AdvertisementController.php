@@ -36,7 +36,7 @@ class AdvertisementController extends Controller
     // delete advertisement with id
     public function destroy(Request $request, $id) {
         Advertisement::find($id)->delete();
-        Report::find($id)->delete();
+        Report::where('ad_id', $id)->delete();
         $request->session()->flash('action-success', '広告を正常に削除しました。');
         return redirect(route('admin.advertisement.index'));
     }

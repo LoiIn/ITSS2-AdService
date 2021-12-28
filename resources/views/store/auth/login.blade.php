@@ -17,7 +17,10 @@
                             <div class="form-group row">
                                 <label for="email" class="col-sm-3 col-form-label">メール</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="email" id="email" placeholder="メールを入力してください。">
+                                    <input type="text" class="form-control" 
+                                           name="email" id="email" placeholder="メールを入力してください。"
+                                           value="{{ old('email') }}"
+                                    >
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -32,7 +35,7 @@
                                </div>
                                <div class="col-sm-12 text-center mt-3">
                                     <a name="" id="" class="" href="{{route('store.register')}}" role="button">
-                                        アカウントがあると、ここをクリックしてください
+                                        アカウントがないと、ここをクリックしてください
                                     </a>
                                </div>
                             </div>

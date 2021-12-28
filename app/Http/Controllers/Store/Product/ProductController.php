@@ -10,6 +10,7 @@ use App\Http\Requests\Store\ProductUpdateRequest;
 use App\Http\Requests\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Report;
 
 class ProductController extends Controller
 {
@@ -107,6 +108,15 @@ class ProductController extends Controller
     public function remove(Request $request, $id) {
         $product = Product::find($id);
         if ($product->delete()){
+            $adIds = $product->advertisements()->pluck('id');
+
+            // delete ad
+            $product->advertisements()->delete();
+
+             // delete report
+            $colection = Report::whereIn('ad_id', $adIds)->pluck('id');
+            Report::destroy($colection->toArray());
+
             $request->session()->flash('action-success', '製品を正常に削除しました。');
             return redirect(route('product.index'));
         } else {
