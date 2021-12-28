@@ -44,9 +44,9 @@ class ProfileController extends Controller
 
     $rs = DB::transaction(function () use ($store, $data, $request){
       $params = [
-        'name' => \Arr::get($data, 'name'),
-        'phone' => \Arr::get($data, 'phone'),
-        'address'   => \Arr::get($data, 'address'),
+        'name' => \Arr::get($data, 'name')??'',
+        'phone' => \Arr::get($data, 'phone')??'',
+        'address'   => \Arr::get($data, 'address')??'',
       ];
 
       if(\Arr::get($data, 'image')) {
@@ -54,7 +54,7 @@ class ProfileController extends Controller
         $imagePath = '/asset/images/store';
         $imageName = time()."-".$file->getClientOriginalName();
         $file->move(public_path().$imagePath, $imageName);
-        $params['logo'] = $imageName;
+        $params['logo'] = $imageName??'';
       }
       return $store->update($params);
     });
