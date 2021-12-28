@@ -9,12 +9,14 @@
                 </span>
               </a>
             </li>
-            <li class="nav-item {{isset($nav_store) ? $nav_store : ''}}">
-              <a class="nav-link" href="{{route('store.register')}}">
-                <i class="mdi mdi-account-plus menu-icon"></i>
-                <span class="menu-title">企業登録</span>
-              </a>
-            </li>
+            @if (!Auth::check())
+              <li class="nav-item {{isset($nav_store) ? $nav_store : ''}}">
+                <a class="nav-link" href="{{route('store.register')}}">
+                  <i class="mdi mdi-account-plus menu-icon"></i>
+                  <span class="menu-title">企業登録</span>
+                </a>
+              </li>                
+            @endif
             <li class="nav-item {{isset($nav_product) ? $nav_product : ''}}">
                 <a class="nav-link" href="{{route('product.index')}}">
                   <i class="mdi mdi-cube-outline menu-icon"></i>
