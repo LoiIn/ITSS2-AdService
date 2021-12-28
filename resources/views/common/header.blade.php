@@ -48,6 +48,7 @@
                 <div class="submenu">
                   <ul>
                       <li class="nav-item"><a class="nav-link" href="{{route('store.logout')}}">ログアウト</a></li>
+                      <li class="nav-item"><a class="nav-link" href="{{route('store.profile.index')}}">プロフィール</a></li>
                   </ul>
                 </div>
             </li>
