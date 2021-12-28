@@ -3,7 +3,7 @@
       <div class="container">
           <ul class="nav page-navigation">
             <li class="nav-item {{isset($nav_home) ? $nav_home : ''}}">
-              <a class="nav-link">
+              <a class="nav-link" href="{{route('home')}}">
                 <span class="logo-icon mdi menu-icon">
                   <img src="{{asset('asset/images/icon.jpg')}}" alt="">
                 </span>
@@ -15,7 +15,7 @@
                   <i class="mdi mdi-account-plus menu-icon"></i>
                   <span class="menu-title">企業登録</span>
                 </a>
-              </li>                
+              </li>
             @endif
             <li class="nav-item {{isset($nav_product) ? $nav_product : ''}}">
                 <a class="nav-link" href="{{route('product.index')}}">
@@ -40,7 +40,7 @@
             </li>
             @if (Auth::check())
             <li class="nav-item">
-                <a class="nav-link" href="{{route('store.logout')}}">
+                <a class="nav-link">
                   <i class="mdi mdi-account-convert menu-icon"></i>
                   <span class="menu-title">{{Auth::guard('store')->user()->name}}</span>
                   <i class="menu-arrow"></i>
@@ -49,6 +49,7 @@
                   <ul>
                       <li class="nav-item"><a class="nav-link" href="{{route('store.logout')}}">ログアウト</a></li>
                       <li class="nav-item"><a class="nav-link" href="{{route('store.profile.index')}}">プロフィール</a></li>
+                      <li class="nav-item"><a class="nav-link" href="{{route('store.profile.showChangePassword')}}">パスワードを変更する</a></li>
                   </ul>
                 </div>
             </li>
@@ -61,7 +62,7 @@
                 </a>
               </li>
             @endif
-            
+
           </ul>
       </div>
     </nav>
