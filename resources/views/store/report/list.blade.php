@@ -47,7 +47,7 @@
               @foreach ($data as $key=>$item)
                 <tr>
                   <td>
-                    {{$key+1}}
+                    {{($data->currentPage()-1) * $data->perPage() + $key+1}}
                   </td>
                   <td>
                     {{$item->advertisement->title}}

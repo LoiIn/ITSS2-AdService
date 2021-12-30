@@ -40,7 +40,7 @@
                 @foreach($data as $key=>$item)
                 <tr>
                 <td>
-                    <div>{{$key+1}}</div>
+                    <div>{{($data->currentPage()-1) * $data->perPage() + $key+1}}</div>
                 </td>
                 <td>
                     <div>{{$item->title}}</div>

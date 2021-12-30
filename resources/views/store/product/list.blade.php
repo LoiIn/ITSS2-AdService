@@ -53,7 +53,7 @@
             @foreach ($products as $key=>$item)
               <tr>
                 <td>
-                  {{$key + 1}}
+                  {{($data->currentPage()-1) * $data->perPage() + $key+1}}
                 </td>
                 <td class="py-1">
                   <img src="{{asset('asset/images/product/'.$item->image)}}" alt="image"/>
