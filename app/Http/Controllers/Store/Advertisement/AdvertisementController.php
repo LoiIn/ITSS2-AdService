@@ -122,7 +122,10 @@ class AdvertisementController extends Controller
     public function search(Request $request) {
         $advertisements = Auth::guard('store')->user()->advertisements()->where('title','like','%'.$request->search.'%')->paginate(2);
         $advertisements->appends($request->all());
-        return view('store.advertisement.index', compact('advertisements'));
+        $mess = $advertisements->total() != 0 ? '' : '結果がありません。';
+        $request->session()->flash('no-data', $mess);
+        $search = $request->search;
+        return view('store.advertisement.index', compact('advertisements', 'search'));
     }
 
 }
