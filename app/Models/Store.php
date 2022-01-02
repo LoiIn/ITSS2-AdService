@@ -36,7 +36,7 @@ class Store extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function advertisement (){
+    public function advertisements (){
         return $this->hasMany(Advertisement::class,'store_id', 'id');
     }
 

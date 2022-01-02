@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin\Store;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Store;
+use App\Models\Report;
+use Illuminate\Support\Facades\Mail;
 
 class StoreController extends Controller
 {
@@ -12,10 +14,24 @@ class StoreController extends Controller
         return view('admin/store.store_manager', compact('data'));
     }
 
-    // delete advertisement with id
+    // delete store with id
     public function destroy(Request $request) {
         $data = Store::find($request->id);
+        $adIds = $data->advertisements()->pluck('id');
+        
+        // delete product
+        $data->products()->delete();
+
+        // delete advertisement
+        $data->advertisements()->delete();
+
+        // delete report
+        $colection = Report::whereIn('ad_id', $adIds)->pluck('id');
+        Report::destroy($colection->toArray());
+
+        // delete store
         $data->delete();
+
         $request->session()->flash('action-success', '企業を正常に削除しました。');
         return redirect(route('store.index'));
     }
@@ -24,6 +40,10 @@ class StoreController extends Controller
         $data = Store::find($request->id);
         $data->is_accepted = 1;
         $data->save();
+        Mail::send(['text'=>'admin.store.mail'], array('name'=>$data->name,'email'=>$data->email), function($message) use($data){
+            $message->to($data['email'])->subject('新企業がアクセプトされました!');
+            $message->from(env('MAIL_USERNAME'),'ITSS2-Random-AdService');
+        });
         $request->session()->flash('action-success', '新企業のアクセプトに成功。');
         return redirect(route('store.index'));
     }

@@ -10,11 +10,12 @@ use App\Http\Requests\Store\AdUpdateRequest;
 use App\Http\Requests\Request;
 use App\Models\Advertisement;
 use App\Models\Product;
+use App\Models\Report;
 
 class AdvertisementController extends Controller
 {
     public function index(){
-      $advertisements = Auth::guard('store')->user()->advertisement()->paginate(3);
+      $advertisements = Auth::guard('store')->user()->advertisements()->orderBy('id', 'DESC')->paginate(3);
       return view('store.advertisement.index',compact('advertisements'));
     }
 
@@ -106,6 +107,9 @@ class AdvertisementController extends Controller
     public function remove(Request $request, $id) {
         $advertisement = Advertisement::find($id);
         if ($advertisement->delete()){
+            // delete report
+            Report::where('ad_id', $id)->delete();
+            
             $advertisements = Auth::guard('store')->user()->advertisement()->get();
             $request->session()->flash('action-success', '広告の削除に成功。');
             return redirect()->route('advertisement.index', compact('advertisements'));
@@ -116,7 +120,7 @@ class AdvertisementController extends Controller
     }
 
     public function search(Request $request) {
-        $advertisements = Auth::guard('store')->user()->advertisement()->where('title','like','%'.$request->search.'%')->paginate(2);
+        $advertisements = Auth::guard('store')->user()->advertisements()->where('title','like','%'.$request->search.'%')->paginate(2);
         $advertisements->appends($request->all());
         return view('store.advertisement.index', compact('advertisements'));
     }

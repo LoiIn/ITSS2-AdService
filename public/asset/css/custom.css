@@ -42,3 +42,13 @@
   box-shadow: none;
   padding: 2.112rem 3.25rem;
 }
+
+/* profile update form css*/
+.profile-update-form {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+}

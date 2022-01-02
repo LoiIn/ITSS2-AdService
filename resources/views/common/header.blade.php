@@ -9,12 +9,14 @@
                 </span>
               </a>
             </li>
-            <li class="nav-item {{isset($nav_store) ? $nav_store : ''}}">
-              <a class="nav-link" href="{{route('store.register')}}">
-                <i class="mdi mdi-account-plus menu-icon"></i>
-                <span class="menu-title">企業登録</span>
-              </a>
-            </li>
+            @if (!Auth::check())
+              <li class="nav-item {{isset($nav_store) ? $nav_store : ''}}">
+                <a class="nav-link" href="{{route('store.register')}}">
+                  <i class="mdi mdi-account-plus menu-icon"></i>
+                  <span class="menu-title">企業登録</span>
+                </a>
+              </li>
+            @endif
             <li class="nav-item {{isset($nav_product) ? $nav_product : ''}}">
                 <a class="nav-link" href="{{route('product.index')}}">
                   <i class="mdi mdi-cube-outline menu-icon"></i>
@@ -38,7 +40,7 @@
             </li>
             @if (Auth::check())
             <li class="nav-item">
-                <a class="nav-link" href="{{route('store.logout')}}">
+                <a class="nav-link">
                   <i class="mdi mdi-account-convert menu-icon"></i>
                   <span class="menu-title">{{Auth::guard('store')->user()->name}}</span>
                   <i class="menu-arrow"></i>
@@ -46,6 +48,8 @@
                 <div class="submenu">
                   <ul>
                       <li class="nav-item"><a class="nav-link" href="{{route('store.logout')}}">ログアウト</a></li>
+                      <li class="nav-item"><a class="nav-link" href="{{route('store.profile.index')}}">プロフィール</a></li>
+                      <li class="nav-item"><a class="nav-link" href="{{route('store.profile.showChangePassword')}}">パスワードを変更する</a></li>
                   </ul>
                 </div>
             </li>
@@ -58,7 +62,7 @@
                 </a>
               </li>
             @endif
-            
+
           </ul>
       </div>
     </nav>

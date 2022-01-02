@@ -16,25 +16,37 @@
                         <div class="form-group row">
                             <label for="name" class="col-sm-3 col-form-label">企業名</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="name" id="name" placeholder="企業名を入力して下さい。">
+                                <input type="text" class="form-control" name="name" id="name" 
+                                       placeholder="企業名を入力して下さい。"
+                                       value="{{ old('name') }}"
+                                >
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="name" class="col-sm-3 col-form-label">メール</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="email" id="email" placeholder="メールを入力して下さい。">
+                                <input type="text" class="form-control" name="email" id="email" 
+                                       placeholder="メールを入力して下さい。"
+                                       value="{{ old('email') }}"
+                                >
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="name" class="col-sm-3 col-form-label">アドレス</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="address" id="address" placeholder="アドレスを入力して下さい。">
+                                <input type="text" class="form-control" name="address" id="address" 
+                                       placeholder="アドレスを入力して下さい。"
+                                       value="{{ old('address') }}"
+                                >
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="name" class="col-sm-3 col-form-label">電話番号</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="phone" id="phone" placeholder="電話番号を入力して下さい。">
+                                <input type="text" class="form-control" name="phone" id="phone" 
+                                       placeholder="電話番号を入力して下さい。"
+                                       value="{{ old('phone') }}"
+                                >
                             </div>
                         </div>
                         <div class="form-group row">
@@ -66,7 +78,7 @@
                             </div>
                             <div class="col-sm-12 text-center mt-3">
                                 <a name="" id="" class="" href="{{route('store.login')}}" role="button">
-                                    アカウントがないと、ここをクリックしてください
+                                    アカウントがあると、ここをクリックしてください
                                 </a>
                            </div>
                         </div>
