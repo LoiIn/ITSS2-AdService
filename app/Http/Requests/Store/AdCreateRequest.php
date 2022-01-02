@@ -37,8 +37,8 @@ class AdCreateRequest extends Request
         return [
             'title.required' => 'タイトルフィールドは必須です。',
             'content.required' => '内容フィールドは必須です。',
-            'started_date.required' => '始める時間フィールドは必須です。',
-            'ended_date.required' => '終わり時間フィールドは必須です。',
+            'started_date.required' => '開始日フィールドは必須です。',
+            'ended_date.required' => '終了日フィールドは必須です。',
             'product_id.required' => '商品フィールドは必須です。',
         ];
     }

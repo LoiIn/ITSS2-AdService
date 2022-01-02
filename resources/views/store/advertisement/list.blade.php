@@ -45,13 +45,13 @@
                     内容
                 </th>
                 <th>
-                    始める時間
+                    開始日
                 </th>
                 <th>
-                    終わり時間
+                    終了日
                 </th>
                 <th>
-                    様子
+                    状態
                 </th>
                 <th class="text-center" width = "200px">
                   アクション

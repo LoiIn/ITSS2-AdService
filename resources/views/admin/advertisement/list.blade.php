@@ -30,8 +30,8 @@
                         <th>タイトル</th>
                         <th>企業</th>
                         <th>イメジ</th>
-                        <th>スタートデート</th>
-                        <th>エンドデート</th>
+                        <th>開始日</th>
+                        <th>終了日</th>
                         <th>内容</th>
                         <th class="text-center" width="200px">アクション</th>
                         </tr>
