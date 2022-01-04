@@ -48,10 +48,11 @@ class AdvertisementController extends Controller
                     ->orWhere('stores.name', 'LIKE', '%'.$_GET['query'].'%')
                     ->paginate(3);
                     
-            $data->appends($request->except());
+            $data->appends($request->all());
             $mess = $data->total() != 0 ? '' : '結果がありません。';
             $request->session()->flash('no-data', $mess);
-            return view('admin.advertisement.ad_manager', compact('data'));
+            $query = $_GET['query'];
+            return view('admin.advertisement.ad_manager', compact('data', 'query'));
         } else {
             $data = Advertisement::paginate(3);
             return view('admin.advertisement.ad_manager', compact('data'));

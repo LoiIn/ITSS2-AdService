@@ -7,7 +7,7 @@
               <form class="forms-sample" method="GET" action="{{route('advertisement.search')}}">
                 <div class="form-group row">
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" placeholder="広告タイトル入力...." name="search">
+                    <input type="text" class="form-control" value="{{$search??''}}" placeholder="広告タイトル入力...." name="search">
                   </div>
                   <div class="col-sm-3 mt-1">
                     <button type="submit" class="btn btn-primary">
@@ -62,7 +62,7 @@
               @foreach ($advertisements as $key=>$item)
                 <tr>
                   <td>
-                    {{$key+1}}
+                    {{isset($data) ? (($data->currentPage()-1) * $data->perPage() + $key+1) : ($key + 1)}}
                   </td>
                   <td class="py-1">
                     @php

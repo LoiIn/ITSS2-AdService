@@ -128,6 +128,9 @@ class ProductController extends Controller
     public function search(Request $request) {
         $products = Auth::guard('store')->user()->products()->where('title','like','%'.$request->search.'%')->paginate(2);
         $products->appends($request->all());
-        return view('store.product.index', compact('products'));
+        $mess = $products->total() != 0 ? '' : '結果がありません。';
+        $request->session()->flash('no-data', $mess);
+        $search = $request->search;
+        return view('store.product.index', compact('products', 'search'));
     }
 }

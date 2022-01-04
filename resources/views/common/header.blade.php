@@ -9,7 +9,7 @@
                 </span>
               </a>
             </li>
-            @if (!Auth::check())
+            @if (!Auth::guard('store')->user())
               <li class="nav-item {{isset($nav_store) ? $nav_store : ''}}">
                 <a class="nav-link" href="{{route('store.register')}}">
                   <i class="mdi mdi-account-plus menu-icon"></i>
@@ -38,7 +38,7 @@
                   <i class="menu-arrow"></i>
                 </a>
             </li>
-            @if (Auth::check())
+            @if (Auth::guard('store')->user())
             <li class="nav-item">
                 <a class="nav-link">
                   <i class="mdi mdi-account-convert menu-icon"></i>
