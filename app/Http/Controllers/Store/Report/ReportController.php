@@ -23,7 +23,10 @@ class ReportController extends BaseController
         if (isset($_GET['query']) && $_GET['query'] != "") {
             $data = Auth::guard('store')->user()->adReports()->where('advertisements.title', 'LIKE', '%'.$_GET['query'].'%')->paginate(3);
             $data->appends($request->all());
-            return view('store.report.index', compact('data'));
+            $mess = $data->total() != 0 ? '' : '結果がありません。';
+            $request->session()->flash('no-data', $mess);
+            $query = $_GET['query'];
+            return view('store.report.index', compact('data', 'query'));
         } else {
             $data = Report::paginate(3);
             return view('store.report.index', compact('data'));

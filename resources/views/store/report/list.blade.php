@@ -8,7 +8,7 @@
               @csrf
               <div class="form-group row">
                 <div class="col-sm-9">
-                    <input type="text" name="query" class="form-control" placeholder="広告名入力...." >
+                    <input type="text" name="query" value="{{$query??''}}" class="form-control" placeholder="広告名入力...." >
                 </div>
                 <div class="col-sm-3 mt-1">
                   <button type="submit" class="btn btn-primary">
@@ -47,7 +47,7 @@
               @foreach ($data as $key=>$item)
                 <tr>
                   <td>
-                    {{$key+1}}
+                    {{isset($data) ? (($data->currentPage()-1) * $data->perPage() + $key+1) : ($key + 1)}}
                   </td>
                   <td>
                     {{$item->advertisement->title}}

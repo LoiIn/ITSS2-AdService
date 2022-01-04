@@ -54,7 +54,8 @@ class StoreController extends Controller
             $data->appends($request->all());
             $mess = $data->total() != 0 ? '' : '結果がありません。';
             $request->session()->flash('no-data', $mess);
-            return view('admin/store.store_manager', compact('data'));
+            $query = $_GET['query'];
+            return view('admin/store.store_manager', compact('data', 'query'));
         }
         else{
             $data = Store::paginate(3);

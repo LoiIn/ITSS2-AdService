@@ -5,7 +5,7 @@
               @csrf
               <div class="form-group row">
                 <div class="col-sm-9">
-                    <input type="text" name="query" class="form-control" placeholder="企業名入力...." >
+                    <input type="text" name="query" value="{{$query??''}}" class="form-control" placeholder="企業名入力...." >
                 </div>
                 <div class="col-sm-3 mt-1">
                   <button type="submit" class="btn btn-primary">
@@ -39,7 +39,7 @@
                 @foreach($data as $key=>$item)
                 <tr>
                 <td>
-                    <div>{{$key+1}}</div>
+                    <div>{{isset($data) ? (($data->currentPage()-1) * $data->perPage() + $key+1) : ($key + 1)}}</div>
                 </td>
                 <td>
                     <div>{{$item->name}}</div>

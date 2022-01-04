@@ -30,7 +30,8 @@ class ReportController extends BaseController
             $data->appends($request->all());
             $mess = $data->total() != 0 ? '' : '結果がありません。';
             $request->session()->flash('no-data', $mess);
-            return view('admin.report.index', compact('data'));
+            $query = $_GET['query'];
+            return view('admin.report.index', compact('data', 'query'));
         } else {
             $data = Report::paginate(3);
             return view('admin.report.index', compact('data'));

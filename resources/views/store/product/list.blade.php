@@ -7,7 +7,7 @@
             <form class="forms-sample" method="GET"  action="{{ route('product.search') }}">
               <div class="form-group row">
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" placeholder="製品名を入力...." name="search">
+                  <input type="text" class="form-control" value="{{$search??''}}" placeholder="製品名を入力...." name="search">
                 </div>
                 <div class="col-sm-3 mt-1">
                   <button type="submit" class="btn btn-primary">
@@ -53,7 +53,7 @@
             @foreach ($products as $key=>$item)
               <tr>
                 <td>
-                  {{$key + 1}}
+                  {{isset($data) ? (($data->currentPage()-1) * $data->perPage() + $key+1) : ($key + 1)}}
                 </td>
                 <td class="py-1">
                   <img src="{{asset('asset/images/product/'.$item->image)}}" alt="image"/>
