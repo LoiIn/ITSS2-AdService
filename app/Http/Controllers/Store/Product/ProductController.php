@@ -47,6 +47,7 @@ class ProductController extends Controller
           $product = Product::create($params);
 
           if ($categories = \Arr::get($data, 'categories', [])) {
+
               $product->categories()->attach($categories);
           }
 
