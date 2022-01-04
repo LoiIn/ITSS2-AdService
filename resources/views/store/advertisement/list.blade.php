@@ -62,7 +62,7 @@
               @foreach ($advertisements as $key=>$item)
                 <tr>
                   <td>
-                    {{isset($data) ? (($data->currentPage()-1) * $data->perPage() + $key+1) : ($key + 1)}}
+                    {{isset($advertisements) ? (($advertisements->currentPage()-1) * $advertisements->perPage() + $key+1) : ($key + 1)}}
                   </td>
                   <td class="py-1">
                     @php

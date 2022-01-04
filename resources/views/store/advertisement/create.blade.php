@@ -58,7 +58,7 @@
                                 <div class="from-group row mb-4">
                                     <div class="col-sm-6">
                                         <div class="row">
-                                            <label for="time" class="col-sm-4 col-form-label">始める時間</label>
+                                            <label for="time" class="col-sm-4 col-form-label">開始日</label>
                                             <div class="col-sm-8">
                                                 <input type="date" class="form-control" name="started_date" id="ad-start-time" placeholder="始める時間を入力して下さい。"
                                                     value="{{old('started_date', isset($advertisement->started_date) ? $advertisement->started_date : '')}}"
@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="row">
-                                            <label for="time" class="col-sm-4 col-form-label">終わり時間</label>
+                                            <label for="time" class="col-sm-4 col-form-label">終了日</label>
                                             <div class="col-sm-8">
                                                 <input type="date" class="form-control" name="ended_date" id="ad-end-time" placeholder="終わり時間を入力して下さい。"
                                                     value="{{old('ended_date', isset($advertisement->ended_date) ? $advertisement->ended_date : '')}}"

@@ -46,12 +46,18 @@
                                       会員
                                     </h4>
                                   <div class="template-demo">
-                                    <a name="" id="" class="btn btn-info btn-lg btn-block" href="{{route('store.login')}}" role="button">
-                                      ログイン
-                                    </a>
-                                    <a name="" id="" class="btn btn-primary btn-lg btn-block" href="{{route('store.signup')}}" role="button">
-                                      サインアップ
-                                    </a>
+                                    @if (!Auth::guard('store')->user())
+                                      <a name="" id="" class="btn btn-info btn-lg btn-block" href="{{route('store.login')}}" role="button">
+                                        ログイン
+                                      </a>
+                                      <a name="" id="" class="btn btn-primary btn-lg btn-block" href="{{route('store.signup')}}" role="button">
+                                        サインアップ
+                                      </a>
+                                    @else
+                                      <a name="" id="" class="btn btn-info btn-lg btn-block" href="{{route('store.logout')}}" role="button">
+                                        ログアウト
+                                      </a> 
+                                    @endif
                                   </div>
                                 </div>
                             </div>
@@ -68,10 +74,6 @@
                                       管理画面
                                     </a>
                                   </div>
-                                  <div class="template-demo">
-                                    <a name="" id="" class="btn btn-light btn-lg btn-block" href="{{route('admin.login')}}" role="button">
-                                      ログイン
-                                    </a>
                                   </div>
                                 </div>
                             </div>
