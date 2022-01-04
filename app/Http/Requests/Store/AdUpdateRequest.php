@@ -26,8 +26,8 @@ class AdUpdateRequest extends Request
         return [
             'title' => ['required', 'string', 'max:255'],
             'content' => ['required'],
-            'started_date' => ['required', 'string'],
-            'ended_date' => ['required', 'string'],
+            'started_date' => ['required', 'date'],
+            'ended_date' => 'required|date|after:started_date',
             'product_id' => ['required'], 
         ];
     }
@@ -39,6 +39,7 @@ class AdUpdateRequest extends Request
             'content.required' => '内容フィールドは必須です。',
             'started_date.required' => '開発時間フィールドは必須です。',
             'ended_date.required' => 'フィールドは必須です。',
+            'ended_date.after' => '「終わり時間」は「始める時間」より後でなければなりません。',
             'product_id.required' => '商品フィールドは必須です。',
         ];
     }
