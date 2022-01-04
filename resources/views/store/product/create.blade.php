@@ -35,12 +35,22 @@
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">種類</label>
-                                    @foreach ($categories as $item)
+
+                                    @foreach ($categories as $key=>$item)
                                         <div class="col-sm-2">
                                             <div class="form-check">
                                                 @php
                                                     if(isset($product)){
-                                                        $sameId = $product->categories()->get()->pluck('id')[0];
+                                                            // $sameId = $product->categories()->get()->pluck('id')[$key];
+                                                        foreach ($product->categories()->get()->pluck('id') as $key => $value) {
+                                                            if ($item->id == $value){
+                                                                $sameId = $item->id;
+                                                                break;
+                                                            }
+                                                        }
+                                                        if(!isset($sameId)){
+                                                            $sameId = 1;
+                                                        }
                                                     } else {
                                                         $sameId = 1;
                                                     }
