@@ -35,7 +35,7 @@
                                </div>
                                <div class="col-sm-12 text-center mt-3">
                                     <a name="" id="" class="" href="{{route('store.register')}}" role="button">
-                                        アカウントがないと、ここをクリックしてください
+                                        はじめての方
                                     </a>
                                </div>
                             </div>

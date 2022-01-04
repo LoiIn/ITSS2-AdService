@@ -43,7 +43,7 @@
                                 <div class="card-body mb-3">
                                   <h4 class="card-title">
                                     <i class="mdi mdi-account-check"></i>
-                                      商店に
+                                      会員
                                     </h4>
                                   <div class="template-demo">
                                     <a name="" id="" class="btn btn-info btn-lg btn-block" href="{{route('store.login')}}" role="button">
@@ -61,7 +61,7 @@
                                 <div class="card-body mb-3">
                                   <h4 class="card-title">
                                     <i class="mdi mdi-account-card-details"></i>  
-                                      管理に
+                                      管理者
                                   </h4>
                                   <div class="template-demo">
                                     <a name="" id="" class="btn btn-outline-warning btn-lg btn-block" href="{{route('store.index')}}" role="button">
