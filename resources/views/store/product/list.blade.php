@@ -62,7 +62,9 @@
                   {{$item->title}}
                 </td>
                 <td>
-                  {{$item->categories()->get()->pluck('title')[0]}}
+                    @for ($i = 0; $i < count($item->categories()->get()->pluck('title')); $i++)
+                        {{$item->categories()->get()->pluck('title')[$i]}} <br>
+                    @endfor
                 </td>
                 <td>
                   {{$item->info}}

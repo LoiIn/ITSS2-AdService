@@ -10,7 +10,7 @@
         } else {
             $formAction = route('product.store');
             $cardTitle = '商品追加';
-        }                    
+        }
     @endphp
     <div class="main-panel">
         <div class="content-wrapper">
@@ -46,16 +46,16 @@
                                                     }
                                                 @endphp
                                                 <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="categories" id="cate-{{$item->id}}" value="{{$item->id}}"
-                                                        {{$item->id == $sameId ? "checked"  : ""}}   
-                                                    >                                                 
+                                                    <input type="checkbox" class="form-check-input" name="categories[]" id="cate-{{$item->id}}" value="{{$item->id}}"
+                                                        {{$item->id == $sameId ? "checked"  : ""}}
+                                                    >
                                                     {{$item->title}}
                                                 </label>
                                             </div>
                                         </div>
                                     @endforeach
                                 </div>
-                               
+
                                 <div class="form-group row">
                                     <label for="content" class="col-sm-2 col-form-label">他の情報</label>
                                     <div class="col-sm-10">
@@ -72,8 +72,8 @@
                                             $img = isset($product->image) ? ('product/' . $product->image) : 'not-found.png';
                                         @endphp
                                         <span id="preview-image-before-upload">
-                                            <img 
-                                                src="{{ asset('asset/images/' . $img) }}" 
+                                            <img
+                                                src="{{ asset('asset/images/' . $img) }}"
                                                 alt="">
                                         </span>
                                     </div>
@@ -92,5 +92,5 @@
             </div>
         </div>
     </div>
-@endsection 
+@endsection
 @endif
