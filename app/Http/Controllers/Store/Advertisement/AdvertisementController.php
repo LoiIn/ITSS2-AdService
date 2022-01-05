@@ -14,8 +14,10 @@ use App\Models\Report;
 
 class AdvertisementController extends Controller
 {
+    private $items_number = 3;
+
     public function index(){
-      $advertisements = Auth::guard('store')->user()->advertisements()->orderBy('id', 'DESC')->paginate(3);
+      $advertisements = Auth::guard('store')->user()->advertisements()->orderBy('id', 'DESC')->paginate($this->items_number);
       return view('store.advertisement.index',compact('advertisements'));
     }
 
@@ -120,7 +122,8 @@ class AdvertisementController extends Controller
     }
 
     public function search(Request $request) {
-        $advertisements = Auth::guard('store')->user()->advertisements()->where('title','like','%'.$request->search.'%')->paginate(2);
+        $advertisements = Auth::guard('store')->user()->advertisements()
+        ->where('title','like','%'.$request->search.'%')->orderBy('id', 'DESC')->paginate($this->items_number);
         $advertisements->appends($request->all());
         $mess = $advertisements->total() != 0 ? '' : '結果がありません。';
         $request->session()->flash('no-data', $mess);
