@@ -9,6 +9,27 @@
                 </span>
               </a>
             </li>
+            <li class="nav-item {{isset($nav_guide) ? $nav_guide : ''}}">
+              <a class="nav-link">
+                <i class="mdi mdi-help-circle menu-icon"></i>
+                  <span class="menu-title">利用方</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="submenu">
+                <ul>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{route('guide.store')}}">
+                        企業ガイド
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{route('guide.user')}}">
+                        ユーザーガイド
+                      </a>
+                    </li>
+                </ul>
+              </div>
+            </li>
             @if (!Auth::guard('store')->user())
               <li class="nav-item {{isset($nav_store) ? $nav_store : ''}}">
                 <a class="nav-link" href="{{route('store.register')}}">
@@ -37,9 +58,9 @@
                   <span class="menu-title">レポート</span>
                   <i class="menu-arrow"></i>
                 </a>
-            </li>
+            </li>            
             @if (Auth::guard('store')->user())
-            <li class="nav-item">
+            <li class="nav-item {{isset($nav_auth) ? $nav_auth : ''}}">
                 <a class="nav-link">
                   <i class="mdi mdi-account-convert menu-icon"></i>
                   <span class="menu-title">{{Auth::guard('store')->user()->name}}</span>

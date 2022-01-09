@@ -56,3 +56,20 @@
 .form-check-input {
     opacity: 1 !important;
 }
+
+.guide-image img {
+    width: 50%;
+    margin: auto;
+    display: block;
+}
+
+.guide-right {
+    margin-top: 2rem;
+}
+
+.guide-text {
+    border: 2px solid black;
+    padding: 0 !important;
+    border-radius: 6px;
+    background-color: white !important;
+}

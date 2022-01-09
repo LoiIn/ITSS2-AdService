@@ -1,7 +1,7 @@
 @extends('common.layout')
 
 @section('content')
-    @extends('common.header')
+    @extends('common.header', ['nav_auth' => 'active']) 
     <div class="main-panel">
         <div class="content-wrapper">
             @include('common.error')

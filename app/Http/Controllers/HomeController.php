@@ -13,6 +13,14 @@ class HomeController extends Controller
       return view('welcome');
    }
 
+   public function guideStore(){
+      return view('guide_store');
+   }
+
+   public function guideUser(){
+      return view('guide_user');
+   }
+
    public function testAds($agent, $id){
       $ads = Report::where('id', $id)->first();
       $ads->views += 1;
