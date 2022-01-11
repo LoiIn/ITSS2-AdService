@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\Mail;
 
 class StoreController extends Controller
 {
+    private $items_number = 3;
+
     public function index(){
-        $data = Store::orderBy('id', 'desc')->paginate(3);
+        $data = Store::orderBy('id', 'desc')->paginate($this->items_number);
         return view('admin/store.store_manager', compact('data'));
     }
 
@@ -50,7 +52,7 @@ class StoreController extends Controller
 
     public function search(Request $request) {
         if (isset($_GET['query']) && $_GET['query'] != ""){
-            $data = Store::where("name","LIKE", "%".$_GET['query']."%")->paginate(3);
+            $data = Store::where("name","LIKE", "%".$_GET['query']."%")->orderBy('id', 'desc')->paginate($this->items_number);
             $data->appends($request->all());
             $mess = $data->total() != 0 ? '' : '結果がありません。';
             $request->session()->flash('no-data', $mess);
@@ -58,7 +60,7 @@ class StoreController extends Controller
             return view('admin/store.store_manager', compact('data', 'query'));
         }
         else{
-            $data = Store::paginate(3);
+            $data = Store::orderBy('id', 'desc')->paginate($this->items_number);
             return view('admin/store.store_manager', compact('data'));
         }
     }

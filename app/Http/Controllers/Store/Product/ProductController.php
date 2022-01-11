@@ -14,8 +14,10 @@ use App\Models\Report;
 
 class ProductController extends Controller
 {
+    private $items_number = 3;
+
     public function index(){
-      $products = Auth::guard('store')->user()->products()->orderBy('id', 'DESC')->paginate(3);
+      $products = Auth::guard('store')->user()->products()->orderBy('id', 'DESC')->paginate($this->items_number);
       return view('store.product.index',compact('products'));
     }
 
@@ -127,7 +129,8 @@ class ProductController extends Controller
     }
 
     public function search(Request $request) {
-        $products = Auth::guard('store')->user()->products()->where('title','like','%'.$request->search.'%')->paginate(2);
+        $products = Auth::guard('store')->user()->products()
+        ->where('title','like','%'.$request->search.'%')->orderBy('id', 'DESC')->paginate($this->items_number);
         $products->appends($request->all());
         $mess = $products->total() != 0 ? '' : '結果がありません。';
         $request->session()->flash('no-data', $mess);
