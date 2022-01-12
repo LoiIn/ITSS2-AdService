@@ -36,6 +36,7 @@ class ProductController extends Controller
             'info' => \Arr::get($data, 'info'),
           ];
 
+
           if(\Arr::get($data, 'image')) {
             $imageName = '';
             $file = $request->file('image');
@@ -45,8 +46,8 @@ class ProductController extends Controller
 
             $params['image'] = $imageName;
           }
-
           $product = Product::create($params);
+
 
           if ($categories = \Arr::get($data, 'categories', [])) {
 
@@ -77,9 +78,10 @@ class ProductController extends Controller
 
         $rs = DB::transaction(function () use ($product, $data, $request){
           $params = [
-            'title'  => \Arr::get($data, 'title'),
-            'info' => \Arr::get($data, 'info'),
+            'title'  => \Arr::get($data, 'title')
           ];
+
+          $product->info = \Arr::get($data, 'info');
 
           if(\Arr::get($data, 'image')) {
             $imageName = '';
