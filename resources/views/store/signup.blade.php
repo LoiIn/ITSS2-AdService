@@ -32,10 +32,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="name" class="col-sm-3 col-form-label">アドレス</label>
+                            <label for="name" class="col-sm-3 col-form-label">住所</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="address" id="address" 
-                                       placeholder="アドレスを入力して下さい。"
+                                       placeholder="住所を入力して下さい。"
                                        value="{{ old('address') }}"
                                 >
                             </div>

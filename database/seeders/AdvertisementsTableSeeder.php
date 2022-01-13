@@ -17,7 +17,7 @@ class AdvertisementsTableSeeder extends Seeder
             [
                 'store_id' => 1,
                 'product_id' => 1,
-                'title' => '靴の広告のデモです。',
+                'title' => 'Adidas靴',
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => '内容のデモ',
@@ -27,7 +27,7 @@ class AdvertisementsTableSeeder extends Seeder
             [
                 'store_id' => 1,
                 'product_id' => 2,
-                'title' => 'Tーシャツの広告のデモです。',
+                'title' => 'AdidasTーシャツ',
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => '内容のデモ',
@@ -37,7 +37,7 @@ class AdvertisementsTableSeeder extends Seeder
             [
                 'store_id' => 2,
                 'product_id' => 3,
-                'title' => '靴の広告のデモです。',
+                'title' => 'Nike靴',
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => '内容のデモ',
@@ -47,7 +47,7 @@ class AdvertisementsTableSeeder extends Seeder
             [
                 'store_id' => 2,
                 'product_id' => 4,
-                'title' => 'Tーシャツの広告のデモです。',
+                'title' => 'NikeTーシャツ',
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => '内容のデモ',
@@ -57,7 +57,7 @@ class AdvertisementsTableSeeder extends Seeder
             [
                 'store_id' => 1,
                 'product_id' => 5,
-                'title' => 'Jeanの広告のデモです。',
+                'title' => 'NikeのJean',
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => '内容のデモ',
@@ -67,7 +67,7 @@ class AdvertisementsTableSeeder extends Seeder
             [
                 'store_id' => 1,
                 'product_id' => 6,
-                'title' => 'ポロシャツの広告のデモです。',
+                'title' => 'Nikeのポロシャツ',
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => '内容のデモ',
@@ -77,7 +77,7 @@ class AdvertisementsTableSeeder extends Seeder
             [
                 'store_id' => 2,
                 'product_id' => 7,
-                'title' => '靴の広告のデモです。',
+                'title' => 'Uniqlo靴',
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => '内容のデモ',
@@ -87,7 +87,7 @@ class AdvertisementsTableSeeder extends Seeder
             [
                 'store_id' => 2,
                 'product_id' => 8,
-                'title' => 'Tーシャツの広告のデモです。',
+                'title' => 'UniqloTーシャツ',
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => '内容のデモ',
