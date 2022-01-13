@@ -18,6 +18,7 @@ class ProductController extends Controller
 
     public function index(){
       $products = Auth::guard('store')->user()->products()->orderBy('id', 'DESC')->paginate($this->items_number);
+  
       return view('store.product.index',compact('products'));
     }
 
