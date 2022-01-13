@@ -64,7 +64,7 @@
                         <div class="form-group row">
                             <label for="name" class="col-sm-3 col-form-label">ロゴ</label>
                             <div class="col-sm-9">
-                                <input type="file" class="form-control mb-2" name="logo" id="image" placeholder="" aria-describedby="fileHelpId">
+                                <input type="file" class="form-control mb-2" accept="image/png, image/jpeg" name="logo" id="image" placeholder="" aria-describedby="fileHelpId">
                                 <span id="preview-image-before-upload">
                                     <img 
                                         src="{{ asset('asset/images/not-found.png') }}" 
