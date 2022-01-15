@@ -4,13 +4,15 @@
     <nav class="bottom-navbar">
       <div class="container">
           <ul class="nav page-navigation">
-            <li class="">
-              <a class="nav-link" href="{{route('store.index')}}">
+            @if (!Session::get('login'))
+            <li class="nav-item {{isset($nav_home) ? $nav_home : ''}}">
+              <a class="nav-link" href="{{route('home')}}">
                 <span class="logo-icon mdi menu-icon">
                   <img src="{{asset('asset/images/icon.jpg')}}" alt="">
                 </span>
               </a>
-            </li>
+            </li>  
+            @endif
             <li class="nav-item {{isset($nav_store) ? $nav_store : ''}}">
               <a class="nav-link" href="{{route('store.index')}}">
                 <i class="mdi mdi-file-document-box menu-icon"></i>
@@ -31,11 +33,10 @@
                   <i class="menu-arrow"></i>
                 </a>
             </li>
-
                 <?php
                    if(Session::get('login')){
                    ?>
-                   <li class="nav-item">
+                   <li class="nav-item" {{isset($nav_auth) ? $nav_auth : ''}}>
                       <a href="" class="nav-link">
                         <i class="mdi mdi-account-convert menu-icon"></i>
                         <span class="menu-title">{{Auth::user()->name}}</span>
@@ -43,7 +44,14 @@
                       </a>
                       <div class="submenu">
                           <ul>
-                              <li class="nav-item"><a class="nav-link" href="{{route('admin.logout')}}">ログアウト</a></li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="{{route('admin.logout')}}">ログアウト</a>
+                              </li>
+                              <li class="nav-item  ">
+                                <a href="{{route('store.login')}}" class="nav-link">
+                                  ユーザを切り替え
+                                </a>
+                              </li>
                           </ul>
                       </div>
                    </li>
@@ -51,7 +59,7 @@
                         }
                    else{
                    ?>
-                        <li class="nav-item">
+                        <li class="nav-item" {{isset($nav_auth) ? $nav_auth : ''}}>
                             <a href="{{route('admin.login')}}" class="nav-link">
                                  <i class="mdi mdi-account-convert menu-icon"></i>
                                     <span class="menu-title">ログイン</span>
@@ -60,8 +68,7 @@
                         </li>
                         <?php
                         }
-                        ?>
-            </li>
+                    ?>
           </ul>
       </div>
     </nav>

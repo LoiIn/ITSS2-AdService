@@ -1,7 +1,7 @@
 @extends('common.layout')
 
 @section('content')
-    @extends('common.admin_header')
+    @extends('common.admin_header', ['nav_auth'=>'active'])
     @if(count($errors) > 0)
         <div class="">
             @foreach ($errors->all() as $err)
