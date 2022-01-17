@@ -69,8 +69,8 @@
                                 <div class="form-group row">
                                     <label for="content" class="col-sm-2 col-form-label">他の情報</label>
                                     <div class="col-sm-10">
-                                        <textarea type="text" rows="5" class="form-control" name="content" id="ad-content" placeholder="内容を入力して下さい。">
-                                            {{old('content', isset($product->info) ? $product->info : '')}}
+                                        <textarea type="text" rows="5" class="form-control" name="info" id="ad-content" placeholder="内容を入力して下さい。">
+                                            {{old('info', isset($product->info) ? $product->info : '')}}
                                         </textarea>
                                     </div>
                                 </div>

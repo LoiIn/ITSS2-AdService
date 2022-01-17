@@ -10,8 +10,10 @@ use App\Models\Advertisement;
 
 class AdvertisementController extends Controller
 {
+    private $items_number = 3;
+
     public function index(){
-        $data = Advertisement::orderBy('id', 'desc')->paginate(3);
+        $data = Advertisement::orderBy('id', 'desc')->paginate($this->items_number);
         $site_data = Site::all();
         return view('admin.advertisement.ad_manager', compact('data', 'site_data'));
     }
@@ -66,7 +68,7 @@ class AdvertisementController extends Controller
             $data = Advertisement::join('stores', 'stores.id', '=', 'advertisements.store_id')
                     ->where('advertisements.title', 'LIKE', '%'.$_GET['query'].'%')
                     ->orWhere('stores.name', 'LIKE', '%'.$_GET['query'].'%')
-                    ->paginate(3);
+                    ->orderBy('advertisements.id', 'desc')->paginate($this->items_number);
                     
             $data->appends($request->all());
             $mess = $data->total() != 0 ? '' : '結果がありません。';
@@ -74,7 +76,7 @@ class AdvertisementController extends Controller
             $query = $_GET['query'];
             return view('admin.advertisement.ad_manager', compact('data', 'query'));
         } else {
-            $data = Advertisement::paginate(3);
+            $data = Advertisement::orderBy('id', 'desc')->paginate($this->items_number);
             return view('admin.advertisement.ad_manager', compact('data'));
         }
     }

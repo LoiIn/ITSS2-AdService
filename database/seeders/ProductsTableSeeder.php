@@ -17,42 +17,50 @@ class ProductsTableSeeder extends Seeder
             [
                 'store_id' => '1',
                 'title' => 'Puma shoes',
-                'image' =>  'shoe.jpg'
+                'image' =>  'shoe.jpg',
+                'info' => 'Hang nhap khau chinh hang'
             ],
             [
                 'store_id' => '1',
                 'title' => 'Puma T-shirt',
-                'image' => 'tshirt.jpg'
+                'image' => 'tshirt.jpg',
+                'info' => 'Hang nhap khau chinh hang'
             ],
             [
                 'store_id' => '2',
                 'title' => 'Nike shoes',
-                'image' =>  'shoe.jpg'
+                'image' =>  'shoe.jpg',
+                'info' => 'Hang nhap khau chinh hang'
             ],
             [
                 'store_id' => '2',
                 'title' => 'Nike T-shirt',
-                'image' => 'tshirt.jpg'
+                'image' => 'tshirt.jpg',
+                'info' => 'Hang nhap khau chinh hang'
             ],
             [
                 'store_id' => '1',
                 'title' => 'Adidas Jeans',
-                'image' =>  'jean.jpg'
+                'image' =>  'jean.jpg',
+                'info' => 'Hang nhap khau chinh hang'
             ],
             [
                 'store_id' => '1',
                 'title' => 'Adidas polo',
-                'image' => 'polo.jpg'
+                'image' => 'polo.jpg',
+                'info' => 'Hang nhap khau chinh hang'
             ],
             [
                 'store_id' => '2',
                 'title' => 'Thuong Dinh shoes',
-                'image' =>  'shoe.jpg'
+                'image' =>  'shoe.jpg',
+                'info' => 'Hang nhap khau chinh hang'
             ],
             [
                 'store_id' => '2',
                 'title' => 'Thuong Dinh T-shirt',
-                'image' => 'tshirt.jpg'
+                'image' => 'tshirt.jpg',
+                'info' => 'Hang nhap khau chinh hang'
             ],
         ]);
     }
