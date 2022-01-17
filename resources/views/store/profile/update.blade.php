@@ -30,7 +30,7 @@
                             <span class="font-weight-bold">{{isset($logo['label']) ? $logo['label'] : 'イメージ'}}</span>
                         </label>
                         <div class="col-sm-9">
-                            <input type="file" class="form-control mb-2" name="image" id="image" placeholder="" aria-describedby="fileHelpId">
+                            <input type="file" class="form-control mb-2" accept="image/png, image/jpeg" name="image" id="image" placeholder="" aria-describedby="fileHelpId">
                             @php
                                 $img = isset($logo['value']) ? ('store/' . $logo['value']) : 'not-found.png';
                             @endphp
