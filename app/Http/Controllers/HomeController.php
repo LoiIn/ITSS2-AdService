@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Report;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Report;
+use App\Models\Site;
+use App\Models\Advertisement;
 
 class HomeController extends Controller
 {
@@ -21,17 +23,23 @@ class HomeController extends Controller
       return view('guide_user');
    }
 
-   public function testAds($agent, $id){
-      $ads = Report::where('id', $id)->first();
-      $ads->views += 1;
-      $ads->save();   
-      return view('testAds',compact(['agent', 'ads']));
+   public function clickAds($id, $adId){
+      $ad = Report::where('ad_id', $adId)->where('site_id', $id)->first();
+      $ad->clicks += 1;
+      $ad->save();
+      return "success";
    }
 
-   public function clickAds($agent, $id){
-      $ads = Report::where('id', $id)->first();
-      $ads->clicks += 1;
-      $ads->save();
-      return view('testAds',compact(['agent', 'ads']));
+   public function showSite($id){
+      $site = Site::find($id);
+      $ads = $site->ads;
+      $reports = $site->reports;
+
+      foreach ($reports as $item) {
+         $item->views += 1;
+         $item->save();
+      }
+
+      return view('site', compact('site', 'ads'));
    }
 }

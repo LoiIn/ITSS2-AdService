@@ -16,19 +16,39 @@ class AdvertisementController extends Controller
         return view('admin.advertisement.ad_manager', compact('data', 'site_data'));
     }
 
+    public function sites($id){
+        $data = Site::all();
+        return view('admin.advertisement.add_site', compact('data', 'id'));
+    }
+
+    public function searchSite(Request $request){
+        $id = $request->id;
+        if (isset($request->query) && $request->query != ""){
+            $data = Site::where("name","LIKE", "%".$_GET['query']."%")->get();
+            $query = $request->query;
+            return view('admin.advertisement.add_site', compact('data', 'id', 'query'));
+        } else {
+            $data = Site::all();
+            return view('admin.advertisement.add_site', compact('data', 'id'));
+        }
+    }
+
     public function accept(Request $request){
         $data = Advertisement::find($request->id);
         $data->published_flag = 1;
         $data->save();
 
-        $site_id = Site::all()->random(1)->first()['id'];
-        $params = [
-            'ad_id'=> $data->id,
-            'site_id'=>$site_id,
-            'views'=>0,
-            'clicks'=>0
-        ];
-        Report::create($params);
+        $sites = $request->site;
+        foreach ($sites as $siteId ) {
+            $params = [
+                'ad_id'=> $data->id,
+                'site_id'=>$siteId,
+                'views'=>0,
+                'clicks'=>0
+            ];
+            Report::create($params);
+        }
+
         $request->session()->flash('action-success', '新広告のアクセプトに成功。');
         return redirect(route('admin.advertisement.index'));
     }

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Product;
 use App\Models\Store;
 use App\Models\Report;
+use App\Models\Site;
 
 class Advertisement extends Model
 {
@@ -28,5 +29,9 @@ class Advertisement extends Model
 
     public function reports() {
         return $this->hasMany(Report::class);
+    }
+
+    public function sites() {
+        return $this->belongsToMany(Site::class, 'reports', 'ad_id', 'site_id');
     }
 }

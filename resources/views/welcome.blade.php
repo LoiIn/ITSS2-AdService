@@ -33,8 +33,7 @@
                               <u>興味があるか、広告をクリックするすべての人々の統計。 コンテンツもグラフで視覚的に表示されます。</u>
                             </p>
                           </div>
-                        
-                      </div>
+                    </div>
                 </div>
                 <div class="col-md-4 grid-margin stretch-card">
                     <div class="row">

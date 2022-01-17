@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Report;
+use App\Models\Advertisement;
 
 class Site extends Model
 {
@@ -18,5 +19,9 @@ class Site extends Model
 
     public function reports() {
         return $this->hasMany(Report::class);
+    }
+
+    public function ads(){
+        return $this->belongsToMany(Advertisement::class, 'reports', 'site_id', 'ad_id');
     }
 }

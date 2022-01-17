@@ -81,7 +81,7 @@
                                 承認された
                             </a>
                         @else
-                            <a class="btn btn-success admin-action-btn" href="{{route('admin.advertisement.accept', $item->id)}}">
+                            <a class="btn btn-success admin-action-btn" href="{{route('admin.advertisement.accept.sites', $item->id)}}">
                                 <i class="mdi mdi-note-plus"></i>
                                 アクセプト
                             </a>
