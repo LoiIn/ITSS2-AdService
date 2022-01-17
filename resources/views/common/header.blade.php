@@ -12,7 +12,7 @@
             <li class="nav-item {{isset($nav_guide) ? $nav_guide : ''}}">
               <a class="nav-link">
                 <i class="mdi mdi-help-circle menu-icon"></i>
-                  <span class="menu-title">利用方</span>
+                  <span class="menu-title">利用方法</span>
                 <i class="menu-arrow"></i>
               </a>
               <div class="submenu">

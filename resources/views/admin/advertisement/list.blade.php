@@ -29,7 +29,7 @@
                         <th>#</th>
                         <th>タイトル</th>
                         <th>企業</th>
-                        <th>イメジ</th>
+                        <th>イメージ</th>
                         <th>開始日</th>
                         <th>終了日</th>
                         <th>内容</th>
@@ -78,7 +78,7 @@
                         @if ($item->published_flag === 1)
                             <a class="btn btn-secondary admin-action-btn disabled">
                                 <i class="mdi mdi-checkbox-marked-circle"></i>
-                                承認された
+                                承認済
                             </a>
                         @else
                             <a class="btn btn-success admin-action-btn" href="{{route('admin.advertisement.accept.sites', $item->id)}}">

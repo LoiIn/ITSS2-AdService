@@ -27,7 +27,7 @@ class AdvertisementsTableSeeder extends Seeder
             [
                 'store_id' => 1,
                 'product_id' => 2,
-                'title' => 'Tーシャツの広告。',
+                'title' => 'AdidasTーシャツ',
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'とてもきれいです。',
@@ -37,7 +37,7 @@ class AdvertisementsTableSeeder extends Seeder
             [
                 'store_id' => 2,
                 'product_id' => 3,
-                'title' => '靴の広告。',
+                'title' => 'Nike靴',
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'Nike Air Yeezy 1スニーカーの詳細はこちらでご覧いただけます。 ロゴはブラックプレミアムレザーにレーザーカットされました。 次は、Glow In TheDarkソールと一緒にシグネチャー水平ストラップです。 さらに、YEEZYのシグネチャーロゴが付いた赤いレースロックアイコンがあります。',
@@ -47,7 +47,7 @@ class AdvertisementsTableSeeder extends Seeder
             [
                 'store_id' => 2,
                 'product_id' => 4,
-                'title' => 'Tーシャツの広告。',
+                'title' => 'NikeTーシャツ',
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'とてもきれいです。',
@@ -57,7 +57,7 @@ class AdvertisementsTableSeeder extends Seeder
             [
                 'store_id' => 1,
                 'product_id' => 5,
-                'title' => 'Jeanの広告。',
+                'title' => 'NikeのJean',
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'ルーズジーンズは同サイズのTシャツとスニーカーのペアになります。当時、私はとても若くて活動的でした。最初のジーンズは母が買ってくれたのを覚えています。もう着ていませんが、大切にしています。久しぶりですが、私も含めてジーンズは今でも多くの人に選ばれています。',
@@ -67,7 +67,7 @@ class AdvertisementsTableSeeder extends Seeder
             [
                 'store_id' => 1,
                 'product_id' => 6,
-                'title' => 'ポロシャツの広告。',
+                'title' => 'Nikeのポロシャツ',
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'とてもきれいです。',
@@ -77,7 +77,7 @@ class AdvertisementsTableSeeder extends Seeder
             [
                 'store_id' => 2,
                 'product_id' => 7,
-                'title' => '靴の広告。',
+                'title' => 'Uniqlo靴',
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'Nike Air Yeezy 1スニーカーの詳細はこちらでご覧いただけます。 ロゴはブラックプレミアムレザーにレーザーカットされました。 次は、Glow In TheDarkソールと一緒にシグネチャー水平ストラップです。 さらに、YEEZYのシグネチャーロゴが付いた赤いレースロックアイコンがあります。',
@@ -87,7 +87,7 @@ class AdvertisementsTableSeeder extends Seeder
             [
                 'store_id' => 2,
                 'product_id' => 8,
-                'title' => 'Tーシャツの広告。',
+                'title' => 'UniqloTーシャツ',
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'とてもきれいです。',

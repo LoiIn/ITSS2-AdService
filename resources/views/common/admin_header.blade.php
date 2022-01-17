@@ -29,7 +29,7 @@
             <li class="nav-item {{isset($nav_report) ? $nav_report : ''}}">
                 <a href="{{route('admin.report.index')}}" class="nav-link">
                   <i class="mdi mdi-chart-areaspline menu-icon"></i>
-                  <span class="menu-title">レボート</span>
+                  <span class="menu-title">レポート</span>
                   <i class="menu-arrow"></i>
                 </a>
             </li>
