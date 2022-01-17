@@ -33,11 +33,6 @@
                                                 <div class="col-lg-8">
                                                     <h3 class="font-weight-bold text-dark">{{ $ad->title }}</h3>
                                                     <p class="text-dark">{{ $ad->started_date}} - {{ $ad->ended_date }}</p>
-                                                    <div class="d-lg-flex align-items-baseline mb-3">
-                                                        <h5 class="text-dark font-weight-bold">{{ $ad->store->name }}</h5>
-                                                        <p class="text-muted ml-3">{{ $ad->product->title }}</p>
-                                                    </div>
-                                                    <p>{{ $ad->content }}</p>
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="position-relative">
