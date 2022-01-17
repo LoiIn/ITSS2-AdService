@@ -48,11 +48,18 @@ class ProductController extends Controller
           }
           $product = Product::create($params);
 
+          $categories = \Arr::get($data, 'categories', []);
 
-          if ($categories = \Arr::get($data, 'categories', [])) {
+            if (count($categories) == 0 ){
 
-              $product->categories()->attach($categories);
-          }
+                $request->session()->flash('action-fail', 'カテゴリが見つかりません');
+                return redirect()->back()->withInput();
+              }
+              else{
+                $product->categories()->attach($categories);
+
+              }
+
 
           return $product;
         });
@@ -95,8 +102,15 @@ class ProductController extends Controller
 
           $product->update($params);
 
-          if ($categories = \Arr::get($data, 'categories', [])) {
+          $categories = \Arr::get($data, 'categories', []);
+
+          if (count($categories) == 0 ){
+
+            $request->session()->flash('action-fail', 'カテゴリが見つかりません');
+            return redirect()->back()->withInput();
+          }else {
               $product->categories()->sync($categories);
+
           }
 
           return $product;
