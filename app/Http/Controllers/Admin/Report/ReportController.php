@@ -8,8 +8,10 @@ use App\Models\Report;
 
 class ReportController extends BaseController
 {
+    private $items_number = 3;
+
     public function index(){
-        $data = Report::orderBy('id', 'desc')->paginate(3);
+        $data = Report::orderBy('id', 'desc')->paginate($this->items_number);
         return view('admin.report.index', compact('data'));
     }
 
@@ -25,7 +27,7 @@ class ReportController extends BaseController
                     ->join('stores', 'stores.id', '=', 'advertisements.store_id')
                     ->where('advertisements.title', 'LIKE', '%'.$_GET['query'].'%')
                     ->orWhere('stores.name', 'LIKE', '%'.$_GET['query'].'%')
-                    ->paginate(3);
+                    ->orderBy('id', 'desc')->paginate($this->items_number);
                     
             $data->appends($request->all());
             $mess = $data->total() != 0 ? '' : '結果がありません。';
@@ -33,7 +35,7 @@ class ReportController extends BaseController
             $query = $_GET['query'];
             return view('admin.report.index', compact('data', 'query'));
         } else {
-            $data = Report::paginate(3);
+            $data = Report::orderBy('id', 'desc')->paginate($this->items_number);
             return view('admin.report.index', compact('data'));
         }
     }

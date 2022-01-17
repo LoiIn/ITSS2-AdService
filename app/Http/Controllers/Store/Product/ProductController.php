@@ -14,8 +14,10 @@ use App\Models\Report;
 
 class ProductController extends Controller
 {
+    private $items_number = 3;
+
     public function index(){
-      $products = Auth::guard('store')->user()->products()->orderBy('id', 'DESC')->paginate(3);
+      $products = Auth::guard('store')->user()->products()->orderBy('id', 'DESC')->paginate($this->items_number);
       return view('store.product.index',compact('products'));
     }
 
@@ -34,6 +36,7 @@ class ProductController extends Controller
             'info' => \Arr::get($data, 'info'),
           ];
 
+
           if(\Arr::get($data, 'image')) {
             $imageName = '';
             $file = $request->file('image');
@@ -43,8 +46,8 @@ class ProductController extends Controller
 
             $params['image'] = $imageName;
           }
-
           $product = Product::create($params);
+
 
           if ($categories = \Arr::get($data, 'categories', [])) {
 
@@ -75,9 +78,10 @@ class ProductController extends Controller
 
         $rs = DB::transaction(function () use ($product, $data, $request){
           $params = [
-            'title'  => \Arr::get($data, 'title'),
-            'info' => \Arr::get($data, 'info'),
+            'title'  => \Arr::get($data, 'title')
           ];
+
+          $product->info = \Arr::get($data, 'info');
 
           if(\Arr::get($data, 'image')) {
             $imageName = '';
@@ -127,7 +131,8 @@ class ProductController extends Controller
     }
 
     public function search(Request $request) {
-        $products = Auth::guard('store')->user()->products()->where('title','like','%'.$request->search.'%')->paginate(2);
+        $products = Auth::guard('store')->user()->products()
+        ->where('title','like','%'.$request->search.'%')->orderBy('id', 'DESC')->paginate($this->items_number);
         $products->appends($request->all());
         $mess = $products->total() != 0 ? '' : '結果がありません。';
         $request->session()->flash('no-data', $mess);

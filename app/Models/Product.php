@@ -15,7 +15,7 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'store_id', 'title', 'image'
+        'store_id', 'title', 'image', 'info'
     ];
 
     public function advertisements (){
