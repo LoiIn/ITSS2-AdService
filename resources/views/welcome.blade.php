@@ -74,12 +74,10 @@
                                       管理画面
                                     </a>
                                   </div>
-                                  </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
                   </div>
             </div>
         </div>
