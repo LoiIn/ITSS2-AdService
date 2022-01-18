@@ -25,7 +25,9 @@ Route::middleware('adminAuth:admin')->group(function (){
     Route::prefix('/advertisements')->group( function() {
         Route::get('/',[AdvertisementController::class, 'index'])->name('admin.advertisement.index');
         Route::get('search', [AdvertisementController::class, 'search'])->name('admin.advertisement.search');
-        Route::get('accept/{id}',[AdvertisementController::class, 'accept'])->name('admin.advertisement.accept');
+        Route::post('accept/{id}',[AdvertisementController::class, 'accept'])->name('admin.advertisement.accept');
+        Route::get('accept/{id}/add-site', [AdvertisementController::class, 'sites'])->name('admin.advertisement.accept.sites');
+        Route::get('accept/{id}/add-site/search', [AdvertisementController::class, 'searchSite'])->name('admin.advertisement.accept.sites.search');
         Route::get('destroy/{id}',[AdvertisementController::class, 'destroy'])->name('admin.advertisement.destroy');
     });
 });

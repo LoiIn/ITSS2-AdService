@@ -30,7 +30,7 @@
                         <th>名前</th>
                         <th>ロゴ</th>
                         <th>メール</th>
-                        <th>アドレス</th>
+                        <th>住所</th>
                         <th>電話番号</th>
                         <th class="text-center" width="200px">アクション</th>
                         </tr>
@@ -64,7 +64,7 @@
                     @if ($item->is_accepted === 1)
                         <a class="btn btn-secondary admin-action-btn">
                             <i class="mdi mdi-checkbox-marked-circle"></i>
-                            承認された
+                            承認済
                         </a>
                     @else
                         <a class="btn btn-success admin-action-btn" href="{{route('store.accept', $item->id)}}">

@@ -32,10 +32,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="name" class="col-sm-3 col-form-label">アドレス</label>
+                            <label for="name" class="col-sm-3 col-form-label">住所</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="address" id="address" 
-                                       placeholder="アドレスを入力して下さい。"
+                                       placeholder="住所を入力して下さい。"
                                        value="{{ old('address') }}"
                                 >
                             </div>
@@ -64,7 +64,7 @@
                         <div class="form-group row">
                             <label for="name" class="col-sm-3 col-form-label">ロゴ</label>
                             <div class="col-sm-9">
-                                <input type="file" class="form-control mb-2" name="logo" id="image" placeholder="" aria-describedby="fileHelpId">
+                                <input type="file" class="form-control mb-2" accept="image/png, image/jpeg" name="logo" id="image" placeholder="" aria-describedby="fileHelpId">
                                 <span id="preview-image-before-upload">
                                     <img 
                                         src="{{ asset('asset/images/not-found.png') }}" 

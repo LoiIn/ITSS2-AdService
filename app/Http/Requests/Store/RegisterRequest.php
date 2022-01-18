@@ -39,7 +39,7 @@ class RegisterRequest extends Request
             'email.required' => 'メールフィールドは必須です。',
             'email.unique' => 'すでに使用中のメール。',
             'name.required' => '名前フィールドは必須です。',
-            'address.required' => 'アドレスフィールドは必須です。',
+            'address.required' => '住所フィールドは必須です。',
             'phone.required' => '電話番号フィールドは必須です。',
             'password.required' => 'パスワードフィールドは必須です。',
             'password.confirmed' => 'パスワードが違います。',

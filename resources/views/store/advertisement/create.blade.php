@@ -80,15 +80,14 @@
                                 <div class="form-group row">
                                     <label for="content" class="col-sm-2 col-form-label">内容</label>
                                     <div class="col-sm-10">
-                                        <textarea type="text" rows="10" class="form-control" name="content" id="ad-content" placeholder="内容を入力して下さい。">
-                                            {{old('content', isset($advertisement->content) ? $advertisement->content : '')}}
-                                        </textarea>
+                                        <textarea type="text" rows="10" class="form-control" name="content" id="ad-content" 
+                                        placeholder="内容を入力して下さい。">{{old('content', isset($advertisement->content) ? $advertisement->content : '')}}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="name" class="col-sm-2 col-form-label">イメージ</label>
                                     <div class="col-sm-10">
-                                        <input type="file" class="form-control mb-2" name="image" id="image" placeholder="" aria-describedby="fileHelpId">
+                                        <input type="file" class="form-control mb-2" accept="image/png, image/jpeg" name="image" id="image" placeholder="" aria-describedby="fileHelpId">
                                         @php
                                             $img = isset($advertisement->image) ? ('advertisement/' . $advertisement->image) : 'not-found.png';
                                         @endphp
