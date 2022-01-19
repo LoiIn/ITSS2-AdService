@@ -17,6 +17,7 @@ class CreateSitesTable extends Migration
             $table->bigIncrements('id');
             $table->string('url')->unique();
             $table->string('name');
+            $table->string('desc');
             $table->timestamps();
         });
     }

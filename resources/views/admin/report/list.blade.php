@@ -48,7 +48,7 @@
                     <div>{{$item->advertisement->store->name}}</div>
                 </td>
                 <td>
-                    <div>{{$item->site->name}}</div>
+                    {{ $item->site->name }}
                 </td>
                 <td>
                     <div>{{$item->clicks}}</div>

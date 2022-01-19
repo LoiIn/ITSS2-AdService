@@ -14,7 +14,7 @@ class Site extends Model
      * @var array
      */
     protected $fillable = [
-        'url', 'name'
+        'url', 'name', 'desc'
     ];
 
     public function reports() {

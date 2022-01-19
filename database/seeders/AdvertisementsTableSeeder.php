@@ -31,7 +31,7 @@ class AdvertisementsTableSeeder extends Seeder
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'とてもきれいです。',
-                'image' =>  'product.jpg',
+                'image' =>  'product.jpeg',
                 'published_flag' => 1,
             ],
             [
@@ -41,7 +41,7 @@ class AdvertisementsTableSeeder extends Seeder
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'Nike Air Yeezy 1スニーカーの詳細はこちらでご覧いただけます。 ロゴはブラックプレミアムレザーにレーザーカットされました。 次は、Glow In TheDarkソールと一緒にシグネチャー水平ストラップです。 さらに、YEEZYのシグネチャーロゴが付いた赤いレースロックアイコンがあります。',
-                'image' =>  'product.jpg',
+                'image' =>  'shoes4.jpg',
                 'published_flag' => 1,
             ],
             [
@@ -51,7 +51,7 @@ class AdvertisementsTableSeeder extends Seeder
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'とてもきれいです。',
-                'image' =>  'product.jpg',
+                'image' =>  'tshirt2.jpg',
                 'published_flag' => 1,
             ],
             [
@@ -61,7 +61,7 @@ class AdvertisementsTableSeeder extends Seeder
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'ルーズジーンズは同サイズのTシャツとスニーカーのペアになります。当時、私はとても若くて活動的でした。最初のジーンズは母が買ってくれたのを覚えています。もう着ていませんが、大切にしています。久しぶりですが、私も含めてジーンズは今でも多くの人に選ばれています。',
-                'image' =>  'product.jpg',
+                'image' =>  'jean.jpeg',
                 'published_flag' => 1,
             ],
             [
@@ -71,7 +71,7 @@ class AdvertisementsTableSeeder extends Seeder
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'とてもきれいです。',
-                'image' =>  'product.jpg',
+                'image' =>  'polo.jpg',
                 'published_flag' => 0,
             ],
             [
@@ -81,7 +81,7 @@ class AdvertisementsTableSeeder extends Seeder
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'Nike Air Yeezy 1スニーカーの詳細はこちらでご覧いただけます。 ロゴはブラックプレミアムレザーにレーザーカットされました。 次は、Glow In TheDarkソールと一緒にシグネチャー水平ストラップです。 さらに、YEEZYのシグネチャーロゴが付いた赤いレースロックアイコンがあります。',
-                'image' =>  'product.jpg',
+                'image' =>  'shoes3.jpg',
                 'published_flag' => 0,
             ],
             [
@@ -91,7 +91,7 @@ class AdvertisementsTableSeeder extends Seeder
                 'started_date' => '2021-12-01',
                 'ended_date' => '2021-12-20',
                 'content' => 'とてもきれいです。',
-                'image' =>  'product.jpg',
+                'image' =>  'tshirt3.png',
                 'published_flag' => 0,
             ],
         ]);

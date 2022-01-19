@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Site\SiteController;
+use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Store\StoreController;
 use App\Http\Controllers\Admin\Report\ReportController;
 use App\Http\Controllers\Admin\Advertisement\AdvertisementController;
@@ -15,7 +16,9 @@ Route::middleware('adminAuth:admin')->group(function (){
         Route::get('accept/{id}', [StoreController::class, 'accept'])->name('store.accept');
         Route::get('search', [StoreController::class, 'search'])->name('store.search');
     });
-
+    Route::resource('/site', SiteController::class,  [
+        'except' => [ 'show' ]
+    ]);
     Route::prefix('/reports')->group(function(){
         Route::get('/', [ReportController::class, 'index'])->name('admin.report.index');
         Route::get('/{report}/detail', [ReportController::class, 'show'])->name('admin.report.show');

@@ -66,10 +66,10 @@
                   </td>
                   <td class="py-1">
                     @php
-                      $url = $item->image != '' ? $item->image : 'product.jpg';
+                        $url = $item->image != '' ? $item->image : 'product.jpg';
                     @endphp
                     <img src="{{asset('asset/images/advertisement/' . $url)}}" alt="image"/>
-                  </td>
+                    </td>
                   <td>
                     {{$item->product->title}}
                   </td>

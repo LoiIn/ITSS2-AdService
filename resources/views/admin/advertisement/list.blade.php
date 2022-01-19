@@ -30,6 +30,7 @@
                         <th>タイトル</th>
                         <th>企業</th>
                         <th>イメージ</th>
+                        <th>内容</th>
                         <th>開始日</th>
                         <th>終了日</th>
                         <th>内容</th>
@@ -57,11 +58,13 @@
                             $url = $item->image != '' ? $item->image : 'product.jpg';
                         @endphp
                         <img src="{{asset('asset/images/advertisement/' . $url)}}" alt="image"/>
-                        <div >
-                            <div>{{$item->product?$item->product->title:''}}</div>
-                            <p class="mb-0"><small>{{$item->product?$item->product->info:''}}</small></p>
-                        </div>
                     </div>
+                    <td>
+                    <div >
+                        <div>{{$item->product?$item->product->title:''}}</div>
+                        <p class="mb-0"><small>{{$item->product?$item->product->info:''}}</small></p>
+                    </div>
+                </td>
                 </td>
                 <td>
                     <div>{{$item->started_date}}</div>
