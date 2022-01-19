@@ -16,36 +16,36 @@ class SitesTableSeeder extends Seeder
         \DB::table('sites')->insert([
             [
                 'url' => 'localhost:8080/sites/1',
-                'name' => 'site1',
-                'desc' => 'サイト説明',
+                'name' => 'Nganのブログ',
+                'desc' => 'Nganさんのブログ、アクセス数は１００万人',
             ],
             [
                 'url' => 'localhost:8080/sites/2',
-                'name' => 'site2',
-                'desc' => 'サイト説明',
+                'name' => 'ABCニュースサイト',
+                'desc' => 'ニュースサイト、アクセス数は１００万人',
             ],
             [
                 'url' => 'localhost:8080/sites/3',
-                'name' => 'site3',
-                'desc' => 'サイト説明',
+                'name' => 'DEFファッションのブログ',
+                'desc' => 'ファッションについてサイト、アクセス数は２００万人',
 
             ],
             [
                 'url' => 'localhost:8080/sites/4',
-                'name' => 'site4',
-                'desc' => 'サイト説明',
+                'name' => 'ELKサイト',
+                'desc' => 'ファッションについてサイト、アクセス数は４００万人',
 
             ],
             [
                 'url' => 'localhost:8080/sites/5',
-                'name' => 'site5',
-                'desc' => 'サイト説明',
+                'name' => 'Kenh14ニュースサイト',
+                'desc' => '生活ニュース、アクセス数は１００００万人',
 
             ],
             [
                 'url' => 'localhost:8080/sites/6',
-                'name' => 'site6',
-                'desc' => 'サイト説明',
+                'name' => 'OOOファッション',
+                'desc' => 'ファッションをレビューサイト,アクセス数は１００万人',
 
             ],
         ]);
